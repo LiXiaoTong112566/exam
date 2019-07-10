@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
 import { connect } from "dva";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button, Checkbox,message } from "antd";
 
 function Login(props) {
   const { getFieldDecorator } = props.form;
   // console.log("props...",props);
-  useEffect(() => {
-    console.log("执行useEffect");
-    // props.login({ user_name: "chenmanjie", user_pwd: "Chenmanjie123!" });
-  }, []);
 
+  //判断是否登录成功
+  useEffect(() => {
+    if(props.isLogin===1){
+      message.success("登录成功");
+      let path="/";
+      console.log(props);
+      if(props.location.search){
+        path=decodeURIComponent(props.location.search)
+        
+      }
+      props.history.push(path);
+
+
+    }else if(props.isLogin===0){
+      message.success("用户名或密码错误")
+
+    }
+   
+   
+  }, [props.isLogin
+]);
   let handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {

@@ -1,34 +1,37 @@
 
-.normal {
-  font-family: Georgia, sans-serif;
-  margin-top: 3em;
-  text-align: center;
-}
 
-.title {
-  font-size: 2.5rem;
-  font-weight: normal;
-  letter-spacing: -1px;
-}
-
-.welcome {
-  height: 328px;
-  background: url(../../assets/yay.jpg) no-repeat center 0;
-  background-size: 388px 328px;
-}
-
-.list {
-  font-size: 1.2em;
-  margin-top: 1.8em;
-  list-style: none;
-  line-height: 1.5em;
-}
-
-.list code {
-  background: #f7f7f7;
-}
-
-.ant-menu ant-menu-sub ant-menu-inline{
-  background: 
+:global .header{
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding:30px 30px;
 
 }
+
+:global .header img{
+  width: 200px;
+  height: 50px;
+
+}
+
+:global .header_right img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin:10px;
+
+}
+:global .header_right span{
+  font-size:16px;
+}
+
+:global .ant-dropdown{
+  top:100px!important;
+}
+
+
+
+

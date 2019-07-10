@@ -1,16 +1,44 @@
-import {login} from "../services/login";
+import {login} from "@/services/login";
+import {routerRedux} from "dva/router";
+import {setCookie,getCookie,removeCookie} from "@/utils/index";
 export default {
 //命名空间
     namespace: 'login',
  //模块的状态 
     state: {
-        isLogin:false,
+        isLogin:-1,
     },
-  
-    // subscriptions: {
-    //   setup({ dispatch, history }) {  // eslint-disable-line
-    //   },
-    // },
+    //订阅的状态
+    subscriptions: {
+      setup({ dispatch, history }) {  
+
+        return history.listen(({pathname})=>{
+          console.log(pathname);
+          //如果不是去登录页面
+          if(pathname.indexOf("/login")===-1){
+            console.log(getCookie());
+            if(!getCookie()){
+              dispatch(routerRedux.replace({
+                pathname:`/login`,
+                search:`?redirect=${encodeURIComponent(pathname)}`
+
+              }))
+
+            }
+
+          }else{
+            //如果用户去的是登录页面
+            if(getCookie()){
+              dispatch(routerRedux.replace({
+                pathname:`/home`,
+              }))
+            }
+
+          }
+        })
+
+      },
+    },
 
     //异步操作
   
@@ -20,7 +48,10 @@ export default {
         console.log(payload);
         let data=yield call(login,payload)
         console.log(data);
-        yield put({ type: 'updateLogin',payload:data.code==1})
+        if(data.code==1){
+          setCookie(data.token)
+        }
+        yield put({ type: 'updateLogin',payload:data.code})
       },
     },
   
