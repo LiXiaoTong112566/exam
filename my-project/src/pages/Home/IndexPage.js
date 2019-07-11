@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./IndexPage.css";
+import styles from "./IndexPage.css";
 import { Router, Route, Switch, NavLink } from "dva/router";
 import { connect } from "dva";
 import { Layout, Menu, Dropdown, Breadcrumb, Icon, message } from "antd";
@@ -19,7 +19,7 @@ import GradeManage from "./grade/GrandeManage/GradeManage";
 import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
 import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
-
+import Detail from "./qusetion/CheckItem/detail"
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -44,14 +44,14 @@ function IndexPage() {
 
   return (
     <div className="wrapper">
-      <div className="header">
-        <div className="header_left">
+      <div className={styles.header}>
+        <div className={styles['header_left']}>
           <img
             src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551624718911&di=4a7004f8d71bd8da84d4eadf1b59e689&imgtype=0&src=http%3A%2F%2Fimg105.job1001.com%2Fupload%2Falbum%2F2014-10-15%2F1413365052_95IE3msH.jpg"
             alt=""
           />
         </div>
-        <div className="header_right">
+        <div className={styles['header_right']}>
           <Dropdown overlay={menu}>
             <a className="ant-dropdown-link" href="#">
              <img src="https://cdn.nlark.com/yuque/0/2019/png/anonymous/1547609339813-e4e49227-157c-452d-be7e-408ca8654ffe.png?x-oss-process=image/resize,m_fill,w_48,h_48/format,png" alt=""/>
@@ -64,7 +64,6 @@ function IndexPage() {
 
       <Layout style={{ minHeight: "100vh" }}>
         <Sider collapsible>
-          <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <SubMenu
               key="sub1"
@@ -163,6 +162,7 @@ function IndexPage() {
           <Route path="/home/gradeManage" component={GradeManage} />
           <Route path="/home/studentManage" component={StudentManage} />
           <Route path="/home/awaitClass" component={AwaitClass} />
+          <Route path="/home/detail/:id" component={Detail} />
         </Layout>
       </Layout>
     </div>

@@ -1,11 +1,11 @@
-:global .wrapper {
+.wrapper {
   width: 100%;
   height: 100%;
   overflow: hidden;
   background: blue;
 }
 
-:global .wrapper .wrapper-form {
+.wrapper .wrapper-form {
   width: 400px;
   height: 300px;
   background: #fff;
@@ -15,14 +15,14 @@
   top: 200px;
 }
 
-:global .login-form {
+.login-form {
   max-width: 300px;
 }
 
-:global .login-form-forgot {
+.login-form-forgot {
   float: right;
 }
 
-:global .login-form-button {
+.login-form-button {
   width: 100%;
 }

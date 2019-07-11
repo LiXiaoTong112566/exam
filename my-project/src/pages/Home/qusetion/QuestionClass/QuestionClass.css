@@ -1,9 +1,9 @@
-:global .ant-layout {
+.ant-layout {
   height: 100%;
   overflow: auto;
 }
 
-:global .QuestionClass_addType {
+.QuestionClass_addType {
   width: 80%;
   height: 100%;
   overflow: auto;
@@ -12,17 +12,17 @@
   border-radius: 20px;
 }
 
-:global .title {
+.title {
   margin-left: 10%;
   height: 100px;
   line-height: 100px;
 }
 
-:global .ant-table-thead tr {
+.ant-table-thead tr {
   background: #ccc;
 }
 
-:global .addBox .ant-btn {
+.addBox .ant-btn {
   width: 100px;
   height: 30px;
   margin: 30px;
