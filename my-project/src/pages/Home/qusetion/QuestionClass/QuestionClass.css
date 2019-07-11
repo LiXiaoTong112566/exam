@@ -1,5 +1,6 @@
 .ant-layout {
   height: 100%;
+  background: lightcoral;
   overflow: auto;
 }
 
@@ -22,7 +23,11 @@
   background: #ccc;
 }
 
+<<<<<<< HEAD
 .addBox .ant-btn {
+=======
+.ant-btn {
+>>>>>>> zmx
   width: 100px;
   height: 30px;
   margin: 30px;
