@@ -14,30 +14,20 @@ function questionsL(props) {
   const [seleValue, setSeleValue] = useState('');
   //题目类型
   const [seleTypeValue, setseleTypeValue] = useState('');
-  const [typeData, setTypeData] = useState('');
-
-
+  const [seleTLisValue, setseleTLisValue] = useState('');
     let seleFn=(e)=>{
         setSeleValue(e)
     }
    let typeFn=(e)=>{
-    setseleTypeValue(e)
+       setseleTypeValue(e)
    }
-   let s='';
    let lisFn=(e)=>{
-    s=e.target.getAttribute("datakey");
-    setTypeData(s);
+    setseleTLisValue(e.target.innerHTML)
    }
+   console.log(seleValue);
    let btnFn=()=>{
-     props.condition({
-       questions_type_id:seleTypeValue,
-       exam_id:seleValue,
-       subject_id:typeData
-     })
-     
+     console.log(seleValue,seleTypeValue,seleTLisValue)
    }
-
-   console.log(props.chazhaoDa)
   return (
     <div>
       <h2>查看试题</h2>
@@ -46,7 +36,7 @@ function questionsL(props) {
           <ul>
             <p className="ql_p">课程类型:</p>
             {props.data &&props.data.map((item, index) => (
-                <li key={index} onClick={lisFn} datakey={item.subject_id}>{item.subject_text}</li>
+                <li key={index} onClick={lisFn} value={seleTLisValue}>{item.subject_text}</li>
               ))}
           </ul>
           <ol>
@@ -54,7 +44,7 @@ function questionsL(props) {
               考试类型：
               <Select defaultValue="" value={seleValue} onChange={seleFn}>
                 {props.examTData &&props.examTData.map((item, index) => (
-                    <Option key={index} value={item.exam_id}>
+                    <Option key={item.exam_id} value={item.exam_name} >
                       {item.exam_name}
                     </Option>
                   ))}
@@ -64,7 +54,7 @@ function questionsL(props) {
               题目类型 :
               <Select defaultValue="" value={seleTypeValue} onChange={typeFn}>
                 {props.getQueData && props.getQueData.map((item, index) => (
-                    <Option key={index} value={item.questions_type_id}>
+                    <Option key={index} value={item.questions_type_text}>
                       {item.questions_type_text}
                     </Option>
                   ))}
@@ -94,6 +84,9 @@ function questionsL(props) {
                      ) 
                  })
             }
+
+       
+         
         </div>
       </div>
     </div>
@@ -130,12 +123,6 @@ const mapDispatchToPorps = dispatch => {
         dispatch({
           type: "lookCheck/questions",
           payload
-        });
-      },
-      condition: payload => {
-        dispatch({
-          type: "lookCheck/condition",
-          payload:payload
         });
       },
   };
