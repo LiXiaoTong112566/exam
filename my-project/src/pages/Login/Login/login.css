@@ -3,23 +3,26 @@
   height: 100%;
   overflow: hidden;
   background: blue;
-  .wrapper-form {
-    width: 400px;
-    height: 300px;
-    background: #fff;
-    padding: 50px;
-    position: absolute;
-    right: 200px;
-    top: 200px;
-  }
+}
+
+.wrapper .wrapper-form {
+  width: 400px;
+  height: 300px;
+  background: #fff;
+  padding: 50px;
+  position: absolute;
+  right: 200px;
+  top: 200px;
 }
 
 .login-form {
   max-width: 300px;
 }
+
 .login-form-forgot {
   float: right;
 }
+
 .login-form-button {
   width: 100%;
 }

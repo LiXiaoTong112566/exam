@@ -1,47 +1,34 @@
-:global {
+.ant-layout {
+  height: 500px;
+}
 
-    .ant-layout{
-        height: 100%;
-        overflow: auto;
-    }
+.box {
+  // height: 600px;
+  overflow: scroll;
+}
 
-    .QuestionClass_addType{
-        width: 80%;
-       height: 100%;
-       overflow: auto;
-     
-    
-        margin:0 10%;
-        background: #fff;
-        border-radius: 20px;
-    
+.QuestionClass_addType {
+  width: 80%;
 
-    }
-    .title{
-       margin-left:10%;
-        height: 100px;
-        line-height: 100px;
+  margin: 0 10%;
+  background: #fff;
+  border-radius: 20px;
+}
 
-    }
-    
+.title {
+  margin-left: 10%;
+  height: 100px;
+  line-height: 100px;
+}
 
-    .ant-table-thead{
-        tr{
-            background: #ccc;
-        }
-    }
+.ant-table-thead {
+  tr {
+    background: #ccc;
+  }
+}
 
-    .addBox{
-        .ant-btn {
-            width: 100px;
-            height: 30px;
-            margin:30px;
-        }
-
-    }
-
-   
-
-
-   
+.ant-btn {
+  width: 100px;
+  height: 30px;
+  margin: 30px;
 }

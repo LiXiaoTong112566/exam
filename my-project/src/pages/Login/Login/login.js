@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./login.scss";
+import  "./login.scss";
 import { connect } from "dva";
 import { Form, Icon, Input, Button, Checkbox,message } from "antd";
 
