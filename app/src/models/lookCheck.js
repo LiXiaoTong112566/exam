@@ -3,7 +3,8 @@ import {
   examType,
   getQuestionsType,
   questions,
-  condition
+  condition,
+  detailCon
 } from "@/services/index";
 export default {
   namespace: "lookCheck",
@@ -13,8 +14,7 @@ export default {
     examTData: [],
     getQueData: [],
     questionsData:[],
-    lisValue:'',
-    chazhaoDa:[]
+    detailConDataL:[]
   },
 
   // subscriptions: {
@@ -24,8 +24,6 @@ export default {
 
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(lookCheck, payload);
       console.log(data.data);
       yield put({
@@ -68,13 +66,20 @@ export default {
       // eslint-disable-line
       console.log("payload...", payload, type);
       let data = yield call(condition, payload);
-      console.log(data.data);
       yield put({
         type: "upDatcondition",
         payload: data.data
       });
     },
-    
+    *detailCon({ payload, type }, { call, put }) {
+      console.log("payload...", payload, type);
+      let data = yield call(detailCon, payload);
+      console.log(data)
+      yield put({
+        type: "upDatdetailCon",
+        payload: data.data
+      });
+    },
   },
 
   reducers: {
@@ -91,8 +96,11 @@ export default {
       return { ...state, questionsData: action.payload };
     },
     upDatcondition(state, action) {
-      console.log(action);
-      return { ...state, chazhaoDa: action.payload };
+      return { ...state, questionsData: action.payload };
+    },
+    upDatdetailCon(state, action) {
+      console.log(action)
+      return { ...state, detailConDataL: action.payload };
     }
   }
 };

@@ -2,7 +2,6 @@ import request from '../utils/request';
 
 export function lookCheck() {
   return request.get('/exam/subject');
-  // return request.get('/exam/examType');
 }
 
 
@@ -18,7 +17,12 @@ export function  questions() {
   return request.get('/exam/questions/new');
 }
 
-export function  condition() {
-  return request.get('/exam/questions/condition');
+export function  condition(params) {
+  return request.get(`/exam/questions/condition?questions_type_id=${params.questions_type_id}&&exam_id=${params.exam_id}&&subject_id=${params.subject_id}`);
+}
+
+export function  detailCon(params) {
+  console.log(params)
+  return request.get(`/exam/questions/condition?questions_id=${params.questions_id}`);
 }
 

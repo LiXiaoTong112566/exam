@@ -8,6 +8,7 @@ import LookQ from "./questions/lookQ";
 import QuestionsL from "./questions/questionsL";
 import AddUser from "./userControl/addUser";
 import Usershow from "./userControl/userShow";
+import Detail from "./questions/detail"
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -113,6 +114,7 @@ function Home() {
                   <Route path="/home/questionsL" component={QuestionsL} />
                   <Route path="/home/adduser" component={AddUser} />
                   <Route path="/home/usershow" component={Usershow} />
+                  <Route path="/home/detail/:id" component={Detail} />
                 </div>
               </Breadcrumb.Item>
             </Breadcrumb>
