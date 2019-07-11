@@ -1,5 +1,7 @@
 :global .QuestionClass_addType {
   width: 80%;
+  height: 500px;
+  overflow: auto;
   margin: 0 10%;
   background: #fff;
   border-radius: 20px;

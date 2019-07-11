@@ -5,20 +5,14 @@ import { Table, Divider, Tag,Icon } from "antd";
 import { Button, Modal, Form, Input} from 'antd';
 const { Column, ColumnGroup } = Table;
 // const { getFieldDecorator } = form;
-
-
 function QuestionClass(props) {
-   
+  
     useEffect(()=>{
         props.getQuestion();
     
     },[props.questionClassData])
 
-
-
 const data=props.questionClassData;
-
-
 
   const [visible,setvisible]=useState(false)
   const [inputValue,setInputValue]=useState("")

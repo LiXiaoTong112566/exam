@@ -1,11 +1,8 @@
 import axios from "axios";
 import {getCookie} from "@/utils/index.js"
 
-
-
-
 const service=axios.create({
-  baseURL:"http://192.168.43.214:7001/",
+  baseURL:"http://169.254.213.199:7001/",
   timeout:5000
 })
 
