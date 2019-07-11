@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from "react";
 import { connect } from "dva";
-import "./QuestionClass.css";
+import  QuestStyle from "./QuestionClass.scss";
 import { Table, Divider, Tag,Icon } from "antd";
 import { Button, Modal, Form, Input} from 'antd';
 const { Column, ColumnGroup } = Table;
-// const { getFieldDecorator } = form;
+
 function QuestionClass(props) {
   
     useEffect(()=>{
@@ -23,8 +23,7 @@ const data=props.questionClassData;
 
   //点击确定
   let handleOk=()=>{
-      console.log(2)
-      console.log(inputValue);
+     
       setvisible(false);
       if(inputValue){
         props.addQuestion({text:inputValue,sort:(props.questionClassData.length+1).toString()});
@@ -41,18 +40,18 @@ const data=props.questionClassData;
 
   //设置input框的值
   let changeInput=(e)=>{
-      console.log(e.target.value);
+      
       setInputValue(e.target.value);
 
   }
 
   return (
-    <div>
+    <div className={QuestStyle.box}>
        
-      <h1 className="title">试题分类</h1>
-      <div className="QuestionClass_addType">
-      <div className="addBox">
-        <Button type="primary" onClick={showModal}>
+      <h1 className={QuestStyle.title}>试题分类</h1>
+      <div className={QuestStyle['QuestionClass_addType']}>
+      <div className={QuestStyle['main']}>
+        <Button type="primary" onClick={showModal} className= {QuestStyle['ant-btn']}>
          添加类型
         </Button>
         <Modal
