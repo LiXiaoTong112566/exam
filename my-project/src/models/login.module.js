@@ -21,7 +21,6 @@ export default {
               dispatch(routerRedux.replace({
                 pathname:`/login`,
                 search:`?redirect=${encodeURIComponent(pathname)}`
-
               }))
 
             }

@@ -1,13 +1,14 @@
 .ant-layout {
-  height: 100%;
-  background: lightcoral;
-  overflow: auto;
+  height: 500px;
+}
+
+.box {
+  height: 600px;
+  overflow: scroll;
 }
 
 .QuestionClass_addType {
   width: 80%;
-  height: 100%;
-  overflow: auto;
   margin: 0 10%;
   background: #fff;
   border-radius: 20px;
@@ -23,11 +24,7 @@
   background: #ccc;
 }
 
-<<<<<<< HEAD
-.addBox .ant-btn {
-=======
 .ant-btn {
->>>>>>> zmx
   width: 100px;
   height: 30px;
   margin: 30px;

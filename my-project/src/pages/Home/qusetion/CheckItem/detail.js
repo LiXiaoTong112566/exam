@@ -1,6 +1,5 @@
 import Reac,{ useState, useEffect }from 'react';
 import { connect } from 'dva';
-import { Input, Col, Row, Select, Button } from "antd";
 import detailStyle from './detail.css'
 import ReactMarkdown from 'react-markdown'
 function Detail(props){
@@ -42,33 +41,6 @@ console.log(props)
                         </div>
                     })
                 }
-
-            {/* {
-                props.detailConDataL&&props.detailConDataL.map((item,index)=>{
-                    console.log(item)
-                    return (
-                        <div className="boxDetail" key={index}>
-                            <p>出题人:{item.user_name}</p>
-                            <h4>题目信息</h4>
-                            <Button type="primary">{item.subject_text}</Button>
-                            <Button type="primary">{item.questions_type_text}</Button>
-                            <Button type="primary">{item.exam_name}</Button>
-                            <div className="examDetail">
-                                <h5> {item.title}</h5>
-                                <p>
-                                   
-                                    {item.questions_stem}
-                                </p>
-                            </div>  
-                        </div>
-                    )
-                  
-                })
-            } */}
-                
-                    
-            
-           
         </div>
     )
 }
