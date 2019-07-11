@@ -1,13 +1,21 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { connect } from "dva";
 import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
-function ShowUser() {
+function ShowUser(props) {
+  console.log(props);
   function callback(key) {
     console.log(key);
   }
+
+  useEffect(()=>{
+    console.log(props);
+
+
+
+  },[])
 
   return (
     <div>
@@ -23,11 +31,27 @@ function ShowUser() {
           Content of Tab Pane 3
         </TabPane>
       </Tabs>
-      ,
+
+
+      
     </div>
   );
 }
 
 ShowUser.propTypes = {};
 
-export default connect()(ShowUser);
+const  mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+ const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    listData: () => {
+      
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ShowUser);

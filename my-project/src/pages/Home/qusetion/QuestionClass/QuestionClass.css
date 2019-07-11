@@ -1,6 +1,11 @@
+:global .ant-layout {
+  height: 100%;
+  overflow: auto;
+}
+
 :global .QuestionClass_addType {
   width: 80%;
-  height: 500px;
+  height: 100%;
   overflow: auto;
   margin: 0 10%;
   background: #fff;

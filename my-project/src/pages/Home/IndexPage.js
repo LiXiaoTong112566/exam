@@ -4,21 +4,21 @@ import { Router, Route, Switch, NavLink } from "dva/router";
 import { connect } from "dva";
 import { Layout, Menu, Dropdown, Breadcrumb, Icon, message } from "antd";
 //试题管理
-import AddItem from "./qusetion/AddItem";
-import CheckItem from "./qusetion/CheckItem";
-import QuestionClassify from "./qusetion/QuestionClass";
+import AddItem from "./qusetion/AddItem/AddItem";
+import CheckItem from "./qusetion/CheckItem/CheckItem";
+import QuestionClassify from "./qusetion/QuestionClass/QuestionClass";
 //用户管理
-import AddUser from "./users/AddUser";
-import ShowUser from "./users/ShowUser";
+import AddUser from "./users/AddUser/AddUser";
+import ShowUser from "./users/ShowUser/ShowUser";
 //考试管理
-import AddExam from "./exam/AddExam";
-import ExamList from "./exam/ExamList";
+import AddExam from "./exam/AddExam/AddExam";
+import ExamList from "./exam/ExamList/ExamList";
 //班级管理
-import ClassManage from "./grade/ClassManage";
-import GradeManage from "./grade/GradeManage";
-import StudentManage from "./grade/StudentManage";
+import ClassManage from "./grade/ClassManage/ClassManage";
+import GradeManage from "./grade/GrandeManage/GradeManage";
+import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
-import AwaitClass from "./Marking/AwaitClass";
+import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
