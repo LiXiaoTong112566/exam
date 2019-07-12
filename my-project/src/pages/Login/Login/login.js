@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import  "./login.scss";
+import  LoginCss from "./login.scss";
 import { connect } from "dva";
 import { Form, Icon, Input, Button, Checkbox,message } from "antd";
 
@@ -43,9 +43,9 @@ function Login(props) {
   };
 
   return (
-    <div className="wrapper">
-      <div className="wrapper-form">
-        <Form className="login-form" onSubmit={handleSubmit}>
+    <div className={LoginCss.wrapper}>
+      <div className={LoginCss["wrapper-form"]}>
+        <Form className={LoginCss['wrapper_form']} onSubmit={handleSubmit}>
           <Form.Item>
             {getFieldDecorator("username", {
               validateTrigger: "onBlur",
@@ -88,13 +88,13 @@ function Login(props) {
           </Form.Item>
           <Form.Item>
             <Checkbox>记住密码</Checkbox>
-            <a className="login-form-forgot" href="">
+            <a className={LoginCss["login-form-forgot"]} href="">
               忘记密码
             </a>
             <Button
               type="primary"
               htmlType="submit"
-              className="login-form-button"
+              className={LoginCss["login-form-button"]}
             >
               登录
             </Button>

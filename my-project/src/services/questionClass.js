@@ -1,8 +1,11 @@
 import request from "../utils/request";
 
+//获取试题分类
 export function questionClass(){
     return request.get("/exam/getQuestionsType")
 }
+
+//添加试题类型
 
 export function addType(params){
     console.log(params);

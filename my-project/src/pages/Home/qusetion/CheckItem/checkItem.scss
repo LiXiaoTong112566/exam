@@ -28,7 +28,13 @@ h2 {
 
         text-align: center;
         flex-shrink: 0;
+        padding:0 10px;
       }
+    }
+
+    .active{
+      background: #1890ff;
+      color:#fff;
     }
 
     ol {

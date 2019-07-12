@@ -29,6 +29,8 @@ export default {
         yield put({ type: "getQuestionClassData", payload: data.data });
       }
 
+
+
     },
 
     //添加试题类型
@@ -38,6 +40,7 @@ export default {
       console.log(payload);
       let newType = yield call(addType, payload);
       console.log(newType);
+      yield put({type:"questionClass"})
     },
     //添加试题
     *add({ payload }, { call, put }) {

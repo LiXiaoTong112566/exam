@@ -1,0 +1,69 @@
+.addUserBox {
+  width: 100%;
+  padding: 10px;
+
+  h1 {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+  }
+
+  .ant-tabs-tab-active {
+    background: #fff;
+    color: lightblue;
+  }
+
+  
+  .main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .borderBox {
+      flex-shrink: 0;
+      width: 33.3%;
+      border: 1px solid rgba(0,0,0,0.3);
+      overflow: hidden;
+      padding: 0 10px;
+
+      .btn {
+          width: 150px;
+          text-align: center;
+         
+          height: 40px;
+          line-height: 40px;
+          background: #fff;
+          border: 1px solid blue;
+          color: blue;
+          margin: 10px;
+        }
+      input {
+        display: block;
+        margin: 10px 0;
+      }
+
+      select {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .ant-select-selection__rendered {
+        margin: 10px 0;
+      }
+
+      .addUserBtn {
+        margin: 10px;
+      }
+
+      .ant-tabs-tab{
+          border:1px solid blue;
+          color:blue;
+          background: #fff;
+      }
+
+      button {
+        margin: 10px;
+      }
+    }
+  }
+}

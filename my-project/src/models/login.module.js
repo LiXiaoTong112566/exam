@@ -1,4 +1,4 @@
-import {login} from "@/services/login";
+import {login} from "@/services";
 import {routerRedux} from "dva/router";
 import {setCookie,getCookie,removeCookie} from "@/utils/index";
 export default {
@@ -11,7 +11,6 @@ export default {
     //订阅的状态
     subscriptions: {
       setup({ dispatch, history }) {  
-
         return history.listen(({pathname})=>{
           console.log(pathname);
           //如果不是去登录页面
