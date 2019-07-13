@@ -5,24 +5,32 @@ export function lookCheck() {
 }
 
 
-export function  examType() {
+export function  examTypes() {
   return request.get('/exam/examType');
 }
 
-export function  getQuestionsType() {
+export function  getQuestionsTypes() {
   return request.get('/exam/getQuestionsType');
 }
 
 export function  questions() {
   return request.get('/exam/questions/new');
 }
-
+//第一个详情
 export function  condition(params) {
-  return request.get(`/exam/questions/condition?questions_type_id=${params.questions_type_id}&&exam_id=${params.exam_id}&&subject_id=${params.subject_id}`);
+  return request.get('/exam/questions/condition',{params});
+}
+//编辑
+export function  detailCon(params) {
+  return request.get(`/exam/questions/condition?questions_id=${params.questions_id}`);
+  // return request.put('/exam/questions/update',params);
 }
 
-export function  detailCon(params) {
+
+//提交
+export function  detailConTi(params) {
   console.log(params)
-  return request.get(`/exam/questions/condition?questions_id=${params.questions_id}`);
+  return request.put('/exam/questions/update',params);
+
 }
 

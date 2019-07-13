@@ -1,10 +1,11 @@
 import {
   lookCheck,
-  examType,
-  getQuestionsType,
+  examTypes,
+  getQuestionsTypes,
   questions,
   condition,
-  detailCon
+  detailCon,
+  detailConTi
 } from "@/services/index";
 export default {
   namespace: "lookCheck",
@@ -16,55 +17,40 @@ export default {
     questionsData:[],
     detailConDataL:[]
   },
-
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
-
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
       let data = yield call(lookCheck, payload);
-      console.log(data.data);
       yield put({
         type: "upDatalookCheck",
         payload: data.data
       });
     },
-    *examType({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
-      let data = yield call(examType, payload);
-      console.log(data.data);
+    *examTypes({ payload, type }, { call, put }) {
+      let data = yield call(examTypes, payload);
       yield put({
-        type: "upDataexamType",
+        type: "upDataexamTypes",
         payload: data.data
       });
     },
-    *getQuestionsType({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
-      let data = yield call(getQuestionsType, payload);
-      console.log(data.data);
+    *getQuestionsTypes({ payload, type }, { call, put }) {
+      let data = yield call(getQuestionsTypes, payload);
       yield put({
-        type: "upDatagetQuestionsType",
+        type: "upDatagetQuestionsTypes",
         payload: data.data
       });
     },
 
     *questions({ payload, type }, { call, put }) {
       // eslint-disable-line
-      console.log("payload...", payload, type);
+      // console.log("payload...", payload, type);
       let data = yield call(questions, payload);
-      console.log(data.data);
+      // console.log(data.data);
       yield put({
         type: "upDataquestions",
         payload: data.data
       });
     },
     *condition({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(condition, payload);
       yield put({
         type: "upDatcondition",
@@ -72,7 +58,6 @@ export default {
       });
     },
     *detailCon({ payload, type }, { call, put }) {
-      console.log("payload...", payload, type);
       let data = yield call(detailCon, payload);
       console.log(data)
       yield put({
@@ -80,16 +65,26 @@ export default {
         payload: data.data
       });
     },
+    *detailConTi({ payload, type }, { call, put }) {
+      console.log(payload)
+      let data = yield call(detailConTi, payload);
+      console.log(data)
+      yield put({
+        type: "upDatdetailConTi",
+        payload: data.data
+      });
+    },
+    //detailConTi
   },
 
   reducers: {
     upDatalookCheck(state, action) {
       return { ...state, data: action.payload };
     },
-    upDataexamType(state, action) {
+    upDataexamTypes(state, action) {
       return { ...state, examTData: action.payload };
     },
-    upDatagetQuestionsType(state, action) {
+    upDatagetQuestionsTypes(state, action) {
       return { ...state, getQueData: action.payload };
     },
     upDataquestions(state, action) {
@@ -99,6 +94,10 @@ export default {
       return { ...state, questionsData: action.payload };
     },
     upDatdetailCon(state, action) {
+      return { ...state, detailConDataL: action.payload };
+    },
+    upDatdetailConTi(state, action) {
+      console.log(action)
       return { ...state, detailConDataL: action.payload };
     }
   }

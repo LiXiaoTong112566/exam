@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import { Input, Col, Row, Select, Button } from "antd";
+import {  Select, Button } from "antd";
 import List from './lists'
-import checkItem from  "./checkItem.css";
+import checkItem from  "./checkItem.scss";
 function questionsL(props) {
   useEffect(() => {
     props.lookCheck();
-    props.examType();
-    props.getQuestionsType();
+    props.examTypes();
+    props.getQuestionsTypes();
     props.questions();
   }, []);
 
@@ -32,15 +32,24 @@ function questionsL(props) {
   };
   //点击按钮时get请求数据
   let btnFn = () => {
-    props.condition({
+    let obj={
       questions_type_id: seleTypeValue,
       exam_id: seleValue,
       subject_id: typeData
-    });
+    }
+    console.log(obj)
+    for(let i in obj){
+      console.log(obj[i])
+       if(obj[i]===""){
+          delete obj[i]
+       }  
+    }
+    console.log(obj)
+    props.condition(obj);
   };
-  let routerTo=()=>{
-    console.log(1)
-  }
+  // let routerTo=()=>{
+  //   console.log(1)
+  // }
 
 
 
@@ -59,8 +68,8 @@ function questionsL(props) {
           </ul>
           <ol>
             <li>
-              考试类型：
-              <Select defaultValue="" value={seleValue} onChange={seleFn}>
+              考试类型: 
+              <Select defaultValue="" value={seleValue} onChange={seleFn} style={{ width: 160 }}>
                 {props.examTData &&
                   props.examTData.map((item, index) => (
                     <Option key={index} value={item.exam_id}>
@@ -70,8 +79,8 @@ function questionsL(props) {
               </Select>
             </li>
             <li>
-              题目类型 :
-              <Select defaultValue="" value={seleTypeValue} onChange={typeFn}>
+              题目类型: 
+              <Select defaultValue="" value={seleTypeValue} onChange={typeFn} style={{ width: 160 }}>
                 {props.getQueData &&
                   props.getQueData.map((item, index) => (
                     <Option key={index} value={item.questions_type_id}>
@@ -109,15 +118,15 @@ const mapDispatchToPorps = dispatch => {
         payload
       });
     },
-    examType: payload => {
+    examTypes: payload => {
       dispatch({
-        type: "lookCheck/examType",
+        type: "lookCheck/examTypes",
         payload
       });
     },
-    getQuestionsType: payload => {
+    getQuestionsTypes: payload => {
       dispatch({
-        type: "lookCheck/getQuestionsType",
+        type: "lookCheck/getQuestionsTypes",
         payload
       });
     },

@@ -1,0 +1,46 @@
+.wrapper {
+  width:100%;
+  height:100%;
+    display: flex;
+  flex-direction: column;
+}
+
+.ant-layout{
+  flex:1 
+}
+
+.header {
+  width: 100%;
+  height: 90px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+  align-items: center;
+}
+
+.header_right{
+  height: 100%;
+  vertical-align: center;
+}
+
+.header img {
+  width: 150px;
+  height: 40px;
+}
+
+.header_right img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.header_right span {
+  font-size: 16px;
+}
+
+.ant-dropdown {
+  top: 100px!important;
+}
