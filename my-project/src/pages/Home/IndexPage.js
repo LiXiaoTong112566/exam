@@ -164,6 +164,7 @@ function IndexPage() {
           <Route path="/home/studentManage" component={StudentManage} />
           <Route path="/home/awaitClass" component={AwaitClass} />
           <Route path="/home/detail/:id" component={Detail} />
+          {/* <Route path="/home/addExam/examdetail" component={AddExam} /> */}
         </Layout>
       </Layout>
     </div>
