@@ -1,127 +1,106 @@
-import React, { useEffect } from "react";
-import  "./login.scss";
-import { connect } from "dva";
-import { Form, Icon, Input, Button, Checkbox,message } from "antd";
+import React, { useEffect } from 'react';
+import { connect } from 'dva';
+import styles from './login.scss';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 
 function Login(props) {
-  const { getFieldDecorator } = props.form;
-  // console.log("props...",props);
 
-  //判断是否登录成功
+  //起到了componentDidMount的作用
+  // useEffect(() => {
+  //   props.login({ user_name: 'chenmanjie', user_pwd: 'Chenmanjie123!' })
+  // }, [])
+
   useEffect(() => {
-    if(props.isLogin===1){
-      message.success("登录成功");
-      let path="/";
-      console.log(props);
-      if(props.location.search){
-        path=decodeURIComponent(props.location.search)
-        
+
+    if (props.isLogin === 1) {
+      message.success('登陆成功')
+      let path = '/home';
+      console.log(props.location.search)
+      if (props.location.search) {
+        path = decodeURIComponent(props.location.search.split('=')[1])
       }
-      props.history.push(path);
-
-
-    }else if(props.isLogin===0){
-      message.success("用户名或密码错误")
-
+      props.history.push(path)
+    } else if (props.isLogin === 0) {
+      message.error('用户名或密码错误')
     }
-   
-   
-  }, [props.isLogin]);
-  let handleSubmit = e => {
-    e.preventDefault();
+  }, [props.isLogin])
+
+  //处理表单提交
+  let handleSubmit = (e) => {
+    // e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        props.login({ user_name: values.username, user_pwd: values.password });
-        console.log("Received values of form: ", values);
-        console.log(props);
-        if (props.isLogin) {
-          props.history.push("/home");
-        }
+        props.login({ user_name: values.username, user_pwd: values.password })
+
       }
     });
-  };
+  }
+  const { getFieldDecorator } = props.form;
 
   return (
-    <div className="wrapper">
-      <div className="wrapper-form">
-        <Form className="login-form" onSubmit={handleSubmit}>
+    <div className={styles.wrap}>
+      <div className={styles.normal}>
+        <Form className={styles['login-form']} onSubmit={handleSubmit}>
           <Form.Item>
-            {getFieldDecorator("username", {
-              validateTrigger: "onBlur",
-              rules: [
-                { required: true, message: "Please input your username!" },
-                {
-                  min: 6,
-                  max: 15,
-                  message: "Please input your correct username!"
-                }
-              ]
+            {getFieldDecorator('username', {
+              validateTrigger: 'onBlur',
+              rules: [{ required: true, message: 'Please input your username!' },
+              { min: 6, max: 15, message: '请输入最少6个字符，最多15个字符' }],
             })(
               <Input
-                prefix={
-                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                placeholder="请输入用户名"
-              />
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0, .25)' }} />}
+                placeholder="Username"
+              />,
             )}
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator("password", {
-              validateTrigger: "onBlur",
-              rules: [
-                { required: true, message: "Please input your Password!" },
-                {
-                  pattern: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!#@*&.]).*$/,
-                  message: "Please input your correct password"
-                }
-              ]
+            {getFieldDecorator('password', {
+              validateTrigger: 'onBlur',
+              rules: [{ required: true, message: 'Please input your Password!' },
+              { pattern: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[!#@*&.]).*$/, message: 'Please input your Passworddddd' }],
             })(
               <Input
-                prefix={
-                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 type="password"
-                placeholder="请输入密码"
-              />
+                placeholder="Password"
+              />,
             )}
           </Form.Item>
           <Form.Item>
-            <Checkbox>记住密码</Checkbox>
-            <a className="login-form-forgot" href="">
-              忘记密码
-            </a>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
+            <Checkbox>Remember me</Checkbox>
+            <a className={styles["login-form-forgot"]} href="">
+              Forgot password
+          </a>
+            <Button type="primary" htmlType="submit" className={styles["login-form-button"]}>
               登录
-            </Button>
+          </Button>
+            Or <a href="">register now!</a>
           </Form.Item>
         </Form>
       </div>
     </div>
+
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    ...state.login
-  };
+Login.propTypes = {
 };
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = (state) => {
+  return {
+    ...state.login
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
   return {
     login: payload => {
       dispatch({
-        type: "login/login",
+        type: 'login/login',
         payload
-      });
+      })
     }
-  };
-};
+  }
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Form.create()(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(Login));

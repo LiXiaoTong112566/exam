@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import {connect} from "dva";
+import { connect } from "dva";
 import styles from './AddItem.scss';
 import { Layout, Form, Button, Input, Select, message } from 'antd';
 import Editor from 'for-editor'
 
-function AddItem(props){
-    console.log(props.examTypeData)
+function AddItem(props) {
     useEffect(() => {
         // 获取用户信息
         props.userInfo();
@@ -24,6 +23,7 @@ function AddItem(props){
         }
     }, [props.addQuestionsFlag]);
 
+    //提交添加试题
     let handleSubmit = e => {
         e.preventDefault();
         props.form.validateFields((err, values) => {
@@ -40,12 +40,11 @@ function AddItem(props){
     const { Header, Content } = Layout;
     return (
         <div className={styles['wrap']}>
-
             <Header style={{ background: '#f0f2f5', padding: 0 }}>
                 <div className={styles.conhead}>添加试题</div>
             </Header>
             <Content style={{ margin: '0 16px' }} className={styles.con}>
-                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                <div style={{ padding: 24, background: '#fff', height: '100%' }}>
                     <Form className="login-form" onSubmit={handleSubmit}>
                         <div className={styles.markcont}>
                             <p>题目信息</p>
@@ -135,7 +134,7 @@ function AddItem(props){
 
 }
 
-AddItem.propTypes={
+AddItem.propTypes = {
 
 }
 const mapStateToProps = (state, ownProps) => {

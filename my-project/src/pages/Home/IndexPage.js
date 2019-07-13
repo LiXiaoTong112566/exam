@@ -3,7 +3,7 @@ import styles from  "./IndexPage.scss";
 
 import React, { useEffect } from "react";
 
-import { Route , NavLink } from "dva/router";
+import {  Route, NavLink } from "dva/router";
 import { connect } from "dva";
 import { Layout, Menu, Dropdown, Icon, message } from "antd";
 //试题管理

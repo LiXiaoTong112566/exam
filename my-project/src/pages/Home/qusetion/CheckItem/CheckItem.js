@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import {Select, Button } from "antd";
+import {  Select, Button } from "antd";
 import List from './lists'
 import checkItem from  "./checkItem.scss";
 function questionsL(props) {
@@ -47,6 +47,10 @@ function questionsL(props) {
     console.log(obj)
     props.condition(obj);
   };
+  // let routerTo=()=>{
+  //   console.log(1)
+  // }
+
 
 
   return (

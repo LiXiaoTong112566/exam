@@ -43,3 +43,12 @@ export function getQuestionsType() {
         method: 'GET'
     })
 }
+
+//考试管理 添加考试
+export function examAdd(params){
+    return request({
+        url:'/exam/exam',
+        method: 'POST',
+        data: params
+    })
+}

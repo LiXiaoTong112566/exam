@@ -41,7 +41,10 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
+      // eslint-disable-line
+      // console.log("payload...", payload, type);
       let data = yield call(questions, payload);
+      // console.log(data.data);
       yield put({
         type: "upDataquestions",
         payload: data.data
