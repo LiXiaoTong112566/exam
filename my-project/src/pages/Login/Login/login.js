@@ -18,13 +18,9 @@ function Login(props) {
         
       }
       props.history.push(path);
-
-
     }else if(props.isLogin===0){
       message.success("用户名或密码错误")
-
     }
-   
    
   }, [props.isLogin
 ]);
