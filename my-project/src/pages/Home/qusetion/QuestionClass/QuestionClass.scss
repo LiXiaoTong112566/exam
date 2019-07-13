@@ -1,25 +1,24 @@
-.ant-layout {
-  height: 500px;
-}
-
+// section{
+//   height: 100%;
+// }
 .box {
-  // height: 600px;
+  height: 100%;
   overflow: scroll;
+   box-sizing: border-box;
+    padding: 0 10px;
 }
 
 .QuestionClass_addType {
-  width: 96%;
-
-  margin: 0 2%;
+  width: 100%;
   background: #fff;
   border-radius: 20px;
 }
 
 .title {
   margin-left: 2%;
-  height: 100px;
+  height: 90px;
   line-height: 100px;
-  font-size:30px;
+  font-size: 22px;
 }
 
 .ant-table-thead {
