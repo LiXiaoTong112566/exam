@@ -1,16 +1,16 @@
-import { questionClass, addType, add, examType, subjectType, getQuestionsType } from "@/services"
+import { questionClass, addType, add, examType, subjectType, getQuestionsType,examAdd } from "@/services"
 
 export default {
 
   namespace: 'questionClass',
 
   state: {
-    examTypeData: [],
-    subjectTypeData: [],
-    questionsTypeData: [],
-    // 添加试题 状态
-    addQuestionsFlag: 0,
+    examTypeData: [],//添加试题考试类型数据
+    subjectTypeData: [],//添加试题课程类型数据
+    questionsTypeData: [],//添加试题题目类型数据
+    addQuestionsFlag: 0, // 添加试题 状态
     questionClassData: [],
+    examAddFlag: 0, // 添加试题的状态
   },
 
   // subscriptions: {
@@ -32,10 +32,9 @@ export default {
     },
 
     //添加试题类型
-
     *addType({ payload }, { call, put }) {
-      console.log(111);
-      console.log(payload);
+      // console.log(111);
+      // console.log(payload);
       let newType = yield call(addType, payload);
       console.log(newType);
     },
@@ -69,10 +68,20 @@ export default {
     *questionsType({ payload }, { call, put }) {
       let data = yield call(getQuestionsType)
       yield put({
-        type: 'getQuestionsType',
+        type: 'getQuestionsTypes',
         action: data.data
       });
     },
+    //添加考试
+    *examAdd({ payload }, { call, put }){
+      let data = yield call(examAdd, payload)
+      console.log(data)
+      yield put({
+        type:'getExamAdd',
+        action:data.code===1?1:-1,
+        data:data.data
+      })
+    }
   },
 
   reducers: {
@@ -98,11 +107,18 @@ export default {
         subjectTypeData: action
       };
     },
-    getQuestionsType(state, { action }) {
+    getQuestionsTypes(state, { action }) {
       return {
         ...state,
         questionsTypeData: action
       };
+    },
+    getExamAdd(state, { action ,data}){
+      return{
+        ...state,
+        examAddFlag:action,
+        // createpaperList: data
+      }
     }
 
   },

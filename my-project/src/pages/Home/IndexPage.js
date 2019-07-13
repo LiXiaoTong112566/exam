@@ -1,11 +1,11 @@
 
 import styles from  "./IndexPage.scss";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { Router, Route, Switch, NavLink } from "dva/router";
+import {  Route, NavLink } from "dva/router";
 import { connect } from "dva";
-import { Layout, Menu, Dropdown, Breadcrumb, Icon, message,Header } from "antd";
+import { Layout, Menu, Dropdown, Icon, message } from "antd";
 //试题管理
 import AddItem from "./qusetion/AddItem/AddItem";
 import CheckItem from "./qusetion/CheckItem/CheckItem";
@@ -23,7 +23,7 @@ import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
 import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
 import Detail from "./qusetion/CheckItem/detail"
-const {  Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 function IndexPage() {

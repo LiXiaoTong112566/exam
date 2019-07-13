@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import { Input, Col, Row, Select, Button } from "antd";
+import {  Select, Button } from "antd";
 import List from './lists'
 import checkItem from  "./checkItem.scss";
 function questionsL(props) {
@@ -38,9 +38,9 @@ function questionsL(props) {
       subject_id: typeData
     });
   };
-  let routerTo=()=>{
-    console.log(1)
-  }
+  // let routerTo=()=>{
+  //   console.log(1)
+  // }
 
 
 

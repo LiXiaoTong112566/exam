@@ -1,6 +1,6 @@
-import Reac, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'dva';
-import { Input, Col, Row, Select, Button } from "antd";
+// import { Input, Col, Row, Select, Button } from "antd";
 import detailStyle from './detail.scss'
 import ReactMarkdown from 'react-markdown'
 function Detail(props) {
