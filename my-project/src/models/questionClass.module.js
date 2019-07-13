@@ -12,12 +12,6 @@ export default {
     addQuestionsFlag: 0,
     questionClassData: [],
   },
-
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
-
   effects: {
     //查询所有的试题类型
     *questionClass({ payload }, { call, put }) {

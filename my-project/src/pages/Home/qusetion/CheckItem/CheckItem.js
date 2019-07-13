@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import { Input, Col, Row, Select, Button } from "antd";
+import {Select, Button } from "antd";
 import List from './lists'
 import checkItem from  "./checkItem.scss";
 function questionsL(props) {
@@ -32,16 +32,21 @@ function questionsL(props) {
   };
   //点击按钮时get请求数据
   let btnFn = () => {
-    props.condition({
+    let obj={
       questions_type_id: seleTypeValue,
       exam_id: seleValue,
       subject_id: typeData
-    });
+    }
+    console.log(obj)
+    for(let i in obj){
+      console.log(obj[i])
+       if(obj[i]===""){
+          delete obj[i]
+       }  
+    }
+    console.log(obj)
+    props.condition(obj);
   };
-  let routerTo=()=>{
-    console.log(1)
-  }
-
 
 
   return (

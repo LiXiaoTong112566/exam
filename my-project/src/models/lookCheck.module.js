@@ -4,7 +4,8 @@ import {
   getQuestionsTypes,
   questions,
   condition,
-  detailCon
+  detailCon,
+  detailConTi
 } from "@/services/index";
 export default {
   namespace: "lookCheck",
@@ -16,36 +17,23 @@ export default {
     questionsData:[],
     detailConDataL:[]
   },
-
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
-
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
       let data = yield call(lookCheck, payload);
-      console.log(data.data);
       yield put({
         type: "upDatalookCheck",
         payload: data.data
       });
     },
     *examTypes({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(examTypes, payload);
-      console.log(data.data);
       yield put({
         type: "upDataexamTypes",
         payload: data.data
       });
     },
     *getQuestionsTypes({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(getQuestionsTypes, payload);
-      console.log(data.data);
       yield put({
         type: "upDatagetQuestionsTypes",
         payload: data.data
@@ -53,18 +41,13 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(questions, payload);
-      console.log(data.data);
       yield put({
         type: "upDataquestions",
         payload: data.data
       });
     },
     *condition({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      console.log("payload...", payload, type);
       let data = yield call(condition, payload);
       yield put({
         type: "upDatcondition",
@@ -72,7 +55,6 @@ export default {
       });
     },
     *detailCon({ payload, type }, { call, put }) {
-      console.log("payload...", payload, type);
       let data = yield call(detailCon, payload);
       console.log(data)
       yield put({
@@ -80,6 +62,16 @@ export default {
         payload: data.data
       });
     },
+    *detailConTi({ payload, type }, { call, put }) {
+      console.log(payload)
+      let data = yield call(detailConTi, payload);
+      console.log(data)
+      yield put({
+        type: "upDatdetailConTi",
+        payload: data.data
+      });
+    },
+    //detailConTi
   },
 
   reducers: {
@@ -99,6 +91,10 @@ export default {
       return { ...state, questionsData: action.payload };
     },
     upDatdetailCon(state, action) {
+      return { ...state, detailConDataL: action.payload };
+    },
+    upDatdetailConTi(state, action) {
+      console.log(action)
       return { ...state, detailConDataL: action.payload };
     }
   }

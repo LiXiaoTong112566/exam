@@ -13,7 +13,6 @@ export default {
     //获取当前用户信息
     *userInfo({ payload }, { call, put }) {
       let data = yield call(userInfo);
-      console.log(data)
       yield put({
         type: 'getUserInfo',
         action: data.data

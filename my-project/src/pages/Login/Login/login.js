@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import  "./login.scss";
 import { connect } from "dva";
 import { Form, Icon, Input, Button, Checkbox,message } from "antd";
@@ -26,8 +26,7 @@ function Login(props) {
     }
    
    
-  }, [props.isLogin
-]);
+  }, [props.isLogin]);
   let handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {

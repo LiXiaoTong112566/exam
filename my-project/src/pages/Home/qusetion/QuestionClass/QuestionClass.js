@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from "react";
 import { connect } from "dva";
 import  QuestStyle from "./QuestionClass.scss";
-import { Table, Divider, Tag,Icon } from "antd";
-import { Button, Modal, Form, Input} from 'antd';
-const { Column, ColumnGroup } = Table;
+import { Table} from "antd";
+import { Button, Modal, Input} from 'antd';
+const { Column } = Table;
 
 function QuestionClass(props) {
   
