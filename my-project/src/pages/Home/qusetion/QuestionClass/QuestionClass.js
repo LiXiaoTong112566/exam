@@ -8,11 +8,6 @@ const { Column, ColumnGroup } = Table;
 function QuestionClass(props) {
   console.log(props);
   
-    useEffect(()=>{
-        props.getQuestion();
-    
-    },[])
-
   useEffect(() => {
     props.getQuestion();
   }, [])
