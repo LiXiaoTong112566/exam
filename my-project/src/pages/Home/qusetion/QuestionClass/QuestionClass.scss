@@ -28,7 +28,19 @@
 }
 
 .ant-btn {
-  width: 100px;
-  height: 30px;
-  margin: 30px;
+  width: 150px;
+  height: 40px;
+  margin: 30px 10px;
+
+}
+
+.loading{
+  position: fixed;
+  top:100px;
+  left:20%;
+  width:100%;
+  height: 100%;
+  background: #ccc;
+ 
+  
 }

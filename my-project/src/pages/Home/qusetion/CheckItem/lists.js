@@ -25,9 +25,6 @@ function Lists(props){
     )
 }
 
-
-Lists.propTypes = {
-};
-
+Lists.propTypes = {};
 
 export default connect()(withRouter(Lists));

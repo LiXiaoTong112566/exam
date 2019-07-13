@@ -1,8 +1,10 @@
 import dva from 'dva';
+import createLoading from "dva-loading";  
 import './index.css';
 import 'antd/dist/antd.css';
 // 1. Initialize
 const app = dva();
+app.use(createLoading())
 
 // 2. Plugins
 // app.use({});
@@ -11,6 +13,7 @@ const app = dva();
 app.model(require('./models/login.module').default);
 app.model(require('./models/questionClass.module').default);
 app.model(require('./models/user.module').default);
+app.model(require('./models/userManage.module').default);
 
 app.model(require('./models/lookCheck.module').default);
 // 4. Router

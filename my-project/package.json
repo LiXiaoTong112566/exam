@@ -10,6 +10,7 @@
     "antd": "^3.20.1",
     "axios": "^0.19.0",
     "dva": "^2.4.1",
+    "dva-loading": "^3.0.12",
     "for-editor": "^0.3.0",
     "js-cookie": "^2.2.0",
     "node-sass": "^4.12.0",

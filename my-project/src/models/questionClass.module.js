@@ -12,12 +12,6 @@ export default {
     questionClassData: [],
     examAddFlag: 0, // 添加试题的状态
   },
-
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
-
   effects: {
     //查询所有的试题类型
     *questionClass({ payload }, { call, put }) {
@@ -29,6 +23,8 @@ export default {
         yield put({ type: "getQuestionClassData", payload: data.data });
       }
 
+
+
     },
 
     //添加试题类型
@@ -37,6 +33,7 @@ export default {
       // console.log(payload);
       let newType = yield call(addType, payload);
       console.log(newType);
+      yield put({type:"questionClass"})
     },
     //添加试题
     *add({ payload }, { call, put }) {

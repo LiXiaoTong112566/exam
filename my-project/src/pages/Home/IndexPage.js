@@ -22,7 +22,10 @@ import GradeManage from "./grade/GrandeManage/GradeManage";
 import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
 import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
-import Detail from "./qusetion/CheckItem/detail"
+//试题详情
+import Detail from "./qusetion/CheckItem/detail";
+//编辑试题
+import DetailCompile from "./qusetion/CheckItem/detailCompile"
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -164,7 +167,7 @@ function IndexPage() {
           <Route path="/home/studentManage" component={StudentManage} />
           <Route path="/home/awaitClass" component={AwaitClass} />
           <Route path="/home/detail/:id" component={Detail} />
-          {/* <Route path="/home/addExam/examdetail" component={AddExam} /> */}
+          <Route path="/home/detailCompile/:id" component={DetailCompile} />
         </Layout>
       </Layout>
     </div>
