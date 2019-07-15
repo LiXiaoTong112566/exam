@@ -2,7 +2,7 @@
  * 添加用户的页面
 */
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "dva";
 import AdduserCss from "./AddUser.scss";
 import AddUserCom from "@/components/UserComponent/addUserCom"; //添加用户

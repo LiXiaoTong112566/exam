@@ -41,10 +41,7 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      // console.log("payload...", payload, type);
       let data = yield call(questions, payload);
-      // console.log(data.data);
       yield put({
         type: "upDataquestions",
         payload: data.data
@@ -59,16 +56,13 @@ export default {
     },
     *detailCon({ payload, type }, { call, put }) {
       let data = yield call(detailCon, payload);
-      console.log(data)
       yield put({
         type: "upDatdetailCon",
         payload: data.data
       });
     },
     *detailConTi({ payload, type }, { call, put }) {
-      console.log(payload)
       let data = yield call(detailConTi, payload);
-      console.log(data)
       yield put({
         type: "upDatdetailConTi",
         payload: data.data
@@ -97,7 +91,6 @@ export default {
       return { ...state, detailConDataL: action.payload };
     },
     upDatdetailConTi(state, action) {
-      console.log(action)
       return { ...state, detailConDataL: action.payload };
     }
   }

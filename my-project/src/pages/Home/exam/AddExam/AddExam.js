@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "dva";
 import { Form, Input, Button, Select, InputNumber, DatePicker, message } from 'antd'
 import locale from 'antd/lib/date-picker/locale/zh_CN';
