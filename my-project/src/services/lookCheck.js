@@ -23,7 +23,6 @@ export function  condition(params) {
 //编辑
 export function  detailCon(params) {
   return request.get(`/exam/questions/condition?questions_id=${params.questions_id}`);
-  // return request.put('/exam/questions/update',params);
 }
 
 
@@ -31,6 +30,5 @@ export function  detailCon(params) {
 export function  detailConTi(params) {
   console.log(params)
   return request.put('/exam/questions/update',params);
-
 }
 
