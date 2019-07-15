@@ -140,7 +140,7 @@ AddItem.propTypes = {
 const mapStateToProps = (state, ownProps) => {
     return {
         ...state.questionClass,
-        ...state.user
+        ...state.userData
     }
 }
 
@@ -174,7 +174,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         userInfo() {
             dispatch({
-                type: 'user/userInfo'
+                type: 'userData/userInfo'
             })
         }
     }

@@ -19,9 +19,7 @@ function QuestionClass(props) {
     props.getQuestion();
   }, []);
 
-  useEffect(() => {
-    props.getQuestion();
-  }, []);
+  
 
   const data = props.questionClassData;
   const [visible, setvisible] = useState(false);

@@ -24,29 +24,17 @@ function AddUserCom(props) {
   //提交添加用户
   const handleSubmit = e => {
     e.preventDefault();
-
     props.form.validateFields((err, values) => {
       if(!err){
-        if (values.identityId) {
           props.addUser({
             user_name: values.username,
             user_pwd: values.password,
             identity_id: values.identityId
           });
-        } else {
-          props.addUser({
-            user_name: values.username,
-            user_pwd: values.password
-          });
-        }
+       
       }
       
     });
-  };
-
-  useEffect(() => {
-    props.getUserIdent();
-    props.getUserData();
 
     if (props.addUserType) {
       if (props.addUserType.code === 1) {
@@ -55,7 +43,15 @@ function AddUserCom(props) {
         message.error(props.addUserType.msg);
       }
     }
-  }, [props.addUserType]);
+  };
+
+  useEffect(() => {
+    props.getUserIdent();
+    props.getUserData();
+
+    
+    // props.addUserType
+  }, []);
 
   const { getFieldDecorator } = props.form;
 
@@ -70,7 +66,7 @@ function AddUserCom(props) {
           <Form onSubmit={handleSubmit} className="login-form">
             <Form.Item>
               {getFieldDecorator("username", {
-                validateTrigger: "onBlur",
+             
                 rules: [
                   { required: true, message: "Please input your username!" },
                   {
@@ -90,7 +86,7 @@ function AddUserCom(props) {
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("password", {
-                validateTrigger: "onBlur",
+                // validateTrigger: "onBlur",
                 rules: [
                   { required: true, message: "Please input your Password!" },
                   {
