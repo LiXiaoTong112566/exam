@@ -22,9 +22,6 @@ export default {
       if (data.code === 1) {
         yield put({ type: "getQuestionClassData", payload: data.data });
       }
-
-
-
     },
 
     //添加试题类型
@@ -32,7 +29,7 @@ export default {
       // console.log(111);
       // console.log(payload);
       let newType = yield call(addType, payload);
-      console.log(newType);
+      // console.log(newType);
       yield put({type:"questionClass"})
     },
     //添加试题
@@ -47,7 +44,6 @@ export default {
     //获取考试类型
     *examType({ payload }, { call, put }) {
       let data = yield call(examType)
-      console.log(data)
       yield put({
         type: 'getExamType',
         action: data.data
@@ -72,7 +68,6 @@ export default {
     //添加考试
     *examAdd({ payload }, { call, put }){
       let data = yield call(examAdd, payload)
-      console.log(data)
       yield put({
         type:'getExamAdd',
         action:data.code===1?1:-1,
@@ -86,7 +81,6 @@ export default {
       return { ...state, questionClassData: action.payload }
     },
     updateAdd(state, { action }) {
-      console.log(action)
       return {
         ...state,
         addQuestionsFlag: action

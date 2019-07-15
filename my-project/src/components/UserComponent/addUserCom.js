@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
-import { Tabs, Input, Select, Button, Icon, Form, Checkbox } from "antd";
+import { Tabs, Input, Select, Button, Icon, Form} from "antd";
 const { Option } = Select;
 const { TabPane } = Tabs;
 

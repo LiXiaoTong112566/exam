@@ -16,6 +16,8 @@ import ShowUser from "./users/ShowUser/ShowUser";
 //考试管理
 import AddExam from "./exam/AddExam/AddExam";
 import ExamList from "./exam/ExamList/ExamList";
+import ExamEdit from "./exam/ExamEdit/ExamEdit";
+import ExamDetail from "./exam/ExamDetail/ExamDetail";
 //班级管理
 import ClassManage from "./grade/ClassManage/ClassManage";
 import GradeManage from "./grade/GrandeManage/GradeManage";
@@ -168,6 +170,8 @@ function IndexPage() {
           <Route path="/home/awaitClass" component={AwaitClass} />
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
+          <Route path="/home/exam/examEdit" component={ExamEdit} />
+          <Route path='/home/exam/ExamDetail' component={ExamDetail} />
         </Layout>
       </Layout>
     </div>

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {connect} from "dva";
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
 
 
@@ -31,7 +31,6 @@ function AddTheCom(props){
             rules: [{ required: true, message: 'Please input your Password!' }],
           })(
             <Input
-             
               type="text"
               placeholder="请输入身份名称"
             />,

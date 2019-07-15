@@ -21,11 +21,8 @@ export default {
             dispatch(routerRedux.replace({
               pathname: `/login`,
               search: `?redirect=${encodeURIComponent(pathname)}`
-
             }))
-
           }
-
         } else {
           //如果用户去的是登录页面
           if (getCookie()) {
@@ -45,9 +42,9 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {
       // eslint-disable-line
-      console.log(payload);
+      // console.log(payload);
       let data = yield call(login, payload)
-      console.log(data);
+      // console.log(data);
       if (data.code === 1) {
         setCookie(data.token)
       }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "dva";
 import { Form, Input, Button, Select, InputNumber, DatePicker, message } from 'antd'
 import locale from 'antd/lib/date-picker/locale/zh_CN';
@@ -14,6 +14,7 @@ function AddExam(props) {
 
         if (props.examAddFlag === 1) {
             message.success('添加成功')
+            props.history.push('/home/exam/examEdit')
         } else if (props.examAddFlag === -1) {
             message.error('添加考试失败')
         }

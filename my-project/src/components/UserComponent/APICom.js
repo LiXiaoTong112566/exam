@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { connect } from "dva";
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button} from 'antd';
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
 
 

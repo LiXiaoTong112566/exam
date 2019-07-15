@@ -4,7 +4,7 @@
 
 import React from "react";
 import { connect } from "dva";
-import { Form, Icon, Input, Button, Select } from "antd";
+import { Form, Button, Select } from "antd";
 
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
 const { Option } = Select;

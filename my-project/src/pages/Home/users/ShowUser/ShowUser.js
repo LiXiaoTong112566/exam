@@ -11,7 +11,7 @@ function UserData(props) {
       <Table dataSource={props.userDatas}>
         <Column title="用户名" dataIndex="user_name" key="firstName" />
         <Column title="密码" dataIndex="user_pwd" key="lastName" />
-        <Column title="身份" dataIndex="identity_text" key="action"  />
+        <Column title="身份" dataIndex="identity_text" key="action" />
       </Table>
     </div>
   );
@@ -20,7 +20,7 @@ function UserData(props) {
 function Identity(props) {
   return (
     <Table dataSource={props.identityData}>
-        <Column title="身份名称" dataIndex="identity_text" key="identity_text" />
+      <Column title="身份名称" dataIndex="identity_text" key="identity_text" />
     </Table>
   )
 }
@@ -30,8 +30,8 @@ function Interface(props) {
     <Table dataSource={props.interfaceData}>
       <Column title="api权限名称" dataIndex="api_authority_text" key="firstName" />
       <Column title="api权限url" dataIndex="api_authority_url" key="lastName" />
-      <Column title="api权限方法" dataIndex="api_authority_method" key="action"  />
-  </Table>
+      <Column title="api权限方法" dataIndex="api_authority_method" key="action" />
+    </Table>
   )
 }
 //接口关系
@@ -42,13 +42,13 @@ function Relationship(props) {
       <Column title="身份名称" dataIndex="identity_text" key="firstName" />
       <Column title="api权限名称" dataIndex="api_authority_text" key="firstNazzme" />
       <Column title="api权限url" dataIndex="api_authority_url" key="lastName" />
-      <Column title="api权限方法" dataIndex="api_authority_method" key="action"  />
-  </Table>
+      <Column title="api权限方法" dataIndex="api_authority_method" key="action" />
+    </Table>
   )
 }
 //接口视图
 function InterfaceView(props) {
-   return (
+  return (
     <Table dataSource={props.viewAuthorityData}>
       <Column title="视图权限名称" dataIndex="view_authority_text" key="firstName" />
       <Column title="视图id" dataIndex="view_id" key="lastName" />
@@ -59,9 +59,9 @@ function InterfaceView(props) {
 function Permissions(props) {
   return (
     <Table dataSource={props.identityViewAuthorityData}>
-        <Column title="身份" dataIndex="identity_text" key="firstName" />
-        <Column title="视图名称" dataIndex="view_authority_text" key="lastName" />
-        <Column title="视图id" dataIndex="view_id" key="action"  />
+      <Column title="身份" dataIndex="identity_text" key="firstName" />
+      <Column title="视图名称" dataIndex="view_authority_text" key="lastName" />
+      <Column title="视图id" dataIndex="view_id" key="action" />
     </Table>
   )
 }
@@ -96,7 +96,7 @@ function ShowUser(props) {
     setUserFlag(index);
   };
   return (
-    <div className={useStyle.user}> 
+    <div className={useStyle.user}>
       <h3 className={useStyle.h3}>用户展示</h3>
       <ol className={useStyle.ol}>
         {userDisplay.map((item, index) => (
@@ -109,10 +109,10 @@ function ShowUser(props) {
       <div className={useStyle.user_bottom}>
         {userFlag === 0 && <UserData userDatas={props.userDatas} />}
         {userFlag === 1 && <Identity identityData={props.identityData} />}
-        {userFlag === 2 && <Interface interfaceData={props.interfaceData}/>}
-        {userFlag === 3 && <Relationship relationData={props.relationData}/>}
-        {userFlag === 4 && <InterfaceView viewAuthorityData={props.viewAuthorityData}/>}
-        {userFlag === 5 && <Permissions identityViewAuthorityData={props.identityViewAuthorityData}/>}
+        {userFlag === 2 && <Interface interfaceData={props.interfaceData} />}
+        {userFlag === 3 && <Relationship relationData={props.relationData} />}
+        {userFlag === 4 && <InterfaceView viewAuthorityData={props.viewAuthorityData} />}
+        {userFlag === 5 && <Permissions identityViewAuthorityData={props.identityViewAuthorityData} />}
       </div>
     </div>
   );
@@ -147,7 +147,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         payload
       });
     },
-      //展示身份和api权限关系  
+    //展示身份和api权限关系  
     relationD: payload => {
       dispatch({
         type: "userManage/relation",
@@ -156,10 +156,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     //获取视图权限数据 
     viewAuthorityD: payload => {
-    dispatch({
-      type: "userManage/viewAuthority",
-      payload
-    });
+      dispatch({
+        type: "userManage/viewAuthority",
+        payload
+      });
     },
     //展示身份和视图权限关系
     identityViewAuthorityD: payload => {
