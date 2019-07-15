@@ -16,64 +16,48 @@ function DetailCompile(props) {
     props.subjectType();
     //获取题目类型
     props.questionsType();
-
-    // if (props.addQuestionsFlag === 1) {
-    //   //添加成功
-    //   message.success("添加成功");
-
-    // } else if (props.addQuestionsFlag === -1) {
-    //   //添加失败
-    //   message.error("添加失败！");
-    // }
     props.detailCon({
       questions_id: props.match.params.id.split("=")[1]
     });
   }, [props.addQuestionsFlag]);
-
   let handleSubmit = e => {
-    e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        let questions_type_id = props.questionsTypeData.find(item => item.questions_type_text === values.questions_type_id).questions_type_id;
-        let exam_id = props.examTypeData.find(item => item.exam_name === values.exam_id).exam_id;
-        let subject_id = props.subjectTypeData.find(item => item.subject_text === values.subject_id).subject_id;
-        values.exam_id = exam_id;
-        values.subject_id = subject_id;
-        values.questions_id = props.match.params.id.split("=")[1];
-        values.questions_type_id = questions_type_id;
-        obj = Object.values(values);
-        if (obj.includes(undefined)) {
-          message.error("参数不完整");
-        } else {
-          props.detailConT(values);
+      e.preventDefault();
+      props.form.validateFields((err, values) => {
+        if (!err) {
+          let questions_type_id = props.questionsTypeData.find( item => item.questions_type_text === values.questions_type_id).questions_type_id;
+          let exam_id = props.examTypeData.find(item => item.exam_name === values.exam_id).exam_id;
+          let subject_id = props.subjectTypeData.find(item => item.subject_text === values.subject_id).subject_id;
+          values.exam_id = exam_id;
+          values.subject_id = subject_id;
+          values.questions_id = props.match.params.id.split("=")[1];
+          values.questions_type_id = questions_type_id;
+          obj = Object.values(values);
+          if (obj.includes(undefined)) {
+            message.error("参数不完整");
+          } else {
+            props.detailConT(values);
+          }
         }
-      }
-    });
+      });
   };
 
-  //   //弹窗
-  // console.log(globalData)
+ //弹窗
   const [ModalText, setModalText] = useState("确认修改吗");
-
   const [visible, setvisible] = useState(false);
-  const [confirmLoading, setconfirmLoading] = useState(false);
+
   let showModal = () => {
     setvisible(true);
-    props.detailConT(obj)
-  };
-
-  let handleOk = () => {
-    setModalText("确认提交修改吗");
-    setconfirmLoading(true);
-    setTimeout(() => {
+  }
+  //点击确定
+  let handleOk=()=>{
       setvisible(false);
-      setconfirmLoading(false);
-    }, 2000);
-  };
-
+      message.success('修改成功');
+      props.history.push({pathname:'/home/checkItem'})
+  }
+  //点击取消
   let handleCancel = () => {
-    setvisible(false);
-  };
+     setvisible(false);
+  }
 
   const { getFieldDecorator } = props.form;
   const { Option } = Select;
@@ -208,7 +192,7 @@ function DetailCompile(props) {
                       >
                         提交
                       </Button>
-                      <Modal
+                      {/* <Modal
                         title="Title"
                         visible={visible}
                         onOk={handleOk}
@@ -216,6 +200,20 @@ function DetailCompile(props) {
                         onCancel={handleCancel}
                       >
                         <p>{ModalText}</p>
+                      </Modal> */}
+
+                      <Modal
+                        title="编辑"
+                        visible={visible}
+                        onOk={handleOk}
+                        onCancel={handleCancel}
+
+                        okText="确认"
+                        cancelText="取消"
+                      >
+                      <p>{ModalText}</p>
+
+                        
                       </Modal>
                     </div>
                   </Form>

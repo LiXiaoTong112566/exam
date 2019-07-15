@@ -13,10 +13,8 @@ export default {
     setup({ dispatch, history }) {
 
       return history.listen(({ pathname }) => {
-        // console.log(pathname);
         //如果不是去登录页面
         if (pathname.indexOf("/login") === -1) {
-          // console.log(getCookie());
           if (!getCookie()) {
             dispatch(routerRedux.replace({
               pathname: `/login`,
@@ -44,10 +42,7 @@ export default {
 
   effects: {
     *login({ payload }, { call, put }) {
-      // eslint-disable-line
-      console.log(payload);
       let data = yield call(login, payload)
-      console.log(data);
       if (data.code === 1) {
         setCookie(data.token)
       }
@@ -57,7 +52,6 @@ export default {
 
   reducers: {
     updateLogin(state, action) {
-      console.log(action);
       return { ...state, isLogin: action.payload };
     },
   },

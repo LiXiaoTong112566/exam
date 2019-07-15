@@ -8,7 +8,6 @@ export function questionClass(){
 //添加试题类型
 
 export function addType(params){
-    console.log(params);
     return request.get(`/exam/insertQuestionsType?text=${params.text}&&sort=${params.sort}`);
 }
 
