@@ -11,12 +11,12 @@ const { Option } = Select;
 function AddViewCom(props) {
   const handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log("Received values of form: ", values);
-      }
-    });
-  };
+    props.form.validateFields((err, values) => {
+          if (!err) {
+            console.log("Received values of form: ", values);
+          }
+        });
+      };
 
   function onChange(value) {
     console.log(`selected ${value}`);
