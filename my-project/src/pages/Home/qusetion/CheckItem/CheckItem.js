@@ -42,14 +42,14 @@ function questionsL(props) {
       exam_id: seleValue,
       subject_id: typeData
     }
-    console.log(obj)
+    // console.log(obj)
     for(let i in obj){
       console.log(obj[i])
        if(obj[i]===""){
           delete obj[i]
        }  
     }
-    console.log(obj)
+    // console.log(obj)
     props.condition(obj);
   };
   // let routerTo=()=>{
