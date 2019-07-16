@@ -55,3 +55,10 @@ export function examAdd(params){
         data: params
     })
 }
+
+export function getQuestions(){
+    return request({
+        url:'/exam/questions/new',
+        method:'GET'
+    })
+}
