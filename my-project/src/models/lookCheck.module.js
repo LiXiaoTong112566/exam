@@ -15,7 +15,8 @@ export default {
     examTData: [],
     getQueData: [],
     questionsData:[],
-    detailConDataL:[]
+    detailConDataL:[],
+    detailTiCode:null
   },
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
@@ -41,8 +42,6 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
-      // eslint-disable-line
-      // console.log("payload...", payload, type);
       let data = yield call(questions, payload);
       // console.log(data.data);
       yield put({
@@ -59,7 +58,6 @@ export default {
     },
     *detailCon({ payload, type }, { call, put }) {
       let data = yield call(detailCon, payload);
-      console.log(data)
       yield put({
         type: "upDatdetailCon",
         payload: data.data
@@ -71,12 +69,14 @@ export default {
       console.log(data)
       yield put({
         type: "upDatdetailConTi",
-        payload: data.data
+        payload: data.data,
+        payCode:data.code
       });
     },
     //detailConTi
   },
 
+  
   reducers: {
     upDatalookCheck(state, action) {
       return { ...state, data: action.payload };
@@ -97,8 +97,7 @@ export default {
       return { ...state, detailConDataL: action.payload };
     },
     upDatdetailConTi(state, action) {
-      console.log(action)
-      return { ...state, detailConDataL: action.payload };
+      return { ...state, detailConDataL: action.payload,detailTiCode:action.payCode};
     }
   }
 };

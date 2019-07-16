@@ -14,6 +14,7 @@ app.model(require('./models/login.module').default);
 app.model(require('./models/questionClass.module').default);
 app.model(require('./models/user.module').default);
 app.model(require('./models/userManage.module').default);
+app.model(require('./models/GradeManage.module').default);
 
 app.model(require('./models/lookCheck.module').default);
 // 4. Router
