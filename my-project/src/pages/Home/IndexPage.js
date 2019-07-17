@@ -22,6 +22,8 @@ import GradeManage from "./grade/GrandeManage/GradeManage";
 import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
 import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
+import TestClass from "./Marking/testClass/testClass.js";
+
 //试题详情
 import Detail from "./qusetion/CheckItem/detail";
 //编辑试题
@@ -166,8 +168,10 @@ function IndexPage() {
           <Route path="/home/gradeManage" component={GradeManage} />
           <Route path="/home/studentManage" component={StudentManage} />
           <Route path="/home/awaitClass" component={AwaitClass} />
+          <Route path="/home/testClass" component={TestClass} />
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
+         
         </Layout>
       </Layout>
     </div>

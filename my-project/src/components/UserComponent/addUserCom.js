@@ -36,6 +36,12 @@ function AddUserCom(props) {
       
     });
 
+   
+  };
+
+  useEffect(() => {
+    props.getUserIdent();
+    props.getUserData();
     if (props.addUserType) {
       if (props.addUserType.code === 1) {
         message.success(props.addUserType.msg);
@@ -43,15 +49,10 @@ function AddUserCom(props) {
         message.error(props.addUserType.msg);
       }
     }
-  };
-
-  useEffect(() => {
-    props.getUserIdent();
-    props.getUserData();
 
     
-    // props.addUserType
-  }, []);
+    // 
+  }, [props.addUserType]);
 
   const { getFieldDecorator } = props.form;
 
@@ -141,10 +142,13 @@ function AddUserCom(props) {
               >
                 确定
               </Button>
-              <Button className="login-form-button" onClick={handleReset}>
+             
+            </Form.Item>
+            <Form.Item>
+            <Button className="login-form-button" onClick={handleReset}>
                 重置
               </Button>
-            </Form.Item>
+              </Form.Item>
           </Form>
         </TabPane>
         <TabPane tab="更新用户" key="2">
