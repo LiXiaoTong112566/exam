@@ -1,91 +1,100 @@
-/** 
- * 添加身份页面
-*/
+/**
+ * 添加api接口权限
+ */
 
-import React from 'react';
+import React,{useEffect} from "react";
 import { connect } from "dva";
-import { Form, Input, Button} from 'antd';
+import { Form,  Input, Button, message } from "antd";
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
-
 
 function APICom(props) {
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    };
-    const { getFieldDecorator } = props.form;
-    return (
+  useEffect(()=>{
+    if (props.addApiData) {
+      if (props.addApiData.code === 1) {
+        message.success(props.addApiData.msg);
+      } else {
+        message.error(props.addApiData.msg);
+      }
+    }
 
-        <div className={AdduserCss.borderBox}>
-            <div className={AdduserCss.btn}>添加api接口权限</div>
+  },[props.addApiData])
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        props.addapiFn(values);
+      }
+    });
 
-            <Form onSubmit={handleSubmit} className="login-form">
+   
+  };
+  const { getFieldDecorator } = props.form;
 
-                <Form.Item>
-                    {getFieldDecorator('password', {
-                        validateTrigger: "onBlur",
-                        rules: [{ required: true, message: 'Please input your Password!' }],
-                    })(
-                        <Input
+  //重置
+  function handleReset() {
+    props.form.resetFields();
+  }
+  return (
+    <div className={AdduserCss.borderBox}>
+      <div className={AdduserCss.btn}>添加api接口权限</div>
 
-                            type="text"
-                            placeholder="请输入api接口权限名称"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    {getFieldDecorator('password', {
-                        validateTrigger: "onBlur",
-                        rules: [{ required: true, message: 'Please input your Password!' }],
-                    })(
-                        <Input
+      <Form onSubmit={handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator("api_authority_text", {
+            validateTrigger: "onBlur",
+            rules: [{ required: true, message: "请输入api接口权限名称!" }]
+          })(<Input type="text" placeholder="请输入api接口权限名称" />)}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("api_authority_url", {
+            validateTrigger: "onBlur",
+            rules: [{ required: true, message: "请输入api接口权限url!" }]
+          })(<Input type="text" placeholder="请输入api接口权限url" />)}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("api_authority_method", {
+            validateTrigger: "onBlur",
+            rules: [{ required: true, message: "请输入api接口权限方法!" }]
+          })(<Input type="text" placeholder="请输入api接口权限方法" />)}
+        </Form.Item>
 
-                            type="text"
-                            placeholder="请输入api接口权限url"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    {getFieldDecorator('password', {
-                        validateTrigger: "onBlur",
-                        rules: [{ required: true, message: 'Please input your Password!' }],
-                    })(
-                        <Input
-
-                            type="text"
-                            placeholder="请输入api接口权限方法"
-                        />,
-                    )}
-                </Form.Item>
-
-
-
-                <Form.Item>
-
-
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        确定
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+          >
+            确定
           </Button>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        确重置
+          <Button className="login-form-button" onClick={handleReset}>
+            重置
           </Button>
-
-                </Form.Item>
-            </Form>
-        </div>
-
-
-    )
-
+        </Form.Item>
+      </Form>
+    </div>
+  );
 }
 
-APICom.propTypes = {
+APICom.propTypes = {};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...state.userData
+  };
+};
 
-}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addapiFn: data => {
+      dispatch({
+        type: "userData/addApimodel",
+        payload: data
+      });
+    }
+  };
+};
 
-export default connect()(Form.create()(APICom))
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form.create()(APICom));

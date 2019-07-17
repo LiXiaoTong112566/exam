@@ -12,13 +12,14 @@ function questionsL(props) {
   }, []);
 
   const { Option } = Select;
+  
   //考试类型：
   const [seleValue, setSeleValue] = useState("");
   //题目类型
   const [seleTypeValue, setseleTypeValue] = useState("");
   //课程类型
   const [typeData, setTypeData] = useState("");
-  const [Ind,setInd]=useState("-1");
+  const [ind,setind]=useState("-1");
 
   let seleFn = e => {
     setSeleValue(e);
@@ -30,7 +31,7 @@ function questionsL(props) {
   let lisFn = e => {
     console.log(e.target);
     s = e.target.getAttribute("datakey");
-    setInd(e.target.getAttribute("dataind"));
+    setind(e.target.getAttribute("dataind"));
 
     setTypeData(s);
 
@@ -42,14 +43,14 @@ function questionsL(props) {
       exam_id: seleValue,
       subject_id: typeData
     }
-    // console.log(obj)
+    console.log(obj)
     for(let i in obj){
       console.log(obj[i])
        if(obj[i]===""){
           delete obj[i]
        }  
     }
-    // console.log(obj)
+    console.log(obj)
     props.condition(obj);
   };
   // let routerTo=()=>{
@@ -66,7 +67,7 @@ function questionsL(props) {
           <ul>
             <p className={checkItem.ql_p}>课程类型:</p>
             {props.data && props.data.map((item, index) => (
-                <li key={index} onClick={lisFn} dataind={index} datakey={item.subject_id} className={Ind==index?checkItem.active:""} dataInd={index}>
+                <li key={index} onClick={lisFn} dataind={index} datakey={item.subject_id} className={ind==index?checkItem.active:""} dataind={index}>
                   {item.subject_text}
                 </li>
               ))}

@@ -14,15 +14,27 @@
     color: lightblue;
   }
 
+  .ant-input-affix-wrapper{
+    width: 80%!important;
+
+  }
+
+  .ant-row ant-form-item{
+    margin:0!important;
+  }
+
   
   .main {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    border-top:1px solid rgba(0,0,0,0.3);
+    border-left:1px solid rgba(0,0,0,0.3);
     .borderBox {
       flex-shrink: 0;
       width: 33.3%;
-      border: 1px solid rgba(0,0,0,0.3);
+      border-right: 1px solid rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(0,0,0,0.3);
       overflow: hidden;
       padding: 0 10px;
 
@@ -61,9 +73,23 @@
           background: #fff;
       }
 
+      .ant-form-item{
+        margin-bottom:0!important;
+        width: 80%;
+
+      }
+
       button {
         margin: 10px;
       }
+
+      #username{
+    display: inline-block;
+        margin:20%;
+
+      }
+
+     
     }
   }
 }

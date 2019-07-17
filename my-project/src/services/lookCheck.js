@@ -12,7 +12,7 @@ export function  examTypes() {
 export function  getQuestionsTypes() {
   return request.get('/exam/getQuestionsType');
 }
-
+//suoyoushuju
 export function  questions() {
   return request.get('/exam/questions/new');
 }
@@ -28,7 +28,6 @@ export function  detailCon(params) {
 
 //提交
 export function  detailConTi(params) {
-  console.log(params)
   return request.put('/exam/questions/update',params);
 }
 

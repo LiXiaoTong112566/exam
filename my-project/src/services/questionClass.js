@@ -8,7 +8,6 @@ export function questionClass(){
 //添加试题类型
 
 export function addType(params){
-    console.log(params);
     return request.get(`/exam/insertQuestionsType?text=${params.text}&&sort=${params.sort}`);
 }
 
@@ -25,7 +24,7 @@ export function add(params) {
 //获取考试类型
 export function examType() {
     return request({
-        url: 'exam/examType',
+        url: '/exam/examType',
         method: 'GET'
     })
 }
@@ -49,16 +48,15 @@ export function getQuestionsType() {
 
 //考试管理 添加考试
 export function examAdd(params){
-    return request({
-        url:'/exam/exam',
-        method: 'POST',
-        data: params
-    })
+    console.log(params)
+    return request.post('/exam/exam',params)
 }
 
-export function getQuestions(){
+
+//获取所有试题
+export function getQuestions() {
     return request({
-        url:'/exam/questions/new',
-        method:'GET'
+        url: '/exam/questions/new',
+        method: 'GET'
     })
 }
