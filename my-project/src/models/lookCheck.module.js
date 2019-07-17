@@ -72,8 +72,7 @@ export default {
         payload: data.data,
         payCode:data.code
       });
-    },
-    //detailConTi
+    }
   },
 
   

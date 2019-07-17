@@ -21,6 +21,19 @@ export function update(params) {
   return request.put('/manger/grade/update',params);
 }
 //删除班级接口
-export function deleteD(params) {
-  return request.delete(`/manger/grade/delete/${params}`);
+export function deleteD(data) {
+  console.log(data)
+  return request.delete('/manger/grade/delete',{data});
+}
+
+//添加教书接口
+export function addRoom(params) {
+  console.log(params)
+  return request.post('/manger/room',params);
+}
+
+//删除教书接口
+export function deleteClass(data) {
+  console.log(data)
+  return request.delete('/manger/room/delete',{data});
 }

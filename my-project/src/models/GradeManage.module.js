@@ -66,12 +66,12 @@ export default {
       },
        //删除班级接口
        *deleteD({ payload }, { call, put }) {
+        console.log(payload)
         let data = yield call(deleteD,payload);
-        console.log(data)
-        yield put({
-          type: 'deleteDInfo',
-          payload: data
-        });
+        // yield put({
+        //   type: 'deleteDInfo',
+        //   payload: data
+        // });
       },
   },
 

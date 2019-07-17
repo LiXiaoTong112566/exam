@@ -66,8 +66,7 @@ function DetailCompile(props) {
   const { Header, Content } = Layout;
   return (
     <div className={styles["wrap"]}>
-      {props.detailConDataL &&
-        props.detailConDataL.map((item, index) => {
+      {props.detailConDataL &&props.detailConDataL.map((item, index) => {
           return (
             <div key={index}>
               <Header style={{ background: "#f0f2f5", padding: 0 }}>
