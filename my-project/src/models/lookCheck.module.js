@@ -6,7 +6,8 @@ import {
   condition,
   detailCon,
   detailConTi
-} from "../services/index";
+} from "@/services/index";
+import {message} from 'antd'
 export default {
   namespace: "lookCheck",
 
@@ -16,7 +17,7 @@ export default {
     getQueData: [],
     questionsData:[],
     detailConDataL:[],
-    detailTiCode:null
+    isCode:-1
   },
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
@@ -65,6 +66,7 @@ export default {
       });
     },
     *detailCon({ payload, type }, { call, put }) {
+      console.log(payload)
       let data = yield call(detailCon, payload);
       yield put({
         type: "upDatdetailCon",
@@ -75,10 +77,15 @@ export default {
       console.log(payload)
       let data = yield call(detailConTi, payload);
       console.log(data)
+        if(data.code!==1){
+          message.error(data.msg)
+        }else{
+          message.success("修改成功");
+        }
       yield put({
         type: "upDatdetailConTi",
-        payload: data.data,
-        payCode:data.code
+        payload: data.code,
+        // payCode:data.code
       });
     }
   },
@@ -104,7 +111,8 @@ export default {
       return { ...state, detailConDataL: action.payload };
     },
     upDatdetailConTi(state, action) {
-      return { ...state, detailConDataL: action.payload,detailTiCode:action.payCode};
+      console.log(action,"iscode_action")
+      return { ...state, isCode:action.payload};
     }
   }
 };
