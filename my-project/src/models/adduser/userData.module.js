@@ -1,4 +1,4 @@
-import { addUser, userIdentity,addIdentity,addapiSer,getViewSer,addViewSer,getApiServer,setApiServer,setViewSer,getUserSer,upDataUserSer} from "@/services";
+import { addUser, userIdentity,addIdentity,addapiSer,getViewSer,addViewSer,getApiServer,setApiServer,setViewSer,getUserSer,upDataUserSer,userInfo} from "@/services";
 
 
 export default {
@@ -18,20 +18,32 @@ export default {
     setViewData:null,//设置视图权限 
     userAllData:null,//获取用户数据
     upDataUserData:null,//修改用户数据  
+    userInfoData: {},
 
+  },
+  subscription: {
+    setup({ dispatch, history }) { }
   },
 
   
   //异步操作
 
   effects: {
+     //获取当前用户信息
+     *userInfo({ payload }, { call, put }) {
+      let data = yield call(userInfo);
+      yield put({
+        type: 'getUserInfo',
+        action: data.data
+      });
+    },
+
+
     //添加用户
     *addUserData({ payload }, { call, put }) {
       let data = yield call(addUser, payload)
         yield put({ type: "addUserID", payload:{code:data.code,msg:data.msg} })
 
-      
-     
 
     },
 //获取用户身份
@@ -119,6 +131,16 @@ export default {
   },
 
   reducers: {
+    getUserInfo(state, { action }) {
+      return {
+        ...state,
+        userInfoData: action
+      };
+    },
+
+
+
+
     //添加用户
     addUserID(state, action) {
       return { ...state, addUserType:action.payload };
