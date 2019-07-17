@@ -4,12 +4,12 @@ import {
   getStudentGrade,
   delStudent,
   getNewStudent,
-  getNewStudentGrade
+  getNewStudentGrade,
+ 
 } from "@/services";
 
 export default {
   namespace: "ManageStudentPage",
-
   state: {
     MangerStudentData: [], //获取所有分班学生的信息
     NewMangerStudentData: [], //获取所有没有分班学生的信息
@@ -17,7 +17,8 @@ export default {
     StudentRoomData: [],
     StudentGradeData: [], //获取已经分配教室的班级
     delStudentData: [],
-    NewStudentGradeData: [] //获取没有分配教室的班级
+    NewStudentGradeData: [], //获取没有分配教室的班级
+   
   },
 
   effects: {
@@ -85,7 +86,8 @@ export default {
       yield put({
         type: "getNewManageStuModel"
       });
-    }
+    },
+   
   },
 
   reducers: {
@@ -155,6 +157,11 @@ export default {
         NewMangerStudentData: action,
         AllManagerStudentData: state.MangerStudentData.concat(action)
       };
-    }
+    },
+
+    
+
+  
+
   }
 };

@@ -23,13 +23,14 @@ import StudentManage from "./grade/SturentManage/StudentManage";
 //阅卷管理
 import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
 import TestClass from "./Marking/testClass/testClass.js";
-
+import ReadExam from "./Marking/readExam/readExam.js";
 //试题详情
 import Detail from "./qusetion/CheckItem/detail";
 //编辑试题
 import DetailCompile from "./qusetion/CheckItem/detailCompile"
 //kaoshiguanli
 import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail"
+
 
 
 const { Sider } = Layout;
@@ -172,7 +173,8 @@ function IndexPage() {
           <Route path="/home/gradeManage" component={GradeManage} />
           <Route path="/home/studentManage" component={StudentManage} />
           <Route path="/home/awaitClass" component={AwaitClass} />
-          <Route path="/home/testClass" component={TestClass} />
+          <Route path="/home/readExam" component={ReadExam} />
+          <Route path="/home/testClass/:id" component={TestClass} />
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
           <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />

@@ -1,4 +1,4 @@
-import { ManagerGrade } from '@/services'
+import { ManagerGrade, getExamStudent } from '@/services'
 import {routerRedux } from "dva/router";
 
 export default {
@@ -6,6 +6,7 @@ export default {
 
   state: {
     getAllGradeData: [],
+    ExamStudentData:[]//获取学生试卷列表
   },
   subscription: {
     setup({ dispatch, history }) { }
@@ -32,6 +33,34 @@ export default {
        
         yield put(routerRedux.push({pathname:"/home/testClass",params:{grade_id:payload.grade_id}}));
       },
+
+       //获取学生试卷列表
+    
+    *getStudentExamModel({ payload }, { call, put }) {
+      let data = yield call(getExamStudent,payload);
+      console.log(data);
+      if(data.code){
+        yield put({
+          type: "getExamStudentReducer",
+          action: data.exam
+        });
+      }
+      
+    },
+
+    
+//获取班级
+    *getGradeModel({ payload }, { call, put }) {
+      let data = yield call(getExamStudent,payload);
+      console.log(data);
+      if(data.code){
+        yield put({
+          type: "getExamStudentReducer",
+          action: data.exam
+        });
+      }
+      
+    },
   
   },
 
@@ -51,5 +80,30 @@ export default {
           getAllGradeData: action
         };
       },
+
+      getExamStudentReducer(state, { action }) {
+        return {
+          ...state,
+          ExamStudentData: action
+        };
+      },
+
+
+      
+      filterTestSearchModel(state, { payload }) {
+        console.log(payload);
+        const arr= state.ExamStudentData.filter((item,index)=>{
+          console.log(item);
+          return item.grade_name===payload;
+        })
+        console.log(arr);
+        return {
+          ...state,
+          ExamStudentData:arr
+
+           
+        };
+      },
+
   }
 }

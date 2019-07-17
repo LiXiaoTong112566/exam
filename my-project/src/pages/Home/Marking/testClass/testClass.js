@@ -2,13 +2,24 @@ import React from "react";
 import { connect } from "dva";
 
 import TestClassCom from "@/components/testClassCom";
+
+import TestClassSearchBoxCom from "@/components/TestClassSearchBoxCom";
 import testClassCss from "./testClass.scss";
-function testClass() {
+function testClass(props) {
+  console.log(props);
+
+
   return (
     <div className={testClassCss.testClassPage}>
-      <h3>试卷列表</h3>
+     
+      <div className={testClassCss.searchBox}>
+
+    <TestClassSearchBoxCom></TestClassSearchBoxCom>
+
+      </div>
       <div className={testClassCss.testClassBox}>
-        <TestClassCom />
+      <h3>试卷列表</h3>
+        <TestClassCom {...props}/>
       </div>
     </div>
   );
