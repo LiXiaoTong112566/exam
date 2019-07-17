@@ -13,6 +13,7 @@ import {
   Spin
 } from "antd";
 const { Column, ColumnGroup } = Table;
+const { confirm } = Modal;
 function QuestionClass(props) {
   useEffect(() => {
     props.roomD();
@@ -39,13 +40,33 @@ function QuestionClass(props) {
     setInputValue("");
   };
 
-    //点击删除
-    let deleteL = id => {
-      props.deleteClassD({
-        room_id: id
+    // //点击删除
+    // let deleteL = id => {
+    //   props.deleteClassD({
+    //     room_id: id
+    //   });
+    //   props.roomD();
+    // };
+
+    function deleteL(id) {
+      console.log(id)
+      confirm({
+        title: '删除',
+        content: '确定删除吗？',
+        onOk() {
+          props.deleteClassD({
+            room_id: id
+          });
+        
+        },
+        
+        onCancel() {
+          console.log('Cancel');
+        },
+        
       });
       props.roomD();
-    };
+  }
 
   //点击取消
   let handleCancel = () => {
@@ -91,7 +112,7 @@ function QuestionClass(props) {
                 })(
                   <Input
                     placeholder="请输入类型名称"
-                    setFieldsValue={inputValue}
+                    setFieldsvalue={inputValue}
                     onChange={changeInput}
                   />
                 )}
@@ -110,6 +131,7 @@ function QuestionClass(props) {
             key="action"
             dataIndex="room_id"
             render={(text, record) => (
+             
               <span>
                 <a href="javascript:;" onClick={() => deleteL(record.room_id)}>删除</a>
               </span>

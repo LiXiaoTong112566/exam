@@ -47,7 +47,7 @@ function QuestionClass(props) {
   return (
 
    
-    props.global?<div className={QuestStyle.loading}><Spin></Spin></div>:
+    // props.global?<div className={QuestStyle.loading}><Spin></Spin></div>:
     <div className={QuestStyle.box}>
 
       <h1 className={QuestStyle.title}>试题分类</h1>
