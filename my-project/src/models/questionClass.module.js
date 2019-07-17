@@ -104,6 +104,8 @@ export default {
         questionsTypeData: action
       };
     },
+    
+
     getExamAdd(state, { action ,data}){
       return{
         ...state,

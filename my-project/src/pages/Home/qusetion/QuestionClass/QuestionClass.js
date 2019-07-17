@@ -55,11 +55,7 @@ function QuestionClass(props) {
   
   const { getFieldDecorator } = props.form;
 
-  return props.global ? (
-    <div className={QuestStyle.loading}>
-      <Spin />
-    </div>
-  ) : (
+  return  (
     <div className={QuestStyle.box}>
       <h1 className={QuestStyle.title}>试题分类</h1>
       <div className={QuestStyle["QuestionClass_addType"]}>

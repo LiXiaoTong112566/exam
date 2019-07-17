@@ -28,6 +28,10 @@ import TestClass from "./Marking/testClass/testClass.js";
 import Detail from "./qusetion/CheckItem/detail";
 //编辑试题
 import DetailCompile from "./qusetion/CheckItem/detailCompile"
+//kaoshiguanli
+import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail"
+
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -171,7 +175,7 @@ function IndexPage() {
           <Route path="/home/testClass" component={TestClass} />
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
-         
+          <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />
         </Layout>
       </Layout>
     </div>

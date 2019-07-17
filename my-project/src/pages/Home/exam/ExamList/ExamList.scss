@@ -1,0 +1,42 @@
+.ExamList_wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding:0 24px 24px;
+    h2{
+        padding: 20px 0;
+        margin-top: 10px;
+        font-size: 25px;
+        color: rgba(0,0,0,0.85);
+    }
+    .ExamList_type{
+        width: 100%;
+        height: 150px;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 24px;
+        margin: 0 0 20px;
+        .ExamList_form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            .ant-form-horizontal {
+                display: flex;
+            }
+        }
+    }
+    .ExamList_list {
+        flex: 1;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 24px;
+        margin: 0 0 10px;
+        .ExamList_list_title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -66,7 +66,7 @@ function Permissions(props) {
   )
 }
 function ShowUser(props) {
-  const [ind,setind]=useState(0);
+  
 
   let [userFlag, setUserFlag] = useState(0);
 
@@ -84,6 +84,7 @@ function ShowUser(props) {
     //展示身份和视图权限关系 
     props.identityViewAuthorityD()
   }, []);
+  const [ind,setind]=useState(0);
 
   let userDisplay = [
     "用户数据",
@@ -96,12 +97,9 @@ function ShowUser(props) {
   //点击时重新赋值
   let userFn = index => {
     setUserFlag(index);
-
     setind(index)
-
-}
-
-
+  };
+ 
   return (
     <div className={useStyle.user}> 
       <h3 className={useStyle.h3}>用户展示</h3>

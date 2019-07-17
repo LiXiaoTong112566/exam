@@ -18,7 +18,7 @@ function questionsL(props) {
   const [seleTypeValue, setseleTypeValue] = useState("");
   //课程类型
   const [typeData, setTypeData] = useState("");
-  const [ind,setind]=useState("-1");
+  const [ind,setInd]=useState("-1");
 
   let seleFn = e => {
     setSeleValue(e);
@@ -28,9 +28,8 @@ function questionsL(props) {
   };
   let s = "";
   let lisFn = e => {
-    console.log(e.target);
     s = e.target.getAttribute("datakey");
-    setind(e.target.getAttribute("dataind"));
+    setInd(e.target.getAttribute("dataind"));
 
     setTypeData(s);
 
@@ -42,20 +41,13 @@ function questionsL(props) {
       exam_id: seleValue,
       subject_id: typeData
     }
-    console.log(obj)
     for(let i in obj){
-      console.log(obj[i])
        if(obj[i]===""){
           delete obj[i]
        }  
     }
-    console.log(obj)
     props.condition(obj);
   };
-  // let routerTo=()=>{
-  //   console.log(1)
-  // }
-
 
 
   return (
@@ -130,6 +122,7 @@ const mapDispatchToPorps = dispatch => {
       });
     },
     getQuestionsTypes: payload => {
+      console.log(payload);
       dispatch({
         type: "lookCheck/getQuestionsTypes",
         payload
