@@ -1,8 +1,8 @@
 import {
   lookCheck,
   examTypes,
-  getQuestionsTypes,
-  questions,
+  getQueTypes,
+  Newquestions,
   condition,
   detailCon,
   detailConTi
@@ -22,6 +22,7 @@ export default {
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
       let data = yield call(lookCheck, payload);
+     console.log(data);
       yield put({
         type: "upDatalookCheck",
         payload: data.data
@@ -29,13 +30,16 @@ export default {
     },
     *examTypes({ payload, type }, { call, put }) {
       let data = yield call(examTypes, payload);
+      console.log(data);
       yield put({
         type: "upDataexamTypes",
         payload: data.data
       });
     },
     *getQuestionsTypes({ payload, type }, { call, put }) {
-      let data = yield call(getQuestionsTypes, payload);
+     
+      let data = yield call(getQueTypes);
+     
       yield put({
         type: "upDatagetQuestionsTypes",
         payload: data.data
@@ -43,8 +47,11 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
-      let data = yield call(questions, payload);
-      console.log(data.data);
+      console.log(payload);
+      console.log(Newquestions);
+      let data = yield call(Newquestions);
+      console.log(data);
+      
       yield put({
         type: "upDataquestions",
         payload: data.data
@@ -52,6 +59,7 @@ export default {
     },
     *condition({ payload, type }, { call, put }) {
       let data = yield call(condition, payload);
+      console.log(data)
       yield put({
         type: "upDatcondition",
         payload: data.data

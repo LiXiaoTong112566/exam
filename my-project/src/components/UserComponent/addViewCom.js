@@ -2,9 +2,9 @@
  * 添加视图接口权限
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "dva";
-import { Form, Icon, Input, Button, Select } from "antd";
+import { Form,  Button, Select, message } from "antd";
 
 import AdduserCss from "@/pages/Home/users/AddUser/AddUser.scss";
 const { Option } = Select;
@@ -12,53 +12,69 @@ function AddViewCom(props) {
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
-          if (!err) {
-            console.log("Received values of form: ", values);
-          }
+      if (!err) {
+        let checkData = props.getViewData.filter((item, index) => {
+          return item.view_authority_text === values.view_authority_text;
         });
-      };
+        props.addViewprops({
+          view_authority_text: checkData[0].view_authority_text,
+          view_id: checkData[0].view_id
+        });
+      }
+    });
+  };
 
-  function onChange(value) {
-    console.log(`selected ${value}`);
+  useEffect(() => {
+    props.getUserView();
+    if (props.addViewData) {
+      if (props.addViewData.code === 1) {
+        message.success(props.addViewData.msg);
+      } else {
+        message.error(props.addViewData.msg);
+      }
+    }
+  }, [props.addViewData]);
+
+  //重置
+  function handleReset() {
+    props.form.resetFields();
   }
 
-  function onBlur() {
-    console.log("blur");
-  }
-
-  function onFocus() {
-    console.log("focus");
-  }
-
-  function onSearch(val) {
-    console.log("search:", val);
-  }
   const { getFieldDecorator } = props.form;
   return (
     <div className={AdduserCss.borderBox}>
-      <div className={AdduserCss.btn} >添加视图接口权限</div>
-      
+      <div className={AdduserCss.btn}>添加视图接口权限</div>
+
       <Form onSubmit={handleSubmit} className="login-form">
         <Form.Item>
-          <Select
-            showSearch
-            style={{ width: 200 }}
-            placeholder="请选择已有的视图"
-            optionFilterProp="children"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onSearch={onSearch}
-            filterOption={(input, option) =>
-              option.props.children
-                .toLowerCase()
-                .indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
-          </Select>
+          {getFieldDecorator("view_authority_text", {
+
+            rules: [{ required: true, message: "请选择已有的视图!" }]
+          })(
+            <Select
+              showSearch
+              style={{ width: 200 }}
+              placeholder="请选择已有的视图"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                option.props.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              {props.getViewData &&
+                props.getViewData.map((item, index) => {
+                  return (
+                    <Option
+                      value={item.view_authority_text}
+                      key={"view" + index}
+                    >
+                      {item.view_authority_text}
+                    </Option>
+                  );
+                })}
+            </Select>
+          )}
         </Form.Item>
 
         <Form.Item>
@@ -69,11 +85,7 @@ function AddViewCom(props) {
           >
             确定
           </Button>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-          >
+          <Button className="login-form-button" onClick={handleReset}>
             重置
           </Button>
         </Form.Item>
@@ -84,4 +96,32 @@ function AddViewCom(props) {
 
 AddViewCom.propTypes = {};
 
-export default connect()(Form.create()(AddViewCom));
+const mapStateToProps = state => {
+  return {
+    ...state.userData
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    //获取权限数据
+    getUserView() {
+      dispatch({
+        type: "userData/getView"
+      });
+    },
+    //添加视图接口权限
+
+    addViewprops(data) {
+      dispatch({
+        type: "userData/addViewModel",
+        payload: data
+      });
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form.create()(AddViewCom));

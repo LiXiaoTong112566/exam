@@ -2,14 +2,14 @@ import axios from "axios";
 import {getCookie} from "@/utils/index.js"
 
 const service=axios.create({
-  baseURL:"http://169.254.12.168:7001/",
+  baseURL:"http://127.0.0.1:7001/",
   timeout:5000
 })
 
 service.interceptors.request.use(
   config=>{
     if(getCookie()){
-      config.headers['authorization']=getCookie()
+      config.headers['authorization']=getCookie() 
     }
     return config
   },

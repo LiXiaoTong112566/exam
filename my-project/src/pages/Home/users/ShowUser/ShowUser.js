@@ -66,6 +66,8 @@ function Permissions(props) {
   )
 }
 function ShowUser(props) {
+  
+
   let [userFlag, setUserFlag] = useState(0);
 
   useEffect(() => {
@@ -103,7 +105,8 @@ function ShowUser(props) {
       <h3 className={useStyle.h3}>用户展示</h3>
       <ol className={useStyle.ol}>
         {userDisplay.map((item, index) => (
-          <li key={index} onClick={() => userFn(index)} className={ind===index?useStyle.active:''}>
+          <li key={index} onClick={() => userFn(index)} className={ind===index?useStyle.active:''}
+          >
             {item}
           </li>
         ))}

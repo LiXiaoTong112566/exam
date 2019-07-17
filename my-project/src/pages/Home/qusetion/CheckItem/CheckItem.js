@@ -122,6 +122,7 @@ const mapDispatchToPorps = dispatch => {
       });
     },
     getQuestionsTypes: payload => {
+      console.log(payload);
       dispatch({
         type: "lookCheck/getQuestionsTypes",
         payload

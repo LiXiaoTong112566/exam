@@ -1,0 +1,309 @@
+{
+  "keys": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "log": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "security": {
+    "csrf": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+      "useSession": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "cors": {
+    "origin": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+    "allowMethods": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js"
+  },
+  "mysql": {
+    "client": {
+      "host": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+      "port": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+      "user": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+      "password": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+      "database": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js"
+    },
+    "default": {
+      "database": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-mysql\\config\\config.default.js"
+    },
+    "app": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-mysql\\config\\config.default.js",
+    "agent": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-mysql\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+    "dir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+    "autoFields": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "questionsRootPath": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "answersRootPath": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "whiteList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "identityWhiteList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "loginWhiteList": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+  "alinode": {
+    "appid": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+    "secret": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\config\\config.default.js",
+    "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "server": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "cmddir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "logdir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "error_log": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "packages": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "reconnectDelay": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "heartbeatInterval": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js",
+    "reportInterval": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-alinode\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "development": {
+    "watchDirs": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "view": {
+    "root": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "validate": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg-validate\\config\\config.default.js",
+  "env": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "name": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "version": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "description": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "main": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "test": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "start": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "stop": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "license": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "antd": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "babel-plugin-import": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-alinode": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-cors": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-validate": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "jsonwebtoken": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "markdown-it": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "monaco-editor": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "node-xlsx": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "strict": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "depth": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "env": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "level": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "logging": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "port": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "C:\\Users\\Lenovo\\Desktop\\Project\\my-project\\server\\node_modules\\egg\\config\\config.default.js"
+}
