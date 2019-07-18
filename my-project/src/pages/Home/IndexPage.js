@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 import {  Route, NavLink } from "dva/router";
 import { connect } from "dva";
-import { Layout, Menu, Dropdown, Icon, message, } from "antd";
+import { Layout, Menu, Dropdown, Icon, message,Spin } from "antd";
 //试题管理
 import AddItem from "./qusetion/AddItem/AddItem";
 import CheckItem from "./qusetion/CheckItem/CheckItem";
@@ -163,7 +163,9 @@ function IndexPage(props) {
             </SubMenu>
           </Menu>
         </Sider>
+      
         <Layout>
+         <div>
           <Route path="/home/addItem" component={AddItem} />
           <Route path="/home/classifyItem" component={QuestionClassify} />
           <Route path="/home/checkItem" component={CheckItem} />
@@ -180,10 +182,21 @@ function IndexPage(props) {
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
           <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />
+          {props.loadingFlag?<div className={styles.loading}><Spin></Spin></div>:null}
+
+          </div>
         </Layout>
+       
       </Layout>
     </div>
   );
+}
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    loadingFlag:state.loading.global,
+  }
 }
 const mapDispatchToProps = dispatch=>{
   return {
@@ -195,4 +208,4 @@ const mapDispatchToProps = dispatch=>{
     }
   }
 }
-export default injectIntl(connect(null, mapDispatchToProps)(IndexPage));
+export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(IndexPage));

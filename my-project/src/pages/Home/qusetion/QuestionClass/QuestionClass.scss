@@ -15,10 +15,12 @@
 }
 
 .title {
-  margin-left: 2%;
+  margin-left: 1%;
   height: 90px;
   line-height: 100px;
   font-size: 22px;
+  padding-left:10px;
+  border-radius: 10px;
 }
 
 .ant-table-thead {

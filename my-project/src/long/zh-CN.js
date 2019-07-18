@@ -13,20 +13,6 @@ export default {
     'questions.type.course': '请选择课程类型：',
     'questions.type.test': '请选择考试类型：',
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
     'router.management': '用户管理',
     'router.management.add': '添加用户',
     'router.management.view': '用户展示',

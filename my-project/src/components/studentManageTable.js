@@ -20,11 +20,7 @@ function StudentManageTable(props) {
 
   const data = props.AllManagerStudentData; //获取所有分班学生的信息
 
-  function deleteData(data) {
-    let ind = props.AllManagerStudentData.findIndex((item, index) => {
-      return item.student_id === data.student_id;
-    });
-  }
+  
 
   return (
     <Table dataSource={data} rowKey="table">
@@ -37,9 +33,7 @@ function StudentManageTable(props) {
         title="Action"
         key="action"
         dataIndex="student_id"
-        onClick={e => {
-          props.delete(e);
-        }}
+       
         render={(text, record) => (
           <span
             onClick={() => {
@@ -62,7 +56,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     //获取所有已经分班的学生
     getManageStudent() {

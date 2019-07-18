@@ -1,29 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "dva";
 import QuestStyle from "./QuestionClass.scss";
-import {
-  Button,
-  Modal,
-  Form,
-  Input,
-  Table,
-  Icon,
-  Spin,
-  message
-} from "antd";
-const { Column} = Table;
+import { Button, Modal, Form, Input, Table, Icon, Spin, message } from "antd";
+const { Column } = Table;
 
 function QuestionClass(props) {
- 
   useEffect(() => {
     props.getQuestion();
   }, []);
 
-  
-
   const data = props.questionClassData;
   const [visible, setvisible] = useState(false);
-  
 
   let showModal = () => {
     setvisible(true);
@@ -33,9 +20,7 @@ function QuestionClass(props) {
   function handleSubmit() {
     // props.form.validate();
     props.form.validateFields((err, values) => {
-
       if (!err) {
-       
         props.addQuestion({
           text: values.username,
           sort: (props.questionClassData.length + 1).toString()
@@ -52,10 +37,8 @@ function QuestionClass(props) {
     setvisible(false);
   };
 
-  
   const { getFieldDecorator } = props.form;
-
-  return  (
+  return (
     <div className={QuestStyle.box}>
       <h1 className={QuestStyle.title}>试题分类</h1>
       <div className={QuestStyle["QuestionClass_addType"]}>
