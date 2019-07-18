@@ -30,7 +30,7 @@ export default {
     //添加试题类型
     *addType({ payload }, { call, put }) {
       let newType = yield call(addType, payload);
-      yield put({ type: "questionClass" })
+      yield put({type:"questionClass"})
     },
     //添加试题
     *add({ payload }, { call, put }) {

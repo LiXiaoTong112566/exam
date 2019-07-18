@@ -2,7 +2,7 @@
  * 学生管理页面Form表单
  */
 
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "dva";
 import { Form, Icon, Input, Button, Select } from "antd";
 import StudentManageCss from "@/pages/Home/grade/SturentManage/StudentManage.scss";
@@ -10,18 +10,16 @@ import StudentManageCss from "@/pages/Home/grade/SturentManage/StudentManage.scs
 const { Option } = Select;
 
 function StudentManageCom(props) {
-
-  console.log(props);
-
-  useEffect(()=>{
-    props.getClassRoom();//获取教室号
-    props.getGrade();//获取班级名称
-  },[])
+  useEffect(() => {
+    props.getClassRoom(); //获取教室号
+    props.getGrade(); //获取班级名称
+    props.getNewGrade(); //获取班级名称
+  }, []);
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        props.filterStudent(values);
       }
     });
   };
@@ -82,21 +80,37 @@ function StudentManageCom(props) {
             }
           >
             {props.StudentGradeData &&
-              props.StudentGradeData.map((item, index) => {
-                return (
-                  <Option value={item.grade_name} key={item.grade_id}>
-                    {item.grade_name}
-                  </Option>
-                );
-              })}
+              props.StudentGradeData.concat(props.NewStudentGradeData).map(
+                (item, index) => {
+                  return (
+                    <Option value={item.grade_name} key={item.grade_id}>
+                      {item.grade_name}
+                    </Option>
+                  );
+                }
+              )}
           </Select>
         )}
       </Form.Item>
       <Form.Item>
-        <Button type="primary" block htmlType="submit" style={{width:"130px"}}>搜索</Button>
+        <Button
+          type="primary"
+          block
+          htmlType="submit"
+          style={{ width: "130px" }}
+        >
+          搜索
+        </Button>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" block onClick={handleReset} style={{width:"130px"}}>重置</Button>
+        <Button
+          type="primary"
+          block
+          onClick={handleReset}
+          style={{ width: "130px" }}
+        >
+          重置
+        </Button>
       </Form.Item>
     </Form>
   );
@@ -104,33 +118,47 @@ function StudentManageCom(props) {
 
 StudentManageCom.propTypes = {};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-   ...state.ManageStudentPage
-  }
-}
+    ...state.ManageStudentPage
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-
+const mapDispatchToProps = dispatch => {
   return {
     //获取教室号
-    getClassRoom(){
+    getClassRoom() {
       dispatch({
-      type:"ManageStudentPage/getRoomText",
-      })
-
+        type: "ManageStudentPage/getRoomText"
+      });
     },
 
-  
-//获取班级名称
-    getGrade(){
+    //获取所有已经分班班级名称
+    getGrade() {
       dispatch({
-        type:"ManageStudentPage/getGradeName",
-        })
+        type: "ManageStudentPage/getGradeName"
+      });
+    },
 
+    //获取没有分班的班级名称
+
+    getNewGrade() {
+      dispatch({
+        type: "ManageStudentPage/getNewGradeName"
+      });
+    },
+
+    //筛选名称
+    filterStudent(data) {
+      dispatch({
+        type: "ManageStudentPage/filterStudentModel",
+        payload: data
+      });
     }
-  
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(Form.create()(StudentManageCom));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form.create()(StudentManageCom));

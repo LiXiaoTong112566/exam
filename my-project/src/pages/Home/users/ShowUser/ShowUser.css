@@ -1,9 +1,15 @@
-.ol{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.ol {
     width: 100%;
     display: flex;
     list-style: none;
 }
-.ol li{
+
+.ol li {
     height: 35px;
     padding: 0 10px;
     text-align: center;
@@ -11,29 +17,33 @@
     border: solid 1px #ccc;
     background: #fff;
 }
-.ol li.active{
-    background: #1890ff;
-    color:#fff;
-}
-.user{
-    padding: 30px;
-}
-h3{
-   width: 100%;
-   height: 80px;
-   line-height: 80px;
 
+.ol li.active {
+    background: #1890ff;
+    color: #fff;
 }
-h1{
-    font-size: 35px;
+
+.user {
+    padding:0 20px;
 }
-.dl{
+
+.h1 {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background: rgb(240, 242, 245);
+    font-size: 34px
+}
+
+.dl {
     display: flex;
     justify-content: space-between;
 }
-.dl dt{
+
+.dl dt {
     display: flex;
 }
-.dl dt p{
+
+.dl dt p {
     width: 200px;
 }

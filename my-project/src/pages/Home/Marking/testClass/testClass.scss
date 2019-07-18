@@ -1,0 +1,42 @@
+.testClassPage{
+    width: 100%;
+    height: 100%;
+    
+    background: rgb(240, 242, 245);
+    padding:0px 20px;
+    box-sizing: border-box;
+
+    h3{
+        height: 70px;
+        line-height: 70px;
+        font-size: 34px;
+    }
+
+    .testClassBox{
+        width: 100%;
+        background: #fff;
+        padding:0 10px;
+        border-radius: 10px;
+      }
+
+      .lable{
+          margin:10px;
+      }
+
+      .searchBox{
+        width: 100%;
+        height: 150px;
+        line-height: 150px;
+        vertical-align: middle;
+        background: #fff;
+        padding:50px 20px;
+        border-radius: 10px;
+        margin:20px 0;
+    
+    }
+      
+
+}
+
+
+

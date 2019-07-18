@@ -1,11 +1,14 @@
 // section{
 //   height: 100%;
 // }
+*{
+  margin: 0;padding: 0;
+}
 .box {
   height: 100%;
   overflow: scroll;
    box-sizing: border-box;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .QuestionClass_addType {
@@ -15,10 +18,11 @@
 }
 
 .title {
-  margin-left: 2%;
-  height: 90px;
-  line-height: 100px;
-  font-size: 22px;
+
+  height: 70px;
+  line-height: 70px;
+  font-size: 34px;
+  background: rgb(240, 242, 245);
 }
 
 .ant-table-thead {
@@ -26,7 +30,11 @@
     background: #ccc;
   }
 }
-
+.form{
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
 .ant-btn {
   width: 150px;
   height: 40px;

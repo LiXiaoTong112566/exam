@@ -53,7 +53,7 @@ function questionsL(props) {
 
   return (
     <div>
-      <h2>查看试题</h2>
+      <h1 className={checkItem.h1}>查看试题</h1>
       <div className={checkItem.box}>
         <div className={checkItem.top}>
           <ul>
@@ -123,6 +123,7 @@ const mapDispatchToPorps = dispatch => {
       });
     },
     getQuestionsTypes: payload => {
+      console.log(payload);
       dispatch({
         type: "lookCheck/getQuestionsTypes",
         payload

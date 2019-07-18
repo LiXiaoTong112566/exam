@@ -5,11 +5,11 @@ import { Layout, Form, Button, Input, Select, message, Modal } from "antd";
 import Editor from "for-editor";
 
 function DetailCompile(props) {
-
+  console.log(props.isCode,"iscode")
   let obj = {};
   //获取到数据
   useEffect(() => {
-    // // 获取用户信息
+    // 获取用户信息
     props.userInfo();
     //获取考试类型
     props.examType();
@@ -20,9 +20,32 @@ function DetailCompile(props) {
     props.detailCon({
       questions_id: props.match.params.id.split("=")[1]
     });
-  }, [props.addQuestionsFlag]);
+  }, [props.isCode]);
+
+  
+ //弹窗
+  const [ModalText, setModalText] = useState("确认修改吗");
+  const [visible, setvisible] = useState(false);
+
+  let showModal = () => {
+    setvisible(true);
+    // console.log(props.detailTiCode)
+  }
+  //点击确定
+  let handleOk=()=>{
+      setvisible(false);
+      handleSubmit()
+      props.history.push({pathname:'/home/checkItem'})
+  }
+  //点击取消
+  let handleCancel = () => {
+     setvisible(false);
+  }
+
+  const { getFieldDecorator } = props.form;
+  const { Option } = Select;
+  const { Header, Content } = Layout;
   let handleSubmit = e => {
-      e.preventDefault();
       props.form.validateFields((err, values) => {
         if (!err) {
           let questions_type_id = props.questionsTypeData.find( item => item.questions_type_text === values.questions_type_id).questions_type_id;
@@ -44,26 +67,6 @@ function DetailCompile(props) {
       });
   };
 
- //弹窗
-  const [ModalText, setModalText] = useState("确认修改吗");
-  const [visible, setvisible] = useState(false);
-
-  let showModal = () => {
-    setvisible(true);
-   
-  }
-  //点击确定
-  let handleOk=()=>{
-      setvisible(false);
-  }
-  //点击取消
-  let handleCancel = () => {
-     setvisible(false);
-  }
-
-  const { getFieldDecorator } = props.form;
-  const { Option } = Select;
-  const { Header, Content } = Layout;
   return (
     <div className={styles["wrap"]}>
       {props.detailConDataL &&props.detailConDataL.map((item, index) => {
@@ -188,7 +191,6 @@ function DetailCompile(props) {
                     <div>
                       <Button
                         type="primary"
-                        htmlType="submit"
                         onClick={showModal}
                       >
                         提交
@@ -199,13 +201,8 @@ function DetailCompile(props) {
                         visible={visible}
                         onOk={handleOk}
                         onCancel={handleCancel}
-
-                        okText="确认"
-                        cancelText="取消"
                       >
-                      <p>{ModalText}</p>
-
-                        
+                      <h2>{ModalText}</h2>
                       </Modal>
                     </div>
                   </Form>

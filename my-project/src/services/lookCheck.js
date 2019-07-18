@@ -9,11 +9,11 @@ export function  examTypes() {
   return request.get('/exam/examType');
 }
 
-export function  getQuestionsTypes() {
+export function  getQueTypes() {
   return request.get('/exam/getQuestionsType');
 }
-//suoyoushuju
-export function  questions() {
+
+export function Newquestions() {
   return request.get('/exam/questions/new');
 }
 //第一个详情
@@ -30,4 +30,3 @@ export function  detailCon(params) {
 export function  detailConTi(params) {
   return request.put('/exam/questions/update',params);
 }
-

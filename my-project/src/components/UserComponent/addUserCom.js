@@ -48,10 +48,17 @@ function AddUserCom(props) {
   useEffect(() => {
     props.getUserIdent();
     props.getUserData();
+    if (props.addUserType) {
+      if (props.addUserType.code === 1) {
+        message.success(props.addUserType.msg);
+      } else {
+        message.error(props.addUserType.msg);
+      }
+    }
 
     
-    // props.addUserType
-  }, []);
+    // 
+  }, [props.addUserType]);
 
   const { getFieldDecorator } = props.form;
 

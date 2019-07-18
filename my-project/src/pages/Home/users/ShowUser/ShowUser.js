@@ -104,7 +104,7 @@ function ShowUser(props) {
 
   return (
     <div className={useStyle.user}> 
-      <h3 className={useStyle.h3}>用户展示</h3>
+      <h1 className={useStyle.h1}>用户展示</h1>
       <ol className={useStyle.ol}>
         {userDisplay.map((item, index) => (
           <li key={index} onClick={() => userFn(index)} className={ind===index?useStyle.active:''}
@@ -113,7 +113,7 @@ function ShowUser(props) {
           </li>
         ))}
       </ol>
-      <h1>{userDisplay[userFlag]}</h1>
+      <h3 className={useStyle.h3}>{userDisplay[userFlag]}</h3>
       <div className={useStyle.user_bottom}>
         {userFlag === 0 && <UserData userDatas={props.userDatas} />}
         {userFlag === 1 && <Identity identityData={props.identityData} />}

@@ -1,0 +1,24 @@
+*{
+    margin: 0;padding: 0;
+}
+.AwaitClassPage {
+  width: 100%;
+  height: 100%;
+
+  background: rgb(240, 242, 245);
+  padding: 0px 20px;
+
+  h1 {
+    height: 70px;
+    line-height: 70px;
+    background: rgb(240, 242, 245);
+    font-size: 34px;
+  }
+
+  .AwaitClassBox {
+    width: 100%;
+    background: #fff;
+    padding: 0 10px;
+    border-radius: 10px;
+  }
+}

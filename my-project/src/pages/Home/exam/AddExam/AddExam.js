@@ -39,7 +39,7 @@ function AddExam(props) {
 
     return (
         <div className={styles['exam-wrap']}>
-            <h2 className={styles['exam-tit']}>添加考试</h2>
+            <h1 className={styles['exam-tit']}>添加考试</h1>
             <div className={styles['exam-con']}>
                 <Form className={styles['exam-form']} onSubmit={handleSubmit}>
                     <Form.Item label="试卷名称：">

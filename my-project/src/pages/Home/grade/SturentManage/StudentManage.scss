@@ -1,34 +1,36 @@
-.studentBox{
-    padding:0 15px;
-
-    height: 80px;
-    line-height: 80px;
-    background:#ccc;
-
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.student_list{
-    background: #fff;
-    margin-top:10px;
-
+.title {
+  height: 70px;
+  line-height: 70px;
+  font-size: 34px;
+  background: rgb(240, 242, 245);
+}
+.studentBox {
+  padding: 0 20px;
+  background: rgb(240, 242, 245);
 }
 
-.ant-btn{
-    display: inline-block;
-    width: 200px!important;
-
+.student_list {
+    padding: 10px;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
-
-
-.ant-row span{
-    display: inline-block;
-    padding: 0 50px;
-
+.ant-btn {
+  display: inline-block;
+  width: 200px !important;
 }
 
-
-.ant-form-item-control{
-    width: 200px!important;
+.ant-row span {
+  display: inline-block;
+  padding: 0 50px;
 }
 
+.ant-form-item-control {
+  width: 200px !important;
+}
