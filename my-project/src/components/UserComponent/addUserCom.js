@@ -36,7 +36,13 @@ function AddUserCom(props) {
       
     });
 
-   
+    if (props.addUserType) {
+      if (props.addUserType.code === 1) {
+        message.success(props.addUserType.msg);
+      } else {
+        message.error(props.addUserType.msg);
+      }
+    }
   };
 
   useEffect(() => {

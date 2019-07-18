@@ -43,7 +43,7 @@ function ExamList(props){
 
     return (
         <div className={styles.ExamList_wrap}>
-        <h2>试卷列表</h2>
+        <h1>考试列表</h1>
         <div className={styles.ExamList_type}>
         <div className={styles.ExamList_form}>
         <Form layout="inline" onSubmit={handleSubmit}>

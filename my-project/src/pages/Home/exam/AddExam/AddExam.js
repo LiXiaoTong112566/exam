@@ -14,6 +14,9 @@ function AddExam(props) {
 
         if (props.examAddFlag === 1) {
             message.success('添加成功')
+            props.examAddFlagFn()
+            console.log(props.createpaperList)
+            props.history.push('/home/exam/examEdit')
         } else if (props.examAddFlag === -1) {
             message.error('添加考试失败')
         }
@@ -21,7 +24,7 @@ function AddExam(props) {
 
     let handleSubmit = e => {
         props.form.validateFields((err, values) => {
-            console.log(values)
+            
             if (!err) {
                 values.start_time = +values.start_time;
                 values.end_time = +values.end_time
@@ -36,7 +39,7 @@ function AddExam(props) {
 
     return (
         <div className={styles['exam-wrap']}>
-            <h2 className={styles['exam-tit']}>添加考试</h2>
+            <h1 className={styles['exam-tit']}>添加考试</h1>
             <div className={styles['exam-con']}>
                 <Form className={styles['exam-form']} onSubmit={handleSubmit}>
                     <Form.Item label="试卷名称：">
@@ -85,7 +88,7 @@ function AddExam(props) {
                         )}
                     </Form.Item>
                     <Form.Item label="考试时间：">
-                        <Form.Item style={{ display: 'inline-block' }}>
+                        <Form.Item style={{ display: 'inline-block' }} >
                             {getFieldDecorator('start_time', {
                                 rules: [{ required: true, message: '请选择开始时间!' }],
                             })(
@@ -145,6 +148,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch({
                 type:'questionClass/examAdd',
                 payload
+            })
+        },
+        //修改examAddFlag的状态
+        examAddFlagFn(){
+            dispatch({
+                type:'questionClass/examFlagFn'
             })
         }
     }

@@ -34,7 +34,6 @@ export default {
     //获取教室
     *getRoomText({ payload }, { call, put }) {
       let data = yield call(getStudentRoom);
-
       yield put({
         type: "getStudentRoomReducer",
         action: data.data

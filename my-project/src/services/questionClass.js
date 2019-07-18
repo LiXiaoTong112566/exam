@@ -24,7 +24,7 @@ export function add(params) {
 //获取考试类型
 export function examType() {
     return request({
-        url: 'exam/examType',
+        url: '/exam/examType',
         method: 'GET'
     })
 }
@@ -48,9 +48,15 @@ export function getQuestionsType() {
 
 //考试管理 添加考试
 export function examAdd(params){
+    console.log(params)
+    return request.post('/exam/exam',params)
+}
+
+
+//获取所有试题
+export function getQuestions() {
     return request({
-        url:'/exam/exam',
-        method: 'POST',
-        data: params
+        url: '/exam/questions/new',
+        method: 'GET'
     })
 }

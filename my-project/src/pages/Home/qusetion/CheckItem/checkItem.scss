@@ -1,8 +1,15 @@
-h2 {
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.h1 {
   width: 100%;
-  height: 60px;
-  line-height: 60px;
-  padding-left: 30px;
+  height: 70px;
+  margin-left: 20px;
+  line-height: 70px;
+  font-size: 34px;
+  background:rgb(240, 242, 245)
 }
 
 .box {
@@ -25,7 +32,6 @@ h2 {
       line-height: 40px;
       justify-content: space-around;
       li {
-        
         text-align: center;
         flex-shrink: 0;
         padding:0 10px;

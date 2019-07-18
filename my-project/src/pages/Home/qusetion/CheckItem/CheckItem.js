@@ -12,13 +12,14 @@ function questionsL(props) {
   }, []);
 
   const { Option } = Select;
+  
   //考试类型：
   const [seleValue, setSeleValue] = useState("");
   //题目类型
   const [seleTypeValue, setseleTypeValue] = useState("");
   //课程类型
   const [typeData, setTypeData] = useState("");
-  const [ind,setInd]=useState("-1");
+  const [ind,setind]=useState("-1");
 
   let seleFn = e => {
     setSeleValue(e);
@@ -29,7 +30,7 @@ function questionsL(props) {
   let s = "";
   let lisFn = e => {
     s = e.target.getAttribute("datakey");
-    setInd(e.target.getAttribute("dataind"));
+    setind(e.target.getAttribute("dataind"));
 
     setTypeData(s);
 
@@ -52,7 +53,7 @@ function questionsL(props) {
 
   return (
     <div>
-      <h2>查看试题</h2>
+      <h1 className={checkItem.h1}>查看试题</h1>
       <div className={checkItem.box}>
         <div className={checkItem.top}>
           <ul>

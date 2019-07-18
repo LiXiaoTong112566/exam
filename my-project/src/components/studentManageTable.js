@@ -4,12 +4,12 @@
  *
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "dva";
 
-import { Table, Divider, Tag } from "antd";
+import { Table } from "antd";
 
-const { Column, ColumnGroup } = Table;
+const { Column} = Table;
 // const [data,setData]=useState([])
 
 function StudentManageTable(props) {
@@ -20,7 +20,6 @@ function StudentManageTable(props) {
 
   const data = props.AllManagerStudentData; //获取所有分班学生的信息
 
-  
 
   return (
     <Table dataSource={data} rowKey="table">

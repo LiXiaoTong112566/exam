@@ -1,0 +1,43 @@
+:global{
+    // .ant-table-thead,.ant-pagination,.ant-table-pagination{
+    //     display: none !important
+    // }
+    .color{
+        width: 100%;
+        display: flex;
+    }
+    .color p{
+        padding: 2px 8px;
+        margin-right:10px;
+        font-size: 12px;
+    }
+    // 左
+    .content_every_cont_left_left_y{
+        background: #e6f7ff;
+        border: 1px solid #91d5ff;
+        color: #1890ff;
+    }
+    // 中
+    .content_every_cont_left_center_y{
+        background: #f0f5ff;
+        border: 1px solid #adc6ff;
+        color: #2f54eb;
+    }
+    //右
+    .content_every_cont_left_right_y{
+        background: #fff7e6;
+        border: 1px solid #ffd591;
+        color: #fa8c16;
+    }
+    .table-list{
+        padding-left:5px;
+        .table-href{
+            width:100%;
+            height:100%;
+        }
+    }
+    .table-list:hover{
+        background: rgba(0,0,0,.05);
+
+    }
+}

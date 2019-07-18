@@ -102,7 +102,7 @@ function GradeManage(props) {
   };
   return (
     <div className={GradeManageScss.box}>
-      <h2 className={GradeManageScss.title}>班级管理</h2>
+      <h1 className={GradeManageScss.title}>班级管理</h1>
       <div className={GradeManageScss["QuestionClass_addType"]}>
       <div className={GradeManageScss["main"]}>
         <Button type="primary" onClick={()=>{showModal("add")}} className={GradeManageScss["ant-btn"]}>
@@ -116,7 +116,7 @@ function GradeManage(props) {
           okText="确认"
           cancelText="取消"
         >
-          <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
             {
               type==="add"?<Form.Item label="班级名">
               {getFieldDecorator("grade_name", {
@@ -189,7 +189,7 @@ function GradeManage(props) {
         </Modal>
         </div>
       </div>
-      <Table dataSource={props.gradeClassData}>
+      <Table dataSource={props.gradeClassData} className={GradeManageScss.form}>
         <Column title="班级名" dataIndex="grade_name" key="age" />
         <Column title="课程名" dataIndex="subject_text" key="address" />
         <Column title="教室号" dataIndex="room_text" key="tags" />

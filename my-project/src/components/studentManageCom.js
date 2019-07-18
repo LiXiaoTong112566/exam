@@ -29,7 +29,6 @@ function StudentManageCom(props) {
   }
 
   const { getFieldDecorator } = props.form;
-
   return (
     <Form layout="inline" onSubmit={handleSubmit}>
       <Form.Item>

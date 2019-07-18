@@ -7,8 +7,6 @@ import {
   Form,
   Input,
   Table,
-  Divider,
-  Tag,
   Icon,
   Spin
 } from "antd";
@@ -23,7 +21,6 @@ function QuestionClass(props) {
   const [visible, setvisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
     //删除时设置id
-  const [deletes, setdeleteL] = useState();
 
   let showModal = () => {
     setvisible(true);

@@ -74,7 +74,6 @@ export default {
       });
     },
     *detailConTi({ payload, type }, { call, put }) {
-      console.log(payload)
       let data = yield call(detailConTi, payload);
       console.log(data)
         if(data.code!==1){

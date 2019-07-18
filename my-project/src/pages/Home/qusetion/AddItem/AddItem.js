@@ -40,9 +40,9 @@ function AddItem(props) {
     const { Header, Content } = Layout;
     return (
         <div className={styles['wrap']}>
-            <Header style={{ background: '#f0f2f5', padding: 0 }}>
-                <div className={styles.conhead}>{props.intl.formatMessage({id: 'questions.type.title'})}</div>
-            </Header>
+            {/* <Header style={{ background: '#f0f2f5', padding: 0 ,height:70}}> */}
+                <h1 className={styles.conhead}>{props.intl.formatMessage({id: 'questions.type.title'})}</h1>
+            {/* </Header> */}
             <Content style={{ margin: '0 16px' }} className={styles.con}>
                 <div style={{ padding: 24, background: '#fff', height: '100%' }}>
                     <Form className="login-form" onSubmit={handleSubmit}>
