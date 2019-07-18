@@ -5,6 +5,7 @@ import { Layout, Form, Button, Input, Select, message, Modal } from "antd";
 import Editor from "for-editor";
 
 function DetailCompile(props) {
+
   let obj = {};
   //获取到数据
   useEffect(() => {
@@ -35,7 +36,9 @@ function DetailCompile(props) {
           if (obj.includes(undefined)) {
             message.error("参数不完整");
           } else {
-            props.detailConT(values);
+            props.detailConT(values)
+            props.history.push({pathname:'/home/checkItem'})
+          
           }
         }
       });
@@ -47,12 +50,11 @@ function DetailCompile(props) {
 
   let showModal = () => {
     setvisible(true);
+   
   }
   //点击确定
   let handleOk=()=>{
       setvisible(false);
-      message.success('修改成功');
-      props.history.push({pathname:'/home/checkItem'})
   }
   //点击取消
   let handleCancel = () => {
@@ -64,8 +66,7 @@ function DetailCompile(props) {
   const { Header, Content } = Layout;
   return (
     <div className={styles["wrap"]}>
-      {props.detailConDataL &&
-        props.detailConDataL.map((item, index) => {
+      {props.detailConDataL &&props.detailConDataL.map((item, index) => {
           return (
             <div key={index}>
               <Header style={{ background: "#f0f2f5", padding: 0 }}>
@@ -192,15 +193,6 @@ function DetailCompile(props) {
                       >
                         提交
                       </Button>
-                      {/* <Modal
-                        title="Title"
-                        visible={visible}
-                        onOk={handleOk}
-                        confirmLoading={confirmLoading}
-                        onCancel={handleCancel}
-                      >
-                        <p>{ModalText}</p>
-                      </Modal> */}
 
                       <Modal
                         title="编辑"

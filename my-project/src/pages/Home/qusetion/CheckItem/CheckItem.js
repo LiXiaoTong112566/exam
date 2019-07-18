@@ -29,7 +29,6 @@ function questionsL(props) {
   };
   let s = "";
   let lisFn = e => {
-    console.log(e.target);
     s = e.target.getAttribute("datakey");
     setind(e.target.getAttribute("dataind"));
 
@@ -43,20 +42,13 @@ function questionsL(props) {
       exam_id: seleValue,
       subject_id: typeData
     }
-    console.log(obj)
     for(let i in obj){
-      console.log(obj[i])
        if(obj[i]===""){
           delete obj[i]
        }  
     }
-    console.log(obj)
     props.condition(obj);
   };
-  // let routerTo=()=>{
-  //   console.log(1)
-  // }
-
 
 
   return (

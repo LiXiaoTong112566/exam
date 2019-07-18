@@ -1,0 +1,39 @@
+.box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    margin-left: 20px;
+    border-radius: 15px;
+    ul {
+      list-style: none;
+      width: 90%;
+
+      border: solid 1px #000;
+      margin: 20px auto;
+      border-radius: 15px;
+      li {
+          padding: 10px 0;
+        p {
+          width: 88%;
+          margin: 0 auto;
+          background: rgb(240, 242, 245);
+          font-size: 18px;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .right {
+    width: 26%;
+    height: 100%;
+    background: #fff;
+    margin-right: 20px;
+    border-radius: 15px;
+  }
+}

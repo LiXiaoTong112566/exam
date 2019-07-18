@@ -17,7 +17,7 @@ import ShowUser from "./users/ShowUser/ShowUser";
 import AddExam from "./exam/AddExam/AddExam";
 import ExamList from "./exam/ExamList/ExamList";
 import ExamEdit from "./exam/ExamEdit/ExamEdit";
-import ExamDetail from "./exam/ExamDetail/ExamDetail";
+
 
 //班级管理
 import ClassManage from "./grade/ClassManage/ClassManage";
@@ -29,6 +29,10 @@ import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
 import Detail from "./qusetion/CheckItem/detail";
 //编辑试题
 import DetailCompile from "./qusetion/CheckItem/detailCompile"
+//kaoshiguanli
+import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail"
+
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -172,7 +176,7 @@ function IndexPage() {
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
           <Route path="/home/exam/examEdit" component={ExamEdit} />
-          <Route path='/home/exam/ExamDetail' component={ExamDetail} />
+          <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />
         </Layout>
       </Layout>
     </div>

@@ -1,16 +1,18 @@
 import React from 'react'
 import { List, Button } from 'antd'
 import { connect } from 'dva'
+import './a.scss'
+
+
+
 function QuestionList(props) {
 
   let addQuestion = (item) => {
     props.addQuestionFn(item)
   }
-
   return (
     <div>
       <List
-      
         className='demo-loading-list'
         itemLayout='horizontal'
         dataSource={props.props && props.props}

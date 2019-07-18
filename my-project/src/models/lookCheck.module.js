@@ -15,7 +15,8 @@ export default {
     examTData: [],
     getQueData: [],
     questionsData:[],
-    detailConDataL:[]
+    detailConDataL:[],
+    detailTiCode:null
   },
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
@@ -66,12 +67,13 @@ export default {
       let data = yield call(detailConTi, payload);
       yield put({
         type: "upDatdetailConTi",
-        payload: data.data
+        payload: data.data,
+        payCode:data.code
       });
-    },
-    //detailConTi
+    }
   },
 
+  
   reducers: {
     upDatalookCheck(state, action) {
       return { ...state, data: action.payload };
@@ -92,7 +94,7 @@ export default {
       return { ...state, detailConDataL: action.payload };
     },
     upDatdetailConTi(state, action) {
-      return { ...state, detailConDataL: action.payload };
+      return { ...state, detailConDataL: action.payload,detailTiCode:action.payCode};
     }
   }
 };
