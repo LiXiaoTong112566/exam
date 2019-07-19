@@ -1,11 +1,11 @@
 
 import styles from  "./IndexPage.scss";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import {  Route, NavLink } from "dva/router";
+import { Route, NavLink, Redirect,Switch} from "dva/router";
 import { connect } from "dva";
-import { Layout, Menu, Dropdown, Icon, message, } from "antd";
+import { Layout, Menu, Dropdown, Icon, message,  Modal, Form} from "antd";
 //试题管理
 import AddItem from "./qusetion/AddItem/AddItem";
 import CheckItem from "./qusetion/CheckItem/CheckItem";
@@ -34,30 +34,70 @@ import DetailCompile from "./qusetion/CheckItem/detailCompile"
 //kaoshiguanli
 import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail"
 import {injectIntl} from 'react-intl';
-
+import axios from 'axios'
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 function IndexPage(props) {
+  const [visible, setvisible] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     return () => {};
   });
-
+  
   const onClick = ({ key }) => {
     message.info(`Click on item ${key}`);
   };
+  //
+  let showModal = () => {
+    setvisible(true);
+  };
+  console.log(inputValue)
+    //点击确定
+    let handleOk = () => {
+      setvisible(false);
+      
+      if (inputValue) {
+       props.upDataUserSerS({
+          user_id:props.userInfoz.user_id,
+          avatar:inputValue
+       })
+       props.userInfo()
 
+      }
+    };
+
+      //点击取消
+  let handleCancel = () => {
+    setvisible(false);
+  };
+
+  let inp=(e)=>{
+     let form=new FormData();
+     console.log(e.nativeEvent.target)
+     form.append(e.nativeEvent.target.files[0].name,e.nativeEvent.target.files[0])
+     axios.post('http://123.206.55.50:11000/upload',form).then(res=>{
+        if(res.data.code===1){
+            setInputValue(res.data.data[0].path)
+        }
+     })
+  }
   const menu = (
     <Menu onClick={onClick}>
-      <Menu.Item key="1">个人中心</Menu.Item>
+      <Menu.Item key="1" onClick={showModal}>个人中心</Menu.Item>
       <Menu.Item key="2">我的班级</Menu.Item>
      
       <Menu.Item key="3">设置</Menu.Item>
       <Menu.Item key="4">退出登录</Menu.Item>
     </Menu>
   );
-
+  // 在获取我的路由之前啥也不渲染
+  if (!props.myView.length){
+    return null;
+  }
+  console.log(props.forbiddenView)
   return (
     <div className={styles['wrapper']}>
       <div className={styles["header"]}>
@@ -67,10 +107,10 @@ function IndexPage(props) {
         </div>
         <div className={styles['header_right']}>
               {/* 头部 */}
-            <button onClick={()=>props.changeLocale(props.intl.locale=='en'?'zh':'en')}>{props.intl.locale=='en'?'英文':'中文'}</button>
+            <button onClick={()=>props.changeLocale(props.intl.locale==='en'?'zh':'en')}>{props.intl.locale==='en'?'英文':'中文'}</button>
           <Dropdown overlay={menu}>
             <a className={styles["ant-dropdown-link"]} >
-             <img src="https://cdn.nlark.com/yuque/0/2019/png/anonymous/1547609339813-e4e49227-157c-452d-be7e-408ca8654ffe.png?x-oss-process=image/resize,m_fill,w_48,h_48/format,png" alt=""/>
+              <img src={props.userInfoz.avatar} alt=""/>
              <span>chenmanjie</span>
             </a>
           </Dropdown>
@@ -81,114 +121,82 @@ function IndexPage(props) {
       <Layout className={styles['ant-layout']}>
         <Sider collapsible>
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>{props.intl.formatMessage({id: 'router.questions'})}</span>
-                </span>
-              }
-            >
-              <Menu.Item key="1">
-                <NavLink to="/home/addItem">{props.intl.formatMessage({id: 'router.questions.add'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <NavLink to="/home/classifyItem">{props.intl.formatMessage({id: 'router.questions.type'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <NavLink to="/home/checkItem">{props.intl.formatMessage({ id: 'router.questions.view'})}</NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>{props.intl.formatMessage({id: 'router.management'})}</span>
-                </span>
-              }
-            >
-              <Menu.Item key="4">
-                <NavLink to="/home/addUser">{props.intl.formatMessage({id: 'router.management.add'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <NavLink to="/home/showUser">{props.intl.formatMessage({id: 'router.management.view'})}</NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub3"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>{props.intl.formatMessage({id: 'router.examination'})}</span>
-                </span>
-              }
-            >
-              <Menu.Item key="6">
-                <NavLink to="/home/addExam">{props.intl.formatMessage({id: 'router.examination.add'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="7">
-                <NavLink to="/home/examList">{props.intl.formatMessage({id: 'router.examination.list'})}</NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub4"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>{props.intl.formatMessage({id: 'router.classManagement'})}</span>
-                </span>
-              }
-            >
-              <Menu.Item key="8">
-                <NavLink to="/home/gradeManage">{props.intl.formatMessage({id: 'router.classManagement'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="9">
-                <NavLink to="/home/classManage">{props.intl.formatMessage({id: 'router.classRoomManagement'})}</NavLink>
-              </Menu.Item>
-              <Menu.Item key="10">
-                <NavLink to="/home/studentManage">{props.intl.formatMessage({id: 'router.Stylexamination'})}</NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub5"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>{props.intl.formatMessage({id: 'router.Marking'})}</span>
-                </span>
-              }
-            >
-              <Menu.Item key="11">
-                <NavLink to="/home/awaitClass">{props.intl.formatMessage({id: 'router.AwaitingApproval'})}</NavLink>
-              </Menu.Item>
-            </SubMenu>
+
+            {
+              props.myView.map((item,index)=>{
+                 return <SubMenu
+                 key={item.name}
+                 title={
+                   <span>
+                     <Icon type="user" />
+                     <span>{props.intl.formatMessage({id:item.name })}</span>
+                   </span>
+                 }
+               >
+                 {
+                   item.children.map(value=>{
+                     return <Menu.Item key={value.name}>
+                     <NavLink to={value.path}>{props.intl.formatMessage({id: value.name})}</NavLink>
+                   </Menu.Item>
+                   })
+                 }
+                 
+               </SubMenu>
+              })
+            }
+            
           </Menu>
         </Sider>
         <Layout>
-          <Route path="/home/addItem" component={AddItem} />
-          <Route path="/home/classifyItem" component={QuestionClassify} />
-          <Route path="/home/checkItem" component={CheckItem} />
-          <Route path="/home/addUser" component={AddUser} />
-          <Route path="/home/showUser" component={ShowUser} />
-          <Route path="/home/addExam" component={AddExam} />
-          <Route path="/home/examList" component={ExamList} />
-          <Route path="/home/classManage" component={ClassManage} />
-          <Route path="/home/gradeManage" component={GradeManage} />
-          <Route path="/home/studentManage" component={StudentManage} />
-          <Route path="/home/awaitClass" component={AwaitClass} />
-          <Route path="/home/readExam" component={ReadExam} />
-          <Route path="/home/testClass/:id" component={TestClass} />
+          <Switch>
+          <Redirect from="/home" exact to="/home/AddItem"/>
+              {
+                // {/* 配置用户拥有的路由 */}
+                props.myView.map((item,index)=>{
+                    return item.children.map((value,index)=>{
+                      // console.log(value)
+                        return <Route key={value.path} path={value.path} component={value.components} />
+                    })
+                })
+              }
+              
+              {
+                //  {/* 配置用户禁止访问的路由 */}
+                props.forbiddenView.map((item,index)=>{
+                  // console.log(item)
+                    return  <Redirect  from={item.path} to="/403"></Redirect>
+                })
+              }
+              {/* 配置不存在的路由 */}
+              <Redirect to="/404"></Redirect>
+          </Switch>
+           
+
           <Route path="/home/detail/:id" component={Detail} />
           <Route path="/home/detailCompile/:id" component={DetailCompile} />
           <Route path="/home/exam/examEdit" component={ExamEdit} />
           <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />
+
+
         </Layout>
       </Layout>
+      <Modal
+            title="创建新类型"
+            visible={visible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            okText="确认"
+            cancelText="取消"
+          > 
+            <input type="text" onChange={(e)=>{inp(e)}} />
+            <input type="file" onChange={(e)=>{inp(e)}} />
+          </Modal> 
     </div>
   );
 }
+const mapStateToProps = state => {
+  return { ...state.login};
+};
 const mapDispatchToProps = dispatch=>{
   return {
     changeLocale: payload=>{
@@ -196,7 +204,25 @@ const mapDispatchToProps = dispatch=>{
         type: 'global/updateLocale',
         payload
       })
-    }
+    },
+    upDataUserSerS: payload=>{
+      dispatch({
+        type: 'login/upDataUserSer',
+        payload
+      })
+    },
+    userInfo: payload=>{
+      dispatch({
+        type: 'login/userInfo',
+        payload
+      })
+    },
+    upDataUserSer: payload=>{
+      dispatch({
+        type: 'login/upDataUserSer',
+        payload
+      })
+    },
   }
 }
-export default injectIntl(connect(null, mapDispatchToProps)(IndexPage));
+export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(Form.create()(IndexPage)))

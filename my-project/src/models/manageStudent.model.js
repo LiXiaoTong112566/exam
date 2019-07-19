@@ -124,7 +124,7 @@ export default {
 
     //删选数据
     filterStudentModel(state, { payload }) {
-      const newData = state.AllManagerStudentData.filter((item, index) => {
+       const newData = state.AllManagerStudentData.filter((item, index) => {
         if (
           item.student_name === payload.student_name &&
           item.room_text === payload.room_text &&
