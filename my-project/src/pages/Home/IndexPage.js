@@ -3,35 +3,36 @@ import axios from "axios";
 
 import React, { useState, useEffect } from "react";
 
-import { Route, NavLink } from "dva/router";
+import { Route, NavLink, Redirect, Switch } from "dva/router";
 import { connect } from "dva";
 import { Layout, Menu, Dropdown, Icon, message, Spin, Modal } from "antd";
-//试题管理
-import AddItem from "./qusetion/AddItem/AddItem";
-import CheckItem from "./qusetion/CheckItem/CheckItem";
-import QuestionClassify from "./qusetion/QuestionClass/QuestionClass";
-//用户管理
-import AddUser from "./users/AddUser/AddUser";
-import ShowUser from "./users/ShowUser/ShowUser";
-//考试管理
-import AddExam from "./exam/AddExam/AddExam";
-import ExamList from "./exam/ExamList/ExamList";
-import ExamEdit from "./exam/ExamEdit/ExamEdit";
+// //试题管理
+// import AddItem from "./qusetion/AddItem/AddItem";
+// import CheckItem from "./qusetion/CheckItem/CheckItem";
+// import QuestionClassify from "./qusetion/QuestionClass/QuestionClass";
+// //用户管理
+// import AddUser from "./users/AddUser/AddUser";
+// import ShowUser from "./users/ShowUser/ShowUser";
+// //考试管理
+// import AddExam from "./exam/AddExam/AddExam";
+// import ExamList from "./exam/ExamList/ExamList";
+// import ExamEdit from "./exam/ExamEdit/ExamEdit";
 
-//班级管理
-import ClassManage from "./grade/ClassManage/ClassManage";
-import GradeManage from "./grade/GrandeManage/GradeManage";
-import StudentManage from "./grade/SturentManage/StudentManage";
-//阅卷管理
-import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
-import TestClass from "./Marking/testClass/testClass.js";
-import ReadExam from "./Marking/readExam/readExam.js";
-//试题详情
-import Detail from "./qusetion/CheckItem/detail";
-//编辑试题
-import DetailCompile from "./qusetion/CheckItem/detailCompile";
-//kaoshiguanli
-import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail";
+// //班级管理
+// import ClassManage from "./grade/ClassManage/ClassManage";
+// import GradeManage from "./grade/GrandeManage/GradeManage";
+// import StudentManage from "./grade/SturentManage/StudentManage";
+// //阅卷管理
+// import AwaitClass from "./Marking/AwaitClass/AwaitClass.js";
+// import TestClass from "./Marking/testClass/testClass.js";
+// import ReadExam from "./Marking/readExam/readExam.js";
+// //试题详情
+// import Detail from "./qusetion/CheckItem/detail";
+// //编辑试题
+// import DetailCompile from "./qusetion/CheckItem/detailCompile";
+// //kaoshiguanli
+// import ExamListDetail from "./exam/ExamList/detailX/ExamListDetail";
+//
 import { injectIntl } from "react-intl";
 import Axios from "axios";
 
@@ -39,10 +40,16 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 function IndexPage(props) {
+  console.log(props);
+
+  //在获取我的路由之前啥也不渲染
+  if (!props.myView.length) {
+    return null;
+  }
 
   const [newPath, setNewPath] = useState("");
   const [visible, setvisible] = useState(false);
-  
+
   const onClick = ({ key }) => {
     console.log(key);
     if (key == 1) {
@@ -62,38 +69,36 @@ function IndexPage(props) {
   };
 
   let handleCancel = () => {
-    console.log("取消")
+    console.log("取消");
     setvisible(false);
   };
 
   //获取input框的值
   function getFileData(e) {
-    console.log(e.nativeEvent);
     const data = e.nativeEvent.target.files;
     let form = new FormData();
     form.append(data[0].name, data[0]);
     console.log(form.get(e.target.files[0].name));
-    console.log(props);
-    console.log(props.userInfoData);
 
     axios.post("http://123.206.55.50:11000/upload", form).then(res => {
       console.log(res.data);
       if (res.data.code === 1) {
         console.log(res.data.data[0].path);
-        setNewPath(res.data.data[0].path);//设置新的图片路径
+        setNewPath(res.data.data[0].path); //设置新的图片路径
       }
     });
   }
 
   const menu = (
     <Menu onClick={onClick}>
-      <Menu.Item key="1" >个人中心</Menu.Item>
+      <Menu.Item key="1">个人中心</Menu.Item>
       <Menu.Item key="2">我的班级</Menu.Item>
       <Menu.Item key="3">设置</Menu.Item>
       <Menu.Item key="4">退出登录</Menu.Item>
-
     </Menu>
   );
+
+  console.log(props);
 
   return (
     <div className={styles["wrapper"]}>
@@ -115,10 +120,7 @@ function IndexPage(props) {
           </button>
           <Dropdown overlay={menu}>
             <a className={styles["ant-dropdown-link"]}>
-              <img
-                src={props.userInfoData.avatar}
-                alt=""
-              />
+              <img src={props.userInfoData.avatar} alt="" />
               <span>chenmanjie</span>
             </a>
           </Dropdown>
@@ -127,130 +129,68 @@ function IndexPage(props) {
 
       <Layout className={styles["ant-layout"]}>
         <Sider collapsible>
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>
-                    {props.intl.formatMessage({ id: "router.questions" })}
-                  </span>
-                </span>
-              }
-            >
-              <Menu.Item key="1">
-                <NavLink to="/home/addItem">
-                  {props.intl.formatMessage({ id: "router.questions.add" })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <NavLink to="/home/classifyItem">
-                  {props.intl.formatMessage({ id: "router.questions.type" })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <NavLink to="/home/checkItem">
-                  {props.intl.formatMessage({ id: "router.questions.view" })}
-                </NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>
-                    {props.intl.formatMessage({ id: "router.management" })}
-                  </span>
-                </span>
-              }
-            >
-              <Menu.Item key="4">
-                <NavLink to="/home/addUser">
-                  {props.intl.formatMessage({ id: "router.management.add" })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <NavLink to="/home/showUser">
-                  {props.intl.formatMessage({ id: "router.management.view" })}
-                </NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub3"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>
-                    {props.intl.formatMessage({ id: "router.examination" })}
-                  </span>
-                </span>
-              }
-            >
-              <Menu.Item key="6">
-                <NavLink to="/home/addExam">
-                  {props.intl.formatMessage({ id: "router.examination.add" })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="7">
-                <NavLink to="/home/examList">
-                  {props.intl.formatMessage({ id: "router.examination.list" })}
-                </NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub4"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>
-                    {props.intl.formatMessage({ id: "router.classManagement" })}
-                  </span>
-                </span>
-              }
-            >
-              <Menu.Item key="8">
-                <NavLink to="/home/gradeManage">
-                  {props.intl.formatMessage({ id: "router.classManagement" })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="9">
-                <NavLink to="/home/classManage">
-                  {props.intl.formatMessage({
-                    id: "router.classRoomManagement"
+          <Menu
+            theme="dark"
+            // defaultSelectedKeys={"props.myView[0].name"}
+            mode="inline"
+          >
+            {props.myView.map(item => {
+              return (
+                <SubMenu
+                  key={item.name}
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>{props.intl.formatMessage({ id: item.name })}</span>
+                    </span>
+                  }
+                >
+                  {item.children.map(value => {
+                    return (
+                      value.name&&
+                      <Menu.Item key={value.name}>
+                        <NavLink to={value.path}>
+                          {props.intl.formatMessage({ id: value.name })}
+                        </NavLink>
+                      </Menu.Item>
+                    );
                   })}
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="10">
-                <NavLink to="/home/studentManage">
-                  {props.intl.formatMessage({ id: "router.Stylexamination" })}
-                </NavLink>
-              </Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub5"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>
-                    {props.intl.formatMessage({ id: "router.Marking" })}
-                  </span>
-                </span>
-              }
-            >
-              <Menu.Item key="11">
-                <NavLink to="/home/awaitClass">
-                  {props.intl.formatMessage({ id: "router.AwaitingApproval" })}
-                </NavLink>
-              </Menu.Item>
-            </SubMenu>
+                </SubMenu>
+              );
+            })}
           </Menu>
         </Sider>
 
         <Layout>
           <div>
-            <Route path="/home/addItem" component={AddItem} />
+            {/* 二级路由区域 */}
+            <Switch>
+              <Redirect from="/home" exact to="/home/addItem" />
+              {/* 配置用户拥有的路由 */}
+              {props.myView.map(item => {
+                return item.children.map(value => {
+                  return (
+                    <Route
+                      key={value.name}
+                      path={value.path}
+                      component={value.components}
+                    />
+                  );
+                });
+              })}
+
+              {/* <Route path="/home/readExam/:id" component={ReadExam} />
+              <Route path="/home/testClass/:id" component={TestClass} /> */}
+
+              {/* 配置用户禁止访问的路由 */}
+              {props.forbiddenView.map(item => {
+                return <Redirect key={item.name} from={item.path} to="/403" />;
+              })}
+
+              {/* //配置不存在的路由 */}
+              <Redirect to="/404" />
+            </Switch>
+            {/* <Route path="/home/addItem" component={AddItem} />
             <Route path="/home/classifyItem" component={QuestionClassify} />
             <Route path="/home/checkItem" component={CheckItem} />
             <Route path="/home/addUser" component={AddUser} />
@@ -261,12 +201,11 @@ function IndexPage(props) {
             <Route path="/home/gradeManage" component={GradeManage} />
             <Route path="/home/studentManage" component={StudentManage} />
             <Route path="/home/awaitClass" component={AwaitClass} />
-            <Route path="/home/readExam" component={ReadExam} />
-            <Route path="/home/testClass/:id" component={TestClass} />
+            
             <Route path="/home/detail/:id" component={Detail} />
             <Route path="/home/detailCompile/:id" component={DetailCompile} />
             <Route path="/home/exam/examEdit" component={ExamEdit} />
-            <Route path="/home/ExamListDetail/:id" component={ExamListDetail} />
+            <Route path="/home/ExamListDetail/:id" component={ExamListDetail} /> */}
             {props.loadingFlag ? (
               <div className={styles.loading}>
                 <Spin />
@@ -275,7 +214,7 @@ function IndexPage(props) {
           </div>
         </Layout>
       </Layout>
-   
+
       <Modal
         title="Basic Modal"
         visible={visible}
@@ -296,7 +235,7 @@ function IndexPage(props) {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+ 
   return {
     loadingFlag: state.loading.global,
     ...state.login
@@ -316,9 +255,7 @@ const mapDispatchToProps = dispatch => {
         type: "login/upDataUser",
         payload
       });
-    },
-
-   
+    }
   };
 };
 export default injectIntl(

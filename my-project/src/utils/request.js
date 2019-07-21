@@ -3,7 +3,7 @@ import {getCookie} from "@/utils/index.js"
 
 const service=axios.create({
   baseURL:"http://192.168.43.214:7001/",
-  timeout:5000
+  
 })
 
 service.interceptors.request.use(

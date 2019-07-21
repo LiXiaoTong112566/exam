@@ -10,8 +10,8 @@ function TestClassCom(props) {
   const gradeId = props.match.params.id;
   console.log(gradeId);
   function jumpReadExam(data) {
-    console.log(data);
-    props.history.push({pathname:"/home/readExam",params:{score:data.score}})
+    console.log(data.exam_student_id);
+    props.history.push({pathname:`/home/readExam/${data.exam_student_id}`})
 
   }
 

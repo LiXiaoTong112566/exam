@@ -3,7 +3,8 @@ import { connect } from "dva";
 import styles from './AddItem.scss';
 import { Layout, Form, Button, Input, Select, message } from 'antd';
 import Editor from 'for-editor'
-import {injectIntl} from 'react-intl';
+import { injectIntl } from "react-intl";
+
 function AddItem(props) {
     useEffect(() => {
         // 获取用户信息
@@ -63,6 +64,7 @@ function AddItem(props) {
                             </Form.Item>
                         </div>
                         <div>
+                      
                             <p>{props.intl.formatMessage({id: 'questions.type.test'})}</p>
                             <Form.Item>
                                 {getFieldDecorator('exam_id', {

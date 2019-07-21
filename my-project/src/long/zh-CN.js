@@ -19,16 +19,17 @@ export default {
 
     'router.examination': '考试管理',
     'router.examination.add': '添加考试',
-    'router.examination.list': '考试列表',
+    'router.examination.list': '试卷列表',
 
      
     'router.classManagement': '班级管理',
     'router.classManagement': '班级管理',
-    'router.classRoomManagement': '用户展示',
+    'router.classRoomManagement': "教室管理",
     'router.Stylexamination': '学生管理',
 
     'router.Marking': '阅卷管理',
     'router.AwaitingApproval': '待批班级',
+    
 
    
     'exam.': '',

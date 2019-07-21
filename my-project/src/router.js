@@ -28,9 +28,18 @@ let RouterView = connect(mapStateToProps)((props)=>{
     <IntlProvider locale={props.locale} messages={localMap[props.locale]}>
       <Router history={props.history}>
         <Switch>
-          <Route path="/Login" exact component={Login} />
+          <Redirect  exact from="/"  to="/home"></Redirect>
+          <Route path="/Login" component={Login} />
           <Route path="/home" component={IndexPage} />
-          <Redirect to="/home"></Redirect>
+          <Route path="/403" render={props=>{
+            return <p>无权访问当前页面</p>
+          }}>
+
+          </Route>
+          <Route path="/404" render={props=>{
+            return <p>当前页面不存在</p>
+          }}>
+          </Route>
         </Switch>
       </Router>
     </IntlProvider>
@@ -40,7 +49,6 @@ let RouterView = connect(mapStateToProps)((props)=>{
 function RouterConfig({ history }) {
 return <RouterView history={history} />
 }
-
 
 
 // function RouterConfig({ history }) {
