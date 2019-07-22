@@ -24,6 +24,7 @@ import Detail from "@/pages/Home/qusetion/CheckItem/detail";
 import DetailCompile from "@/pages/Home/qusetion/CheckItem/detailCompile";
 //考试管理
 import ExamListDetail from "@/pages/Home/exam/ExamList/detailX/ExamListDetail";
+
 export default{
     routes:[
         {
@@ -46,15 +47,19 @@ export default{
                     name:"router.questions.view",
                     path:"/home/checkItem",
                     view_id:"main-watchQuestions",
-                    components:CheckItem,
-                    children:[
-                        {
-                            name:"router.editQuestions",
-                            path:"/home/exam/examEdit",
-                            view_id:"main-editQuestions",
-                            components:DetailCompile
-                        }
-                    ]
+                    components:CheckItem
+                }, {
+                    name:"",
+                    path:"/home/detailCompile/:id",
+                    view_id:"main-editQuestions",
+                    components:DetailCompile
+                },{
+
+                    name:"",
+                    path:"/home/detail/:id",
+                    view_id:"main-questionsDetail",
+                    components:Detail
+
                 }
             ]
         },{
@@ -90,64 +95,74 @@ export default{
                     view_id:"main-examList",
                     components:ExamList
                     
+                },{
+                    name:"",
+                    path:"/home/ExamListDetail/:id",
+                    view_id:"main-examDetail",
+                    components:ExamListDetail
+
+                },{
+                    name:"",
+                    path:"/home/exam/examEdit",
+                    view_id:"main-examEdit",
+                    components:ExamEdit
+
                 }
-            ]
-        },{
+            ] },{
 
-            name:"router.classManagement",
-            path:"",
-            children:[
-                {
-                    name:"router.classManagement",
-                    path:"/home/gradeManage",
-                    view_id:"main-grade",
-                    components:GradeManage
-                },{
-                    name:"router.classRoomManagement",
-                    path:"/home/classManage",
-                    view_id:"main-room",
-                    components:ClassManage
-                    
-                },{
-                    name:"router.Stylexamination",
-                    path:"/home/studentManage",
-                    view_id:"main-student",
-                    components:StudentManage
-
-                },
-            ]
-
-        },
-        {
-
-            name:"router.Marking",
-            path:"",
-            children:[
-                {
-                    name:"router.AwaitingApproval",
-                    path:"/home/awaitClass",
-                    view_id:"main-examPaperClassList",
-                    components:AwaitClass
-                },{
-                    name:"router.examPaperClassmate",
-                    path:"/home/testClass/:id",
-                    view_id:"main-examPaperClassmate",
-                    components: TestClass 
-
-                },{
-                    name:"router.examinationPapers",
-                    path:"/home/readExam",
-                    view_id:"main-examinationPapers",
-                    components: ReadExam 
-                },{
-                    name:"router.examinationPaperssss",
-                    path:"/home/readExamssss",
-                    view_id:"main-examinationPapersssssss",
-                    components: ReadExam 
-                }
-            ]
-
-        },
-    ]
-}
-
+                name:"router.classManagement",
+                path:"",
+                children:[
+                    {
+                        name:"router.classManagement",
+                        path:"/home/gradeManage",
+                        view_id:"main-grade",
+                        components:GradeManage
+                    },{
+                        name:"router.classRoomManagement",
+                        path:"/home/classManage",
+                        view_id:"main-room",
+                        components:ClassManage
+                        
+                    },{
+                        name:"router.Stylexamination",
+                        path:"/home/studentManage",
+                        view_id:"main-student",
+                        components:StudentManage
+    
+                    },
+                ]
+    
+            },
+            {
+    
+                name:"router.Marking",
+                path:"",
+                children:[
+                    {
+                        name:"router.AwaitingApproval",
+                        path:"/home/awaitClass",
+                        view_id:"main-examPaperClassList",
+                        components:AwaitClass,
+                       
+                    },
+                    {
+                        name:"",
+                        path:"/home/readExam/:id",
+                        view_id:"main-examinationPapers",
+                        components:ReadExam,
+                       
+                    },
+                    {
+                        name:"",
+                        path:"/home/testClass/:id",
+                        view_id:"main-examPaperClassmate",
+                        components:TestClass,
+                       
+                    },
+                ]
+    
+            },
+        ]
+    }
+    

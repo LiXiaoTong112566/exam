@@ -38,7 +38,6 @@ export default {
     
     *getStudentExamModel({ payload }, { call, put }) {
       let data = yield call(getExamStudent,payload);
-      console.log(data);
       if(data.code){
         yield put({
           type: "getExamStudentReducer",
@@ -52,7 +51,6 @@ export default {
 //获取班级
     *getGradeModel({ payload }, { call, put }) {
       let data = yield call(getExamStudent,payload);
-      console.log(data);
       if(data.code){
         yield put({
           type: "getExamStudentReducer",
@@ -91,12 +89,9 @@ export default {
 
       
       filterTestSearchModel(state, { payload }) {
-        console.log(payload);
         const arr= state.ExamStudentData.filter((item,index)=>{
-          console.log(item);
           return item.grade_name===payload;
         })
-        console.log(arr);
         return {
           ...state,
           ExamStudentData:arr

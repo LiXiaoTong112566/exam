@@ -68,7 +68,6 @@ export default {
     // 获取所有试题
     *getQuestions({ payload }, { call, put }) {
       let data = yield call(getQuestions)
-      console.log(data)
       yield put({
         type: 'getQuestionsAll',
         action: data.data
@@ -77,7 +76,6 @@ export default {
     //添加考试
     *examAdd({ payload }, { call, put }) {
       let data = yield call(examAdd, payload)
-      console.log(data)
       localStorage.exam = JSON.stringify(data.data)
       yield put({
         type: 'getExamAdd',

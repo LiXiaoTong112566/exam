@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "dva";
-import { Form, Button, Select, message } from "antd";
+import { Form, Button, Select } from "antd";
 
 import TestClassSearchScss from "@/pages/Home/Marking/testClass/testClass.scss";
 const { Option } = Select;
@@ -31,10 +31,7 @@ function TestClassSearchBoxCom(props) {
     });
   };
 
-  //重置
-  function handleReset() {
-    props.form.resetFields();
-  }
+
   const { getFieldDecorator } = props.form;
 
   return (

@@ -10,7 +10,6 @@ export default {
     // 同步操作
     reducers: {
       updateLocale(state, action) {
-        console.log('action...', action);
         return { ...state, locale: action.payload };
       },
     }

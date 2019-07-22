@@ -11,7 +11,7 @@ import {
   Select,
   message
 } from "antd";
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 const { Option } = Select;
 
 function GradeManage(props) {
@@ -37,7 +37,7 @@ function GradeManage(props) {
   //修改设置id
   const [updataLs, setupdataL] = useState();
   //删除时设置id
-  const [deletes, setdeleteL] = useState();
+  const [setdeleteL] = useState();
   //type
   const [type, settype] = useState();
   // //设置默认值班级号

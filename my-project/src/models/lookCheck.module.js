@@ -22,7 +22,6 @@ export default {
   effects: {
     *lookCheck({ payload, type }, { call, put }) {
       let data = yield call(lookCheck, payload);
-     console.log(data);
       yield put({
         type: "upDatalookCheck",
         payload: data.data
@@ -30,7 +29,6 @@ export default {
     },
     *examTypes({ payload, type }, { call, put }) {
       let data = yield call(examTypes, payload);
-      console.log(data);
       yield put({
         type: "upDataexamTypes",
         payload: data.data
@@ -47,11 +45,7 @@ export default {
     },
 
     *questions({ payload, type }, { call, put }) {
-      console.log(payload);
-      console.log(Newquestions);
       let data = yield call(Newquestions);
-      console.log(data);
-      
       yield put({
         type: "upDataquestions",
         payload: data.data
@@ -59,14 +53,12 @@ export default {
     },
     *condition({ payload, type }, { call, put }) {
       let data = yield call(condition, payload);
-      console.log(data)
       yield put({
         type: "upDatcondition",
         payload: data.data
       });
     },
     *detailCon({ payload, type }, { call, put }) {
-      console.log(payload)
       let data = yield call(detailCon, payload);
       yield put({
         type: "upDatdetailCon",
@@ -75,7 +67,6 @@ export default {
     },
     *detailConTi({ payload, type }, { call, put }) {
       let data = yield call(detailConTi, payload);
-      console.log(data)
         if(data.code!==1){
           message.error(data.msg)
         }else{
@@ -110,7 +101,6 @@ export default {
       return { ...state, detailConDataL: action.payload };
     },
     upDatdetailConTi(state, action) {
-      console.log(action,"iscode_action")
       return { ...state, isCode:action.payload};
     }
   }

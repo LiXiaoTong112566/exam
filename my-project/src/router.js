@@ -32,10 +32,14 @@ let RouterView = connect(mapStateToProps)((props)=>{
           <Route path="/home" component={IndexPage} />
           {/* <Redirect to="/home"></Redirect> */}
           <Route path='/403' render={props=>{
-               return <p>您无权访问当前页面</p>      
+               return <p>
+                    <img style={{width:'100%',height:'100%'}} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563717624661&di=f95c617ce719f42a02a33c79a1e62e68&imgtype=0&src=http%3A%2F%2Fs6.sinaimg.cn%2Fbmiddle%2F003Qfs1Xgy6JxwDVpf775%26690" />
+               </p>      
           }}></Route>
             <Route path='/404' render={props=>{
-               return <p>xxxx</p>      
+               return <p>
+                 <img style={{width:'100%',height:'100%'}} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563717322832&di=7589886f4cfccfd95367a5162db99ae5&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F21%2F75%2F82%2F55a4f2aaae0f5.jpg" />
+               </p>      
           }}></Route>
         </Switch>
       </Router>

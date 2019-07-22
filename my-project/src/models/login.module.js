@@ -10,8 +10,7 @@ export default {
     isLogin: -1,
     userInfoz:{},
     myView: [],
-    forbiddenView: []
-
+    forbiddenView: [],
   },
   //订阅的状态
   subscriptions: {
@@ -58,11 +57,10 @@ export default {
     },
     *userInfo({ payload }, { call, put,select }) {
       // 1. 判断用户是否已经获取用户
-      // let userInfoz = yield select(state=>state.login.userInfoz);
-      // if (Object.keys(userInfoz).length){
-      //   return;
-      // }
-      // console.log('userInfo...', userInfo);
+      let userInfoz = yield select(state=>state.login.userInfoz);
+      if (Object.keys(userInfoz).length){
+        return;
+      }
       // 2. 获取用户信息
       let data = yield userInfo();
       yield put({
@@ -72,16 +70,15 @@ export default {
 
        // 3.获取用户权限
       let authority = yield viewAuthority();
-      // console.log('authority...', authority);
       yield put({
         type: 'updateViewAuthority',
         payload: authority.data
       })
     },
-    *upDataUserSer({ payload }, { call, put }) {
+    *upDataUser({ payload }, { call, put }) {
       let data = yield call(upDataUserSer, payload)
-      console.log(data)
-      yield put({ type: 'userInfo', payload: data.code })
+      yield put({ type: "upDateUserDataReducer", payload: data }); //获取到的信息给state
+      yield put({ type: 'userInfo'})
     },
   },
 
@@ -92,6 +89,11 @@ export default {
     updateUserInfo(state, action){
       return { ...state, userInfoz: action.payload };
     },
+
+       //修改用户信息
+       upDateUserDataReducer(state, action) {
+        return { ...state, userInfoz: {} };
+      },
     updateViewAuthority(state, action){
      // 筛选出我拥有的路由
       let myView = [], forbiddenView = [];
@@ -102,17 +104,18 @@ export default {
        }
 
        item.children.map(value=>{
-         if(action.payload.findIndex(item=>item.view_id===value.view_id)!==-1){
+          if(action.payload.findIndex(item=>item.view_id===value.view_id)!==-1){
             //value====> {name: "router.management.view", path: "/homeowUser", view_id: "main-showUser", components: ƒ}
              obj.children.push(value)
          }else{
              forbiddenView.push(value)
          }
        })
-       myView.push(obj)
+        myView.push(obj)
      })
        return { ...state, myView,forbiddenView };
     },
+  
   }
 
 };

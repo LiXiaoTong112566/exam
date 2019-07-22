@@ -11,7 +11,6 @@ export default {
      //获取全部教室
      *roomD({ payload }, { call, put }) {
       let data = yield call(room,payload);
-      console.log(data)
       yield put({
         type: 'roomInfo',
         payload: data.data

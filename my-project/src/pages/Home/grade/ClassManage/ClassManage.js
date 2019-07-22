@@ -10,14 +10,13 @@ import {
   Icon,
   Spin
 } from "antd";
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 const { confirm } = Modal;
 function QuestionClass(props) {
   useEffect(() => {
     props.roomD();
   }, []);
 
-  const data = props.questionClassData;
   const [visible, setvisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
     //删除时设置id
@@ -128,7 +127,6 @@ function QuestionClass(props) {
             key="action"
             dataIndex="room_id"
             render={(text, record) => (
-             
               <span>
                 <a href="javascript:;" onClick={() => deleteL(record.room_id)}>删除</a>
               </span>
