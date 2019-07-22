@@ -5,28 +5,18 @@ import { Form, Button, Select, message } from "antd";
 import TestClassSearchScss from "@/pages/Home/Marking/testClass/testClass.scss";
 const { Option } = Select;
 
-
-
 function TestClassSearchBoxCom(props) {
-
-    console.log(props.getAllGradeData);
-
-    useEffect(()=>{
-
-        props.getGrade();
-
-
-    },[])
-
-
+  useEffect(() => {
+    props.getGrade();
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
         //添加视图接口
-       console.log(values);
-       props.filterTestSearch(values.grade_name)
+
+        props.filterTestSearch(values.grade_name);
       }
     });
   };
@@ -94,12 +84,9 @@ function TestClassSearchBoxCom(props) {
               }
             >
               {props.getAllGradeData &&
-               props.getAllGradeData.map((item, index) => {
+                props.getAllGradeData.map((item, index) => {
                   return (
-                    <Option
-                      value={item.grade_name}
-                      key={"apiData" + index}
-                    >
+                    <Option value={item.grade_name} key={"apiData" + index}>
                       {item.grade_name}
                     </Option>
                   );
@@ -133,22 +120,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         payload: data
       });
     },
-    
+
     getGrade(data) {
-        dispatch({
-          type: "AwaitClassModel/getAllGradeModel",
-         
-        });
-      },
+      dispatch({
+        type: "AwaitClassModel/getAllGradeModel"
+      });
+    },
 
-      
-
-      filterTestSearch(data) {
-        dispatch({
-          type: "AwaitClassModel/filterTestSearchModel",
-          payload: data
-        });
-      },
+    filterTestSearch(data) {
+      dispatch({
+        type: "AwaitClassModel/filterTestSearchModel",
+        payload: data
+      });
+    }
   };
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import GradeManageScss from "./QuestionClass.scss"
+import GradeManageScss from "./QuestionClass.scss";
 import {
   Table,
   Divider,
@@ -21,7 +21,7 @@ function GradeManage(props) {
     if (props.gradeData === 1) {
       message.success("添加成功");
     } else if (props.gradeData === 0) {
-       message.error("班级名重复");
+      message.error("班级名重复");
     }
     if (props.upDedata === 1) {
       message.success("更新成功");
@@ -41,26 +41,25 @@ function GradeManage(props) {
   //type
   const [type, settype] = useState();
   // //设置默认值班级号
-  const [defaulta, setdefaulta] = useState('班级号');
+  const [defaulta, setdefaulta] = useState("班级号");
   //设置默认值
-  const [defaultaKe, setdefaultaKe] = useState('课程名');
+  const [defaultaKe, setdefaultaKe] = useState("课程名");
 
-  const showModal = (add) => {
+  const showModal = add => {
     setVisible(true);
-    settype(add)
+    settype(add);
   };
   //点击修改
-  let updataL = (record,updata) => {
-    console.log(record)
-    //设置默认值  
-    setdefaulta(record.room_text)
-    setdefaultaKe(record.subject_text)
+  let updataL = (record, updata) => {
+    //设置默认值
+    setdefaulta(record.room_text);
+    setdefaultaKe(record.subject_text);
     // 弹框
     setVisible(true);
     //设置id
     setupdataL(record.grade_id);
     //弹框类型
-    settype(updata)
+    settype(updata);
     props.gradeClassD();
   };
   //点击删除
@@ -71,13 +70,7 @@ function GradeManage(props) {
     });
     props.gradeClassD();
   };
-  //  const showUpdata=()=>{
-  //    setVisible(true);
-  //  }
-  // const handleOk = e => {
-  //   console.log(e);
-  //   setVisible(false);
-  // };
+
   function handleSubmit() {
     props.form.validateFields((err, values) => {
       if (!err) {
@@ -104,89 +97,98 @@ function GradeManage(props) {
     <div className={GradeManageScss.box}>
       <h1 className={GradeManageScss.title}>班级管理</h1>
       <div className={GradeManageScss["QuestionClass_addType"]}>
-      <div className={GradeManageScss["main"]}>
-        <Button type="primary" onClick={()=>{showModal("add")}} className={GradeManageScss["ant-btn"]}>
-          添加班级
-        </Button>
-        <Modal
-          title="添加班级"
-          visible={visible}
-          onOk={() => handleSubmit()}
-          onCancel={handleCancel}
-          okText="确认"
-          cancelText="取消"
-        >
+        <div className={GradeManageScss["main"]}>
+          <Button
+            type="primary"
+            onClick={() => {
+              showModal("add");
+            }}
+            className={GradeManageScss["ant-btn"]}
+          >
+            添加班级
+          </Button>
+          <Modal
+            title="添加班级"
+            visible={visible}
+            onOk={() => handleSubmit()}
+            onCancel={handleCancel}
+            okText="确认"
+            cancelText="取消"
+          >
             <Form onSubmit={handleSubmit}>
-            {
-              type==="add"?<Form.Item label="班级名">
-              {getFieldDecorator("grade_name", {
-                validateTrigger: "onBlur",
-                rules: [{ required: true, message: "请输入班级名" }]
-              })(<Input placeholder="班级名" />)}
-            </Form.Item>:<Form.Item label="班级名">
-              {getFieldDecorator("grade_name", {
-                validateTrigger: "onBlur",
-              })(<Input placeholder="班级名" disabled />)}
-            </Form.Item>
-            }
-            
-            <Form.Item label="教室号">
-              {getFieldDecorator("room_id", {
-                validateTrigger: "onBlur",
-                rules: [{ required: true, message: "请输入教室号" }],
-                initialValue:defaulta
-              })(
-                <Select
-                  showSearch
-                  style={{ width: 476 }}
-                  placeholder="请选择教室号"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option.props.children
-                      .toLowerCase()
-                      .indexOf(input.toLowerCase()) >= 0
-                  }
-
-                >
-                  {props.roomData && props.roomData.map((item, index) => {
-                      return (
-                        <Option key={index} value={item.room_id}>
-                          {item.room_text}
-                        </Option>
-                      );
-                    })}
-                </Select>
+              {type === "add" ? (
+                <Form.Item label="班级名">
+                  {getFieldDecorator("grade_name", {
+                    validateTrigger: "onBlur",
+                    rules: [{ required: true, message: "请输入班级名" }]
+                  })(<Input placeholder="班级名" />)}
+                </Form.Item>
+              ) : (
+                <Form.Item label="班级名">
+                  {getFieldDecorator("grade_name", {
+                    validateTrigger: "onBlur"
+                  })(<Input placeholder="班级名" disabled />)}
+                </Form.Item>
               )}
-            </Form.Item>
-            <Form.Item label="课程名">
-              {getFieldDecorator("subject_id", {
-                validateTrigger: "onBlur",
-                rules: [{ required: true, message: "请输入课程名" }],
-                initialValue:defaultaKe
-              })(
-                <Select
-                  showSearch
-                  style={{ width: 476 }}
-                  placeholder="请选择课程名"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option.props.children
-                      .toLowerCase()
-                      .indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  {props.subjectData && props.subjectData.map((item, index) => {
-                      return (
+
+              <Form.Item label="教室号">
+                {getFieldDecorator("room_id", {
+                  validateTrigger: "onBlur",
+                  rules: [{ required: true, message: "请输入教室号" }],
+                  initialValue: defaulta
+                })(
+                  <Select
+                    showSearch
+                    style={{ width: 476 }}
+                    placeholder="请选择教室号"
+                    optionFilterProp="children"
+                    filterOption={(input, option) =>
+                      option.props.children
+                        .toLowerCase()
+                        .indexOf(input.toLowerCase()) >= 0
+                    }
+                  >
+                    {props.roomData &&
+                      props.roomData.map((item, index) => {
+                        return (
+                          <Option key={index} value={item.room_id}>
+                            {item.room_text}
+                          </Option>
+                        );
+                      })}
+                  </Select>
+                )}
+              </Form.Item>
+              <Form.Item label="课程名">
+                {getFieldDecorator("subject_id", {
+                  validateTrigger: "onBlur",
+                  rules: [{ required: true, message: "请输入课程名" }],
+                  initialValue: defaultaKe
+                })(
+                  <Select
+                    showSearch
+                    style={{ width: 476 }}
+                    placeholder="请选择课程名"
+                    optionFilterProp="children"
+                    filterOption={(input, option) =>
+                      option.props.children
+                        .toLowerCase()
+                        .indexOf(input.toLowerCase()) >= 0
+                    }
+                  >
+                    {props.subjectData &&
+                      props.subjectData.map((item, index) => {
+                        return (
                           <Option key={index} value={item.subject_id}>
                             {item.subject_text}
                           </Option>
-                      );
-                    })}
-                </Select>
-              )}
-            </Form.Item>
-          </Form>
-        </Modal>
+                        );
+                      })}
+                  </Select>
+                )}
+              </Form.Item>
+            </Form>
+          </Modal>
         </div>
       </div>
       <Table dataSource={props.gradeClassData} className={GradeManageScss.form}>
@@ -199,7 +201,7 @@ function GradeManage(props) {
           dataIndex="grade_id"
           render={(text, record) => (
             <span>
-              <a href="javascript:;" onClick={() => updataL(record,'updata')}>
+              <a href="javascript:;" onClick={() => updataL(record, "updata")}>
                 修改
               </a>
               <Divider type="vertical" />

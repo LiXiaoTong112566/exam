@@ -9,8 +9,7 @@ import { connect } from "dva";
 
 import { Table } from "antd";
 
-const { Column} = Table;
-// const [data,setData]=useState([])
+const { Column } = Table;
 
 function StudentManageTable(props) {
   useEffect(() => {
@@ -19,7 +18,6 @@ function StudentManageTable(props) {
   }, []);
 
   const data = props.AllManagerStudentData; //获取所有分班学生的信息
-
 
   return (
     <Table dataSource={data} rowKey="table">
@@ -32,7 +30,6 @@ function StudentManageTable(props) {
         title="Action"
         key="action"
         dataIndex="student_id"
-       
         render={(text, record) => (
           <span
             onClick={() => {
@@ -55,7 +52,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     //获取所有已经分班的学生
     getManageStudent() {

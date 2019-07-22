@@ -1,21 +1,24 @@
-import { ManagerGrade, getExamStudent,getExamStudentSer,getScoreSer } from '@/services'
-import {routerRedux } from "dva/router";
+import {
+  ManagerGrade,
+  getExamStudent,
+  getExamStudentSer,
+  getScoreSer
+} from "@/services";
+import { routerRedux } from "dva/router";
 
 export default {
-  namespace: 'AwaitClassModel',
+  namespace: "AwaitClassModel",
 
   state: {
     getAllGradeData: [],
-    ExamStudentData:[],//获取学生试卷列表
-    getExamStudentData:[],//获取学生试卷信息
-    getScoreData:{}, 
-    
+    ExamStudentData: [], //获取学生试卷列表
+    getExamStudentData: [], //获取学生试卷信息
+    getScoreData: {}
   },
   subscription: {
-    setup({ dispatch, history }) { }
+    setup({ dispatch, history }) {}
   },
   effects: {
-    
     *getAllGradeModel({ payload }, { call, put }) {
       let data = yield call(ManagerGrade);
       yield put({
@@ -25,77 +28,71 @@ export default {
     },
 
     *getAllTestModel({ payload }, { call, put }) {
-        let data = yield call(ManagerGrade);
-        yield put({
-          type: "getAllTestReducer",
-          action: data.data
-        });
-      },
-      
-      *redirectTestClass({ payload }, { call, put }) {
-       
-        yield put(routerRedux.push({pathname:"/home/testClass",params:{grade_id:payload.grade_id}}));
-      },
+      let data = yield call(ManagerGrade);
+      yield put({
+        type: "getAllTestReducer",
+        action: data.data
+      });
+    },
 
-       //获取学生试卷列表
-    
+    *redirectTestClass({ payload }, { call, put }) {
+      yield put(
+        routerRedux.push({
+          pathname: "/home/testClass",
+          params: { grade_id: payload.grade_id }
+        })
+      );
+    },
+
+    //获取学生试卷列表
+
     *getStudentExamModel({ payload }, { call, put }) {
-      let data = yield call(getExamStudent,payload);
-      console.log(data);
-      if(data.code){
+      let data = yield call(getExamStudent, payload);
+
+      if (data.code) {
         yield put({
           type: "getExamStudentReducer",
           action: data.exam
         });
       }
-      
     },
 
-    
-//获取班级
+    //获取班级
     *getGradeModel({ payload }, { call, put }) {
-      let data = yield call(getExamStudent,payload);
-      console.log(data);
-      if(data.code){
+      let data = yield call(getExamStudent, payload);
+
+      if (data.code) {
         yield put({
           type: "getExamStudentReducer",
           action: data.exam
         });
       }
-      
     },
 
-//获取学生试卷信息
+    //获取学生试卷信息
 
-    
     *getAwaitClassModel({ payload }, { call, put }) {
-      let data = yield call(getExamStudentSer,payload);
-      console.log(data);
-      if(data.code){
+      let data = yield call(getExamStudentSer, payload);
+
+      if (data.code) {
         yield put({
           type: "getExamStudentSerReducer",
           action: data.data
         });
       }
-      
     },
 
     //批改试卷
 
     *getScoreModel({ payload }, { call, put }) {
-      let data = yield call(getScoreSer,payload);
-      console.log(data);
-      
-        yield put({
-          type: "getScoreReducer",
-          action: data
-        });
-      
-        
-    },
-  
+      let data = yield call(getScoreSer, payload);
+
+      yield put({
+        type: "getScoreReducer",
+        action: data
+      });
+    }
   },
-  
 
   reducers: {
     getAllGradeReducer(state, { action }) {
@@ -113,8 +110,7 @@ export default {
       };
     },
 
-    
-//批改试卷
+    //批改试卷
     getScoreReducer(state, { action }) {
       return {
         ...state,
@@ -122,37 +118,29 @@ export default {
       };
     },
 
-    
     getAllTestReducer(state, { action }) {
-        return {
-          ...state,
-          getAllGradeData: action
-        };
-      },
+      return {
+        ...state,
+        getAllGradeData: action
+      };
+    },
 
-      getExamStudentReducer(state, { action }) {
-        return {
-          ...state,
-          ExamStudentData: action
-        };
-      },
+    getExamStudentReducer(state, { action }) {
+      return {
+        ...state,
+        ExamStudentData: action
+      };
+    },
 
+    filterTestSearchModel(state, { payload }) {
+      const arr = state.ExamStudentData.filter((item, index) => {
+        return item.grade_name === payload;
+      });
 
-      
-      filterTestSearchModel(state, { payload }) {
-        console.log(payload);
-        const arr= state.ExamStudentData.filter((item,index)=>{
-          console.log(item);
-          return item.grade_name===payload;
-        })
-        console.log(arr);
-        return {
-          ...state,
-          ExamStudentData:arr
-
-           
-        };
-      },
-
+      return {
+        ...state,
+        ExamStudentData: arr
+      };
+    }
   }
-}
+};

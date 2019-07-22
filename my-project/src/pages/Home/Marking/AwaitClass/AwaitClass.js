@@ -8,7 +8,7 @@ function AwaitClass(props) {
     <div className={AwaitClassCss.AwaitClassPage}>
       <h1>待批班级</h1>
       <div className={AwaitClassCss.AwaitClassBox}>
-        <AwaitClassCom {...props}/>
+        <AwaitClassCom {...props} />
       </div>
     </div>
   );

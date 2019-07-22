@@ -1,14 +1,12 @@
-// section{
-//   height: 100%;
-// }
-*{
-  margin: 0;padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 .box {
   height: 100%;
   overflow: scroll;
-   box-sizing: border-box;
-    padding: 0 20px;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .QuestionClass_addType {
@@ -18,7 +16,6 @@
 }
 
 .title {
-
   height: 70px;
   line-height: 70px;
   font-size: 34px;
@@ -30,7 +27,7 @@
     background: #ccc;
   }
 }
-.form{
+.form {
   background: #fff;
   padding: 10px;
   border-radius: 10px;
@@ -39,16 +36,13 @@
   width: 150px;
   height: 40px;
   margin: 30px 10px;
-
 }
 
-.loading{
+.loading {
   position: fixed;
-  top:100px;
-  left:20%;
-  width:100%;
+  top: 100px;
+  left: 20%;
+  width: 100%;
   height: 100%;
   background: #ccc;
- 
-  
 }

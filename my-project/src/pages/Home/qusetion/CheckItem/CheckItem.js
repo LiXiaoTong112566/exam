@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
-import {  Select, Button } from "antd";
-import List from './lists'
-import checkItem from  "./checkItem.scss";
+import { Select, Button } from "antd";
+import List from "./lists";
+import checkItem from "./checkItem.scss";
 function questionsL(props) {
   useEffect(() => {
     props.lookCheck();
@@ -12,14 +12,14 @@ function questionsL(props) {
   }, []);
 
   const { Option } = Select;
-  
+
   //考试类型：
   const [seleValue, setSeleValue] = useState("");
   //题目类型
   const [seleTypeValue, setseleTypeValue] = useState("");
   //课程类型
   const [typeData, setTypeData] = useState("");
-  const [ind,setind]=useState("-1");
+  const [ind, setind] = useState("-1");
 
   let seleFn = e => {
     setSeleValue(e);
@@ -33,23 +33,21 @@ function questionsL(props) {
     setind(e.target.getAttribute("dataind"));
 
     setTypeData(s);
-
   };
   //点击按钮时get请求数据
   let btnFn = () => {
-    let obj={
+    let obj = {
       questions_type_id: seleTypeValue,
       exam_id: seleValue,
       subject_id: typeData
-    }
-    for(let i in obj){
-       if(obj[i]===""){
-          delete obj[i]
-       }  
+    };
+    for (let i in obj) {
+      if (obj[i] === "") {
+        delete obj[i];
+      }
     }
     props.condition(obj);
   };
-
 
   return (
     <div>
@@ -58,16 +56,29 @@ function questionsL(props) {
         <div className={checkItem.top}>
           <ul>
             <p className={checkItem.ql_p}>课程类型:</p>
-            {props.data && props.data.map((item, index) => (
-                <li key={index} onClick={lisFn} dataind={index} datakey={item.subject_id} className={ind==index?checkItem.active:""} dataind={index}>
+            {props.data &&
+              props.data.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={lisFn}
+                  dataind={index}
+                  datakey={item.subject_id}
+                  className={ind == index ? checkItem.active : ""}
+                  dataind={index}
+                >
                   {item.subject_text}
                 </li>
               ))}
           </ul>
           <ol>
             <li>
-              考试类型: 
-              <Select defaultValue="" value={seleValue} onChange={seleFn} style={{ width: 160 }}>
+              考试类型:
+              <Select
+                defaultValue=""
+                value={seleValue}
+                onChange={seleFn}
+                style={{ width: 160 }}
+              >
                 {props.examTData &&
                   props.examTData.map((item, index) => (
                     <Option key={index} value={item.exam_id}>
@@ -77,8 +88,13 @@ function questionsL(props) {
               </Select>
             </li>
             <li>
-              题目类型: 
-              <Select defaultValue="" value={seleTypeValue} onChange={typeFn} style={{ width: 160 }}>
+              题目类型:
+              <Select
+                defaultValue=""
+                value={seleTypeValue}
+                onChange={typeFn}
+                style={{ width: 160 }}
+              >
                 {props.getQueData &&
                   props.getQueData.map((item, index) => (
                     <Option key={index} value={item.questions_type_id}>
@@ -95,7 +111,10 @@ function questionsL(props) {
           </ol>
         </div>
         <div className={checkItem.buttom}>
-          {props.questionsData &&props.questionsData.map((item, index) =><List key={index} item={item}></List>)}
+          {props.questionsData &&
+            props.questionsData.map((item, index) => (
+              <List key={index} item={item} />
+            ))}
         </div>
       </div>
     </div>
@@ -123,7 +142,6 @@ const mapDispatchToPorps = dispatch => {
       });
     },
     getQuestionsTypes: payload => {
-      console.log(payload);
       dispatch({
         type: "lookCheck/getQuestionsTypes",
         payload

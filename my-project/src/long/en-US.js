@@ -29,7 +29,7 @@ export default {
     'router.Stylexamination': 'Stylexamination',
 
    
-    'router.Marking ': 'Marking',
+    'router.Marking': 'Marking',
     'router.AwaitingApproval': 'AwaitingApproval',
 
 

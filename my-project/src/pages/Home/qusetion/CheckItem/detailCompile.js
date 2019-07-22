@@ -5,7 +5,6 @@ import { Layout, Form, Button, Input, Select, message, Modal } from "antd";
 import Editor from "for-editor";
 
 function DetailCompile(props) {
-  console.log(props.isCode,"iscode")
   let obj = {};
   //获取到数据
   useEffect(() => {
@@ -22,54 +21,58 @@ function DetailCompile(props) {
     });
   }, [props.isCode]);
 
-  
- //弹窗
+  //弹窗
   const [ModalText, setModalText] = useState("确认修改吗");
   const [visible, setvisible] = useState(false);
 
   let showModal = () => {
     setvisible(true);
-    // console.log(props.detailTiCode)
-  }
+  };
   //点击确定
-  let handleOk=()=>{
-      setvisible(false);
-      handleSubmit()
-      props.history.push({pathname:'/home/checkItem'})
-  }
+  let handleOk = () => {
+    setvisible(false);
+    handleSubmit();
+    props.history.push({ pathname: "/home/checkItem" });
+  };
   //点击取消
   let handleCancel = () => {
-     setvisible(false);
-  }
+    setvisible(false);
+  };
 
   const { getFieldDecorator } = props.form;
   const { Option } = Select;
   const { Header, Content } = Layout;
   let handleSubmit = e => {
-      props.form.validateFields((err, values) => {
-        if (!err) {
-          let questions_type_id = props.questionsTypeData.find( item => item.questions_type_text === values.questions_type_id).questions_type_id;
-          let exam_id = props.examTypeData.find(item => item.exam_name === values.exam_id).exam_id;
-          let subject_id = props.subjectTypeData.find(item => item.subject_text === values.subject_id).subject_id;
-          values.exam_id = exam_id;
-          values.subject_id = subject_id;
-          values.questions_id = props.match.params.id.split("=")[1];
-          values.questions_type_id = questions_type_id;
-          obj = Object.values(values);
-          if (obj.includes(undefined)) {
-            message.error("参数不完整");
-          } else {
-            props.detailConT(values)
-            props.history.push({pathname:'/home/checkItem'})
-          
-          }
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        let questions_type_id = props.questionsTypeData.find(
+          item => item.questions_type_text === values.questions_type_id
+        ).questions_type_id;
+        let exam_id = props.examTypeData.find(
+          item => item.exam_name === values.exam_id
+        ).exam_id;
+        let subject_id = props.subjectTypeData.find(
+          item => item.subject_text === values.subject_id
+        ).subject_id;
+        values.exam_id = exam_id;
+        values.subject_id = subject_id;
+        values.questions_id = props.match.params.id.split("=")[1];
+        values.questions_type_id = questions_type_id;
+        obj = Object.values(values);
+        if (obj.includes(undefined)) {
+          message.error("参数不完整");
+        } else {
+          props.detailConT(values);
+          props.history.push({ pathname: "/home/checkItem" });
         }
-      });
+      }
+    });
   };
 
   return (
     <div className={styles["wrap"]}>
-      {props.detailConDataL &&props.detailConDataL.map((item, index) => {
+      {props.detailConDataL &&
+        props.detailConDataL.map((item, index) => {
           return (
             <div key={index}>
               <Header style={{ background: "#f0f2f5", padding: 0 }}>
@@ -189,10 +192,7 @@ function DetailCompile(props) {
                     </div>
 
                     <div>
-                      <Button
-                        type="primary"
-                        onClick={showModal}
-                      >
+                      <Button type="primary" onClick={showModal}>
                         提交
                       </Button>
 
@@ -202,7 +202,7 @@ function DetailCompile(props) {
                         onOk={handleOk}
                         onCancel={handleCancel}
                       >
-                      <h2>{ModalText}</h2>
+                        <h2>{ModalText}</h2>
                       </Modal>
                     </div>
                   </Form>
@@ -228,7 +228,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     // 添加试题
     add(payload) {
-      // console.log(payload)
       dispatch({
         type: "questionClass/add",
         payload

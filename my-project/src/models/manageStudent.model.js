@@ -4,8 +4,7 @@ import {
   getStudentGrade,
   delStudent,
   getNewStudent,
-  getNewStudentGrade,
- 
+  getNewStudentGrade
 } from "@/services";
 
 export default {
@@ -17,8 +16,7 @@ export default {
     StudentRoomData: [],
     StudentGradeData: [], //获取已经分配教室的班级
     delStudentData: [],
-    NewStudentGradeData: [], //获取没有分配教室的班级
-   
+    NewStudentGradeData: [] //获取没有分配教室的班级
   },
 
   effects: {
@@ -85,8 +83,7 @@ export default {
       yield put({
         type: "getNewManageStuModel"
       });
-    },
-   
+    }
   },
 
   reducers: {
@@ -156,11 +153,6 @@ export default {
         NewMangerStudentData: action,
         AllManagerStudentData: state.MangerStudentData.concat(action)
       };
-    },
-
-    
-
-  
-
+    }
   }
 };

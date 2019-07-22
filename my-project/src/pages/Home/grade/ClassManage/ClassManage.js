@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "dva";
 import QuestStyle from "./QuestionClass.scss";
-import {
-  Button,
-  Modal,
-  Form,
-  Input,
-  Table,
-  Icon,
-  Spin
-} from "antd";
+import { Button, Modal, Form, Input, Table, Icon, Spin } from "antd";
 const { Column, ColumnGroup } = Table;
 const { confirm } = Modal;
 function QuestionClass(props) {
@@ -20,7 +12,7 @@ function QuestionClass(props) {
   const data = props.questionClassData;
   const [visible, setvisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
-    //删除时设置id
+  //删除时设置id
 
   let showModal = () => {
     setvisible(true);
@@ -29,40 +21,27 @@ function QuestionClass(props) {
   let handleOk = () => {
     setvisible(false);
     if (inputValue) {
-     props.addRoomD({
-       room_text:inputValue
-     })
-     props.roomD();
+      props.addRoomD({
+        room_text: inputValue
+      });
+      props.roomD();
     }
     setInputValue("");
   };
 
-    // //点击删除
-    // let deleteL = id => {
-    //   props.deleteClassD({
-    //     room_id: id
-    //   });
-    //   props.roomD();
-    // };
+  function deleteL(id) {
+    confirm({
+      title: "删除",
+      content: "确定删除吗？",
+      onOk() {
+        props.deleteClassD({
+          room_id: id
+        });
+      },
 
-    function deleteL(id) {
-      console.log(id)
-      confirm({
-        title: '删除',
-        content: '确定删除吗？',
-        onOk() {
-          props.deleteClassD({
-            room_id: id
-          });
-        
-        },
-        
-        onCancel() {
-          console.log('Cancel');
-        },
-        
-      });
-      props.roomD();
+      onCancel() {}
+    });
+    props.roomD();
   }
 
   //点击取消
@@ -128,9 +107,10 @@ function QuestionClass(props) {
             key="action"
             dataIndex="room_id"
             render={(text, record) => (
-             
               <span>
-                <a href="javascript:;" onClick={() => deleteL(record.room_id)}>删除</a>
+                <a href="javascript:;" onClick={() => deleteL(record.room_id)}>
+                  删除
+                </a>
               </span>
             )}
           />
@@ -160,15 +140,14 @@ const mapDispatchToProps = dispatch => {
         type: "ClassManage/addRoom",
         payload
       });
-   },
-   //删除教书接口
-   deleteClassD: payload => {
-    dispatch({
-      type: "ClassManage/deleteClass",
-      payload
-    });
- },
-    
+    },
+    //删除教书接口
+    deleteClassD: payload => {
+      dispatch({
+        type: "ClassManage/deleteClass",
+        payload
+      });
+    }
   };
 };
 

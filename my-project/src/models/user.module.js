@@ -1,25 +1,24 @@
-import { userInfo } from '@/services'
+import { userInfo } from "@/services";
 
 export default {
-  namespace: 'user',
+  namespace: "user",
 
   state: {
-    userInfoData: {},
+    userInfoData: {}
   },
   subscription: {
-    setup({ dispatch, history }) { }
+    setup({ dispatch, history }) {}
   },
   effects: {
     //获取当前用户信息
     *userInfo({ payload }, { call, put }) {
       let data = yield call(userInfo);
       yield put({
-        type: 'getUserInfo',
+        type: "getUserInfo",
         action: data.data
       });
-    },
+    }
   },
-
 
   reducers: {
     getUserInfo(state, { action }) {
@@ -27,6 +26,6 @@ export default {
         ...state,
         userInfoData: action
       };
-    },
+    }
   }
-}
+};

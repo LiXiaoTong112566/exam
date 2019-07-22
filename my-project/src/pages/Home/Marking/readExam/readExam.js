@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "dva";
 import readExamScss from "./readExam.scss";
-import { Slider, Tooltip, Button, Modal } from "antd";
+import XLSX from "xlsx";
+import { Slider, Tooltip, Button, Modal, Table } from "antd";
+
 function testClass(props) {
-  console.log(props);
   let id = props.match.params.id;
-  console.log(id);
+
   const [newscore, setNewScore] = useState(0);
   const [visible, setVisible] = useState(false);
+
+  const [data, setData] = useState([]);
+  const [columns, setColumns] = useState([]);
   const onChange = value => {
     setNewScore(value);
   };
@@ -28,6 +32,44 @@ function testClass(props) {
   useEffect(() => {
     props.getStudentExam(id);
   }, []);
+
+  let uploadExcel = e => {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var data = new Uint8Array(e.target.result);
+      var workbook = XLSX.read(data, { type: "array" });
+
+      //读取表
+
+      var sheetName = workbook.SheetNames[0];
+
+      var obj = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      //处理表格数据
+      setData(obj);
+
+      //处理表头
+
+      let columns = Object.keys(obj[0]).map(item => {
+        return {
+          title: item,
+          dataIndex: item
+        };
+      });
+
+      setColumns(columns);
+    };
+    reader.readAsArrayBuffer(e.target.files[0]);
+  };
+
+  let exportExcel = () => {
+    // 1. 生成workSheet
+    var ws = XLSX.utils.json_to_sheet(data);
+    // 2. 生成workBook
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws);
+    // 3. 导出workBook
+    XLSX.writeFile(wb, "out.xlsb");
+  };
 
   return (
     <div className={readExamScss.box}>
@@ -66,6 +108,19 @@ function testClass(props) {
             </Modal>
           </div>
         </div>
+      </div>
+
+      <div>
+        <input
+          type="file"
+          accept="*"
+          placeholder="上传Excel"
+          onChange={uploadExcel}
+        />
+
+        <button onClick={() => exportExcel()}>导出excel</button>
+
+        <Table dataSource={data} columns={columns} rowKey="班级" />
       </div>
     </div>
   );
