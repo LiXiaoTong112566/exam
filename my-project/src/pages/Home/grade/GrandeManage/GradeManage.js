@@ -51,7 +51,6 @@ function GradeManage(props) {
   };
   //点击修改
   let updataL = (record,updata) => {
-    console.log(record)
     //设置默认值  
     setdefaulta(record.room_text)
     setdefaultaKe(record.subject_text)
@@ -71,13 +70,6 @@ function GradeManage(props) {
     });
     props.gradeClassD();
   };
-  //  const showUpdata=()=>{
-  //    setVisible(true);
-  //  }
-  // const handleOk = e => {
-  //   console.log(e);
-  //   setVisible(false);
-  // };
   function handleSubmit() {
     props.form.validateFields((err, values) => {
       if (!err) {

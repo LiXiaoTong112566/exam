@@ -13,17 +13,13 @@ function ExamList(props){
         props.examTypeDa()//获取考试类型
         props.examListDa()  //获取试卷列表
       }, [])
-      console.log(props.examListData)
         //点击
         let [flag , changeBtn] = useState('all')
         let handleBtnChange = (e) => {
             changeBtn(e.target.value)
             if(flag === 'all') {
-                console.log(2)                
             } else if(flag === 'underway') {
-                console.log(2)
             } else if(flag === 'stop') {
-                console.log(3)
             }  
         }
                 // //处理表单提交
@@ -36,7 +32,6 @@ function ExamList(props){
         };
            //点击跳考试详情
         let ToQuestionDetail = (item) => {
-            console.log(item)
             props.history.push({ 
                 pathname: `/home/ExamListDetail/?id=${item.exam_exam_id}`
         })
@@ -47,25 +42,17 @@ function ExamList(props){
 
             var reader=new FileReader();
             reader.onload=function(e){
-              
               var data=new Uint8Array(e.target.result);
               var workbook=XLSX.read(data,{type:'array'});
-              console.log(workbook);
         
               //读取表
         
               var sheetName=workbook.SheetNames[0];
-              console.log(sheetName);
               var obj=XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
               //处理表格数据
               setData(obj);
         
               //处理表头
-        
-              console.log(obj);
-        
-              console.log(Object.values(obj[0]));
-        
               let columns=Object.keys(obj[0]).map(item=>{
                 return {
                   title:item,
@@ -82,12 +69,9 @@ function ExamList(props){
         // 处理excel导出
         let exportExcel = ()=>{
             // 1. 生成workSheet
-            console.log(XLSX.utils.json_to_sheet(data))
             var ws = XLSX.utils.json_to_sheet(data);
-            console.log(ws)
             // 2. 生成workBook
             var wb = XLSX.utils.book_new();
-            console.log(wb,'------------------',ws)
             XLSX.utils.book_append_sheet(wb, ws);
             // 3. 导出workBook
             XLSX.writeFile(wb, 'out.xlsb');

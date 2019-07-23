@@ -5,7 +5,6 @@ import { Layout, Form, Button, Input, Select, message, Modal } from "antd";
 import Editor from "for-editor";
 
 function DetailCompile(props) {
-  console.log(props.isCode,"iscode")
   let obj = {};
   //获取到数据
   useEffect(() => {
@@ -29,7 +28,6 @@ function DetailCompile(props) {
 
   let showModal = () => {
     setvisible(true);
-    // console.log(props.detailTiCode)
   }
   //点击确定
   let handleOk=()=>{
@@ -228,7 +226,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     // 添加试题
     add(payload) {
-      // console.log(payload)
       dispatch({
         type: "questionClass/add",
         payload

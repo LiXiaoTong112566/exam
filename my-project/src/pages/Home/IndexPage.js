@@ -119,7 +119,6 @@ function IndexPage(props) {
             {// {/* 配置用户拥有的路由 */}
             props.myView.map((item, index) => {
               return item.children.map((value, index) => {
-                // console.log(value)
                 return (
                   <Route
                     key={value.path}
@@ -132,7 +131,6 @@ function IndexPage(props) {
 
             {//  {/* 配置用户禁止访问的路由 */}
             props.forbiddenView.map((item, index) => {
-              // console.log(item)
               return <Redirect from={item.path} to="/403" />;
             })}
             {/* 配置不存在的路由 */}

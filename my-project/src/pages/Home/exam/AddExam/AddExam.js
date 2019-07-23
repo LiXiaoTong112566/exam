@@ -15,7 +15,6 @@ function AddExam(props) {
         if (props.examAddFlag === 1) {
             message.success('添加成功')
             props.examAddFlagFn()
-            console.log(props.createpaperList)
             props.history.push('/home/exam/examEdit')
         } else if (props.examAddFlag === -1) {
             message.error('添加考试失败')

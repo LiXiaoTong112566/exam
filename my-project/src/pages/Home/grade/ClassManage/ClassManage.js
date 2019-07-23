@@ -45,7 +45,6 @@ function QuestionClass(props) {
     // };
 
     function deleteL(id) {
-      console.log(id)
       confirm({
         title: '删除',
         content: '确定删除吗？',

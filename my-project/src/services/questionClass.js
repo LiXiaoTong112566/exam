@@ -48,7 +48,6 @@ export function getQuestionsType() {
 
 //考试管理 添加考试
 export function examAdd(params){
-    console.log(params)
     return request.post('/exam/exam',params)
 }
 

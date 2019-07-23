@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { connect } from "dva";
-import { Table, Divider, Tag } from "antd";
+import { Table } from "antd";
 // import {  Route, NavLink,routerRedux } from "dva/router";
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 function AwaitClassCom(props) {
   useEffect(() => {
     props.getAllGrade();
@@ -55,12 +55,12 @@ function AwaitClassCom(props) {
 
 AwaitClassCom.propTypes = {};
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     ...state.AwaitClassModel
   };
 };
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getAllGrade() {
       dispatch({

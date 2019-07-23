@@ -3,14 +3,12 @@ import { connect } from 'dva';
 import detailStyle from './detail.scss'
 import ReactMarkdown from 'react-markdown'
 function Detail(props) {
-    console.log(props)
     useEffect(() => {
         props.detailCon({
             questions_id: props.match.params.id.split('=')[1]
         });
     }, []);
 
-    console.log(props.detailConDataL)
     return (
         <div>
             <h2>试题详情</h2>

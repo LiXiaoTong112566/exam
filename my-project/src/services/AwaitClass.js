@@ -7,8 +7,6 @@ export function ManagerGrade() {
 
 //获取学生试卷列表
 export function getExamStudent(params) {
-  console.log(params);
-  console.log({params})
   return request.get('/exam/student',params);
 }
 

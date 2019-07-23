@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "dva";
 import readExamScss from "./readExam.scss";
-import { Slider, Tooltip, Button, Modal } from "antd";
+import { Slider, Button, Modal } from "antd";
 function testClass(props) {
-  console.log(props);
-  let score = props.location.params.score;
+  // let score = props.location.params.score;
   const [newscore, setNewScore] = useState(0);
   const [visible, setVisible] = useState(false);
   const onChange = value => {
-    console.log(value);
     setNewScore(value);
   };
 
