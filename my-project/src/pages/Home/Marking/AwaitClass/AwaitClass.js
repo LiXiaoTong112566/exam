@@ -6,7 +6,7 @@ import AwaitClassCss from "./AwaitClass.scss";
 function AwaitClass(props) {
   return (
     <div className={AwaitClassCss.AwaitClassPage}>
-      <h3>待批班级</h3>
+      <h1>待批班级</h1>
       <div className={AwaitClassCss.AwaitClassBox}>
         <AwaitClassCom {...props}/>
       </div>

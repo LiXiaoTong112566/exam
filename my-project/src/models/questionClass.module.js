@@ -1,4 +1,4 @@
-import { questionClass, addType, add, examType, subjectType, getQuestionsType,examAdd } from "@/services"
+import { questionClass, addType, add, examType, subjectType, getQuestionsType, getQuestions, examAdd } from "@/services"
 
 export default {
 
@@ -11,6 +11,8 @@ export default {
     addQuestionsFlag: 0, // 添加试题 状态
     questionClassData: [],
     examAddFlag: 0, // 添加试题的状态
+    createpaperList: localStorage.exam ? JSON.parse(localStorage.exam) : {}, //创建试卷页面数据
+    getQuestionsData:[]
   },
   effects: {
     //查询所有的试题类型
@@ -22,8 +24,6 @@ export default {
       if (data.code === 1) {
         yield put({ type: "getQuestionClassData", payload: data.data });
       }
-
-
 
     },
 
@@ -65,13 +65,22 @@ export default {
         action: data.data
       });
     },
-    //添加考试
-    *examAdd({ payload }, { call, put }){
-      let data = yield call(examAdd, payload)
+    // 获取所有试题
+    *getQuestions({ payload }, { call, put }) {
+      let data = yield call(getQuestions)
       yield put({
-        type:'getExamAdd',
-        action:data.code===1?1:-1,
-        data:data.data
+        type: 'getQuestionsAll',
+        action: data.data
+      })
+    },
+    //添加考试
+    *examAdd({ payload }, { call, put }) {
+      let data = yield call(examAdd, payload)
+      localStorage.exam = JSON.stringify(data.data)
+      yield put({
+        type: 'getExamAdd',
+        action: data.code === 1 ? 1 : -1,
+        data: data.data
       })
     }
   },
@@ -104,16 +113,47 @@ export default {
         questionsTypeData: action
       };
     },
-    
-
-    getExamAdd(state, { action ,data}){
+    //添加考试
+    getExamAdd(state, { action, data }) {
+      return {
+        ...state,
+        examAddFlag: action,
+        createpaperList: data
+      }
+    },
+    getQuestionsAll(state, { action }) {
       return{
         ...state,
-        examAddFlag:action,
-        // createpaperList: data
+        getQuestionsData:action
+      }
+    },
+    //修改flag的状态
+    examFlagFn(state) {
+      return {
+        ...state,
+        examAddFlag: 0
+      }
+    },
+    //删除试题
+    questionDel(state, { index }) {
+      let arr = JSON.parse(localStorage.exam);
+      arr.questions.splice(index, 1);
+      localStorage.exam = JSON.stringify(arr);
+      return {
+        ...state,
+        createpaperList: arr
+      }
+    },
+    // 添加试题
+    addQuestionFn(state, { item }) {
+      let arr = JSON.parse(localStorage.exam);
+      arr.questions.push(item);
+      localStorage.exam = JSON.stringify(arr);
+      return {
+        ...state,
+        createpaperList: arr
       }
     }
 
-  },
-
+  }
 };

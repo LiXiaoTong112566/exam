@@ -1,7 +1,6 @@
 /**
  * 学生管理页面
  *
- *
  */
 
 import React from "react";
@@ -13,7 +12,7 @@ import StudentManageCss from "./StudentManage.scss";
 function StudentManage() {
   return (
     <div className={StudentManageCss.studentBox}>
-      <h3>学生管理</h3>
+      <h1 className={StudentManageCss.title}>学生管理</h1>
       <div className={StudentManageCss.student_list}>
         <StudentManageCom />
         <StudentManageTable />

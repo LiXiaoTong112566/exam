@@ -4,12 +4,12 @@ import {
   getStudentGrade,
   delStudent,
   getNewStudent,
-  getNewStudentGrade
+  getNewStudentGrade,
+ 
 } from "@/services";
 
 export default {
   namespace: "ManageStudentPage",
-
   state: {
     MangerStudentData: [], //获取所有分班学生的信息
     NewMangerStudentData: [], //获取所有没有分班学生的信息
@@ -17,7 +17,8 @@ export default {
     StudentRoomData: [],
     StudentGradeData: [], //获取已经分配教室的班级
     delStudentData: [],
-    NewStudentGradeData: [] //获取没有分配教室的班级
+    NewStudentGradeData: [], //获取没有分配教室的班级
+   
   },
 
   effects: {
@@ -33,7 +34,6 @@ export default {
     //获取教室
     *getRoomText({ payload }, { call, put }) {
       let data = yield call(getStudentRoom);
-
       yield put({
         type: "getStudentRoomReducer",
         action: data.data
@@ -85,7 +85,8 @@ export default {
       yield put({
         type: "getNewManageStuModel"
       });
-    }
+    },
+   
   },
 
   reducers: {
@@ -123,7 +124,7 @@ export default {
 
     //删选数据
     filterStudentModel(state, { payload }) {
-      const newData = state.AllManagerStudentData.filter((item, index) => {
+       const newData = state.AllManagerStudentData.filter((item, index) => {
         if (
           item.student_name === payload.student_name &&
           item.room_text === payload.room_text &&
@@ -155,6 +156,11 @@ export default {
         NewMangerStudentData: action,
         AllManagerStudentData: state.MangerStudentData.concat(action)
       };
-    }
+    },
+
+    
+
+  
+
   }
 };

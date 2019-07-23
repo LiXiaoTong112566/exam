@@ -12,8 +12,9 @@ function AwaitClassCom(props) {
     console.log(data);
     // console.log(routerRedux);
     let { grade_id } = data;
+
     console.log(props);
-    props.history.push({ pathname: "/home/testClass" });
+    props.history.push({ pathname: `/home/testClass/${grade_id}`,params:{id:grade_id} });
   }
 
   const data = props.getAllGradeData;

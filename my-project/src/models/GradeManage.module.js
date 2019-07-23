@@ -22,7 +22,6 @@ export default {
     //获取全部教室
     *roomD({ payload }, { call, put }) {
       let data = yield call(room,payload);
-      console.log(data)
       yield put({
         type: 'roomInfo',
         payload: data.data
@@ -31,7 +30,6 @@ export default {
     //获取所有课程
     *subject({ payload }, { call, put }) {
         let data = yield call(subject,payload);
-        console.log(data)
         yield put({
           type: 'subjectInfo',
           payload: data.data
@@ -40,7 +38,6 @@ export default {
       //添加班级接口
       *grade({ payload }, { call, put }) {
         let data = yield call(grade,payload);
-        console.log(data)
         yield put({
           type: 'gradeInfo',
           payload: data.code
@@ -49,7 +46,6 @@ export default {
       //获取已经分配教室的班级
       *gradeClass({ payload }, { call, put }) {
         let data = yield call(gradeClass,payload);
-        console.log(data)
         yield put({
           type: 'gradeClassInfo',
           payload: data.data
@@ -66,7 +62,6 @@ export default {
       },
        //删除班级接口
        *deleteD({ payload }, { call, put }) {
-        console.log(payload)
         let data = yield call(deleteD,payload);
         // yield put({
         //   type: 'deleteDInfo',
@@ -99,7 +94,6 @@ export default {
     },
     //删除班级接口
     deleteDInfo(state, action ) {
-      console.log(action)
       return {...state, gradeClassData: action.payload};
     },
   }

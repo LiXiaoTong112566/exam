@@ -33,3 +33,7 @@ export function getStudentRoom() {
     return request.delete(`/manger/student/${data.id}`);
   }
 
+  
+
+
+

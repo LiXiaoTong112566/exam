@@ -12,8 +12,6 @@ export default {
     'questions.type.topic': 'Please select topic type:',
     'questions.type.course': 'Please select the course type:',
     'questions.type.test': 'Please select test type:',
-    
-    
 
     'router.management': 'management',
     'router.management.add': 'Addmanagement',
@@ -26,23 +24,10 @@ export default {
     'router.classManagement': 'classManagement',
     'router.classManagement': 'classManagement',
     'router.classRoomManagement': 'classRoomManagement',
+
     'router.Stylexamination': 'Stylexamination',
-
-   
-    'router.Marking ': 'Marking',
+    'router.Marking':'Marking',
     'router.AwaitingApproval': 'AwaitingApproval',
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     'questions.type.title': 'ClassifyQuetions',
   }

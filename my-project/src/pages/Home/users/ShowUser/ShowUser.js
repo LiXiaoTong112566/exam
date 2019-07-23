@@ -66,7 +66,7 @@ function Permissions(props) {
   )
 }
 function ShowUser(props) {
-  
+  const [ind,setind]=useState(0);
 
   let [userFlag, setUserFlag] = useState(0);
 
@@ -84,7 +84,6 @@ function ShowUser(props) {
     //展示身份和视图权限关系 
     props.identityViewAuthorityD()
   }, []);
-  const [ind,setind]=useState(0);
 
   let userDisplay = [
     "用户数据",
@@ -97,12 +96,15 @@ function ShowUser(props) {
   //点击时重新赋值
   let userFn = index => {
     setUserFlag(index);
+
     setind(index)
-  };
- 
+
+}
+
+
   return (
     <div className={useStyle.user}> 
-      <h3 className={useStyle.h3}>用户展示</h3>
+      <h1 className={useStyle.h1}>用户展示</h1>
       <ol className={useStyle.ol}>
         {userDisplay.map((item, index) => (
           <li key={index} onClick={() => userFn(index)} className={ind===index?useStyle.active:''}
@@ -111,7 +113,7 @@ function ShowUser(props) {
           </li>
         ))}
       </ol>
-      <h1>{userDisplay[userFlag]}</h1>
+      <h3 className={useStyle.h3}>{userDisplay[userFlag]}</h3>
       <div className={useStyle.user_bottom}>
         {userFlag === 0 && <UserData userDatas={props.userDatas} />}
         {userFlag === 1 && <Identity identityData={props.identityData} />}

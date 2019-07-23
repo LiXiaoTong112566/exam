@@ -16,7 +16,6 @@ export function getUserSer() {
 }
 
 //更新用户数据
-
 export function upDataUserSer(params) {
   return request.put('/user/user',params)
 }
@@ -67,7 +66,6 @@ export function addapiSer(params){
 //获取是视图权限
 
 export function getViewSer(params){
-  
   return request.get('/user/view_authority')
 }
 
