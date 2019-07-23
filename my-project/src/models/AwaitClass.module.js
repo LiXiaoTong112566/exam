@@ -2,23 +2,37 @@ import {
   ManagerGrade,
   getExamStudent,
   getExamStudentSer,
-  getScoreSer
+  getScoreSer,
+  getMangerGradeSer,
+ 
 } from "@/services";
 import { routerRedux } from "dva/router";
 
 export default {
   namespace: "AwaitClassModel",
-
+ 
   state: {
     getAllGradeData: [],
     ExamStudentData: [], //获取学生试卷列表
     getExamStudentData: [], //获取学生试卷信息
-    getScoreData: {}
+    getScoreData: {},
+    getMangerGradeData:[],//获取待批班级
   },
   subscription: {
     setup({ dispatch, history }) {}
   },
   effects: {
+
+
+    //获取待批班级
+
+    *getMangerGradeModel({ payload }, { call, put }) {
+      let data = yield call(getMangerGradeSer);
+      yield put({
+        type: "getMangerGradeReducer",
+        action: data.data
+      });
+    },
     *getAllGradeModel({ payload }, { call, put }) {
       let data = yield call(ManagerGrade);
       yield put({
@@ -48,6 +62,7 @@ export default {
 
     *getStudentExamModel({ payload }, { call, put }) {
       let data = yield call(getExamStudent, payload);
+      console.log(data);
 
       if (data.code) {
         yield put({
@@ -95,6 +110,19 @@ export default {
   },
 
   reducers: {
+
+
+    
+//获取待批班级
+    getMangerGradeReducer(state, { action }) {
+      return {
+        ...state,
+        getMangerGradeData: action
+      };
+    },
+
+
+
     getAllGradeReducer(state, { action }) {
       return {
         ...state,

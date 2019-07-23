@@ -10,8 +10,11 @@ moment.locale("zh-cn");
 // import {  Route, NavLink,routerRedux } from "dva/router";
 const { Column, ColumnGroup } = Table;
 function AwaitClassCom(props) {
+console.log(props);
+  console.log(props.getMangerGradeData);
   useEffect(() => {
     props.getAllGrade();
+    props.getMangerGrade();//获取待批班级
   }, []);
 
   let pagination = {
@@ -31,7 +34,7 @@ function AwaitClassCom(props) {
     });
   }
 
-  const data = props.getAllGradeData;
+  const data = props.getMangerGradeData;
 
   return (
     <LocaleProvider locale={zh_CN}>
@@ -44,7 +47,7 @@ function AwaitClassCom(props) {
             rowKey="subject_text"
           />
           <Column title="阅卷状态" dataIndex="" rowKey="grade_id" />
-          <Column title="课程名称" dataIndex="subject_id" rowKey="subject_id" />
+          <Column title="课程名称" dataIndex="grade_id" rowKey="subject_id" />
           <Column title="成材率" dataIndex="room_text" rowKey="room_text" />
           <Column
             title="操作"
@@ -86,6 +89,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         type: "AwaitClassModel/redirectTestClass",
         payload: data
       });
+    },
+    //获取待批班级
+    getMangerGrade(data){
+      dispatch({
+        type:"AwaitClassModel/getMangerGradeModel",
+        
+      })
     }
   };
 };
