@@ -135,7 +135,6 @@ const mapDispatchToProps = dispatch => {
     },
     //添加数据
     addQuestion: payload => {
-      // console.log(payload);
       dispatch({
         type: "questionClass/addType",
         payload: payload

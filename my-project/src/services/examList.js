@@ -13,7 +13,6 @@ export function examList() {
 }
 //获取试卷详情（教师端）
 export function examTeach(params) {
-    console.log(params)
     return request.get(`/exam/exam/${params}`)
 }
 

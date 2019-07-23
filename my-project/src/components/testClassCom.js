@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { connect } from "dva";
-import { Table, Divider, Tag } from "antd";
+import { Table, Tag } from "antd";
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 function TestClassCom(props) {
   console.log(props);
   console.log(props.location.params.id);
@@ -40,7 +40,7 @@ function TestClassCom(props) {
           title="批卷"
           key="action"
           dataIndex="student_id"
-          render={(text, record) => (
+          render={(record) => (
             <span
               onClick={() => {
                jumpReadExam(record);
@@ -57,12 +57,12 @@ function TestClassCom(props) {
 
 TestClassCom.propTypes = {};
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     ...state.AwaitClassModel
   };
 };
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getStudentExamFn(data) {
       dispatch({
