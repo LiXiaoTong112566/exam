@@ -79,20 +79,19 @@ function ExamList(props){
             
         
           }
-                            // 处理excel导出
-                let exportExcel = ()=>{
-                    // 1. 生成workSheet
-                    var ws = XLSX.utils.json_to_sheet(data);
-                    // 2. 生成workBook
-                    var wb = XLSX.utils.book_new();
-                    XLSX.utils.book_append_sheet(wb, ws);
-                    // 3. 导出workBook
-                    XLSX.writeFile(wb, 'out.xlsb');
-                }
-
-        
-    console.log(data)
-    console.log(columns)
+        // 处理excel导出
+        let exportExcel = ()=>{
+            // 1. 生成workSheet
+            console.log(XLSX.utils.json_to_sheet(data))
+            var ws = XLSX.utils.json_to_sheet(data);
+            console.log(ws)
+            // 2. 生成workBook
+            var wb = XLSX.utils.book_new();
+            console.log(wb,'------------------',ws)
+            XLSX.utils.book_append_sheet(wb, ws);
+            // 3. 导出workBook
+            XLSX.writeFile(wb, 'out.xlsb');
+        }
     return (
         <div className={styles.ExamList_wrap}>
             <h1>考试列表</h1>
