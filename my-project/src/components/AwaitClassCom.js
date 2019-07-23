@@ -10,11 +10,8 @@ moment.locale("zh-cn");
 // import {  Route, NavLink,routerRedux } from "dva/router";
 const { Column, ColumnGroup } = Table;
 function AwaitClassCom(props) {
-console.log(props);
-  console.log(props.getMangerGradeData);
   useEffect(() => {
-    props.getAllGrade();
-    props.getMangerGrade();//获取待批班级
+    props.getMangerGrade(); //获取待批班级
   }, []);
 
   let pagination = {
@@ -64,7 +61,6 @@ console.log(props);
             )}
           />
         </Table>
-        
       </div>
     </LocaleProvider>
   );
@@ -79,23 +75,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getAllGrade() {
-      dispatch({
-        type: "AwaitClassModel/getAllGradeModel"
-      });
-    },
-    jumpTestClass(data) {
-      dispatch({
-        type: "AwaitClassModel/redirectTestClass",
-        payload: data
-      });
-    },
     //获取待批班级
-    getMangerGrade(data){
+    getMangerGrade(data) {
       dispatch({
-        type:"AwaitClassModel/getMangerGradeModel",
-        
-      })
+        type: "AwaitClassModel/getMangerGradeModel"
+      });
     }
   };
 };

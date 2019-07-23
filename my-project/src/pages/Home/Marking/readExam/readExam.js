@@ -7,6 +7,8 @@ import { Slider, Tooltip, Button, Modal, Table } from "antd";
 function testClass(props) {
   let id = props.match.params.id;
 
+  // console.log(props.getExamStudentData.questions)
+
   const [newscore, setNewScore] = useState(0);
   const [visible, setVisible] = useState(false);
 
@@ -15,14 +17,17 @@ function testClass(props) {
   const onChange = value => {
     setNewScore(value);
   };
-
   const showModal = () => {
     setVisible(true);
   };
 
   const handleOk = e => {
     setVisible(false);
-    props.getScore({ score: newscore });
+    props.getScore({ score: newscore, id: id });
+
+    props.history.push({
+      pathname: `/home/testClass/${props.getExamStudentData.grade_id}`
+    });
   };
 
   const handleCancel = e => {
@@ -30,7 +35,7 @@ function testClass(props) {
   };
 
   useEffect(() => {
-    props.getStudentExam(id);
+    props.getStudentExam(id); //获取学生试卷详情
   }, []);
 
   let uploadExcel = e => {
@@ -76,7 +81,16 @@ function testClass(props) {
       <h1>阅卷</h1>
       <div className={readExamScss.examBox}>
         <div className={readExamScss.leftBox}>
-          <h1>试卷详情</h1>
+          {props.getExamStudentData.questions &&
+            props.getExamStudentData.questions.map((item, index) => {
+              return (
+                <div className="detail" key={"detail" + index}>
+                  <h1>{item.title}</h1>
+                  <div>{item.questions_answer}</div>
+                  <p>{item.questions_stem}</p>
+                </div>
+              );
+            })}
         </div>
 
         <div className={readExamScss.main}>
@@ -135,12 +149,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    //获取学生试卷详情
     getStudentExam(data) {
       dispatch({
         type: "AwaitClassModel/getAwaitClassModel",
-        payload: { exam_student_id: data }
+        payload: data
       });
     },
+    //获取学生分数
     getScore(data) {
       dispatch({
         type: "AwaitClassModel/getScoreModel",

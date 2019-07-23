@@ -1,29 +1,78 @@
 //试题管理
-import AddItem from "@/pages/Home/qusetion/AddItem/AddItem";
-import CheckItem from "@/pages/Home/qusetion/CheckItem/CheckItem";
-import QuestionClassify from "@/pages/Home/qusetion/QuestionClass/QuestionClass";
-//用户管理
-import AddUser from "@/pages/Home/users/AddUser/AddUser";
-import ShowUser from "@/pages/Home/users/ShowUser/ShowUser";
-//考试管理
-import AddExam from "@/pages/Home/exam/AddExam/AddExam";
-import ExamList from "@/pages/Home/exam/ExamList/ExamList";
-import ExamEdit from "@/pages/Home/exam/ExamEdit/ExamEdit";
 
-//班级管理
-import ClassManage from "@/pages/Home/grade/ClassManage/ClassManage";
-import GradeManage from "@/pages/Home/grade/GrandeManage/GradeManage";
-import StudentManage from "@/pages/Home/grade/SturentManage/StudentManage";
-//阅卷管理
-import AwaitClass from "@/pages/Home/Marking/AwaitClass/AwaitClass.js";
-import TestClass from "@/pages/Home/Marking/testClass/testClass.js";
-import ReadExam from "@/pages/Home/Marking/readExam/readExam.js";
-//试题详情
-import Detail from "@/pages/Home/qusetion/CheckItem/detail";
-//编辑试题
-import DetailCompile from "@/pages/Home/qusetion/CheckItem/detailCompile";
-//考试管理
-import ExamListDetail from "@/pages/Home/exam/ExamList/detailX/ExamListDetail";
+import dynamic from 'dva/dynamic'
+
+//试题管理
+const AddItem = dynamic({
+    component: () => import('@/pages/Home/qusetion/AddItem/AddItem'),
+  });
+
+  const CheckItem = dynamic({
+    component: () => import('@/pages/Home/qusetion/CheckItem/CheckItem'),
+  });
+
+  const QuestionClassify = dynamic({
+    component: () => import('@/pages/Home/qusetion/QuestionClass/QuestionClass'),
+  });
+
+
+  //用户管理
+
+  const AddUser = dynamic({
+    component: () => import('@/pages/Home/users/AddUser/AddUser'),
+  });
+  const ShowUser = dynamic({
+    component: () => import('@/pages/Home/users/ShowUser/ShowUser'),
+  });
+  //考试管理
+  const AddExam = dynamic({
+    component: () => import('@/pages/Home/exam/AddExam/AddExam'),
+  });
+  const ExamList = dynamic({
+    component: () => import('@/pages/Home/exam/ExamList/ExamList'),
+  });
+  const ExamEdit = dynamic({
+    component: () => import('@/pages/Home/exam/ExamEdit/ExamEdit'),
+  });
+
+  //班级管理
+  const ClassManage = dynamic({
+    component: () => import('@/pages/Home/grade/ClassManage/ClassManage'),
+  });
+  const GradeManage = dynamic({
+    component: () => import('@/pages/Home/grade/GrandeManage/GradeManage'),
+  });
+
+  const StudentManage = dynamic({
+    component: () => import('@/pages/Home/grade/SturentManage/StudentManage'),
+  });
+
+  //阅卷管理
+  const AwaitClass = dynamic({
+    component: () => import('@/pages/Home/Marking/AwaitClass/AwaitClass.js'),
+  });
+  const TestClass = dynamic({
+    component: () => import('@/pages/Home/Marking/testClass/testClass.js'),
+  });
+  const ReadExam = dynamic({
+    component: () => import('@/pages/Home/Marking/readExam/readExam.js'),
+  });
+
+  //试题详情
+  const Detail = dynamic({
+    component: () => import('@/pages/Home/qusetion/CheckItem/detail'),
+  });
+  ////编辑试题
+  const DetailCompile = dynamic({
+    component: () => import('@/pages/Home/qusetion/CheckItem/detailCompile'),
+  });
+  //考试管理
+  const ExamListDetail = dynamic({
+    component: () => import('@/pages/Home/exam/ExamList/detailX/ExamListDetail'),
+  });
+
+
+
 
 export default{
     routes:[

@@ -1,7 +1,7 @@
 import dva from 'dva';
 import createLoading from "dva-loading";  
 import './index.css';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 // 1. Initialize
 const app = dva();
 app.use(createLoading())
