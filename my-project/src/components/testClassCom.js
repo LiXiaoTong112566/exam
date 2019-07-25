@@ -4,7 +4,7 @@ import { Table, Divider, Tag } from "antd";
 
 const { Column, ColumnGroup } = Table;
 function TestClassCom(props) {
-  console.log(props);
+ 
   const gradeId = props.match.params.id; //获取传过来的班级Id
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function TestClassCom(props) {
 
   const data = props.ExamStudentData;
 
-  console.log(data);
+  
 
   const columns = [
     {

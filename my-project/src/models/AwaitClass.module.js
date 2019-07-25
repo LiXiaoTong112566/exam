@@ -54,7 +54,7 @@ export default {
 
     *getStudentExamModel({ payload }, { call, put }) {
       let data = yield call(getExamStudent, payload);
-      console.log(data);
+    
 
       if (data.code) {
         yield put({
@@ -80,7 +80,7 @@ export default {
 
     *getAwaitClassModel({ payload }, { call, put }) {
       let data = yield call(getExamStudentSer, payload);
-      console.log(data);
+     
       if (data.code) {
         yield put({
           type: "getExamStudentSerReducer",
@@ -93,7 +93,7 @@ export default {
 
     *getScoreModel({ payload }, { call, put }) {
       let data = yield call(getScoreSer, payload);
-      console.log(data);
+    
 
       yield put({
         type: "getScoreReducer",

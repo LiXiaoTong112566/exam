@@ -8,7 +8,7 @@ export function ManagerGrade() {
 
 //获取学生试卷列表
 export function getExamStudent(params) {
-  console.log(params);
+ 
   return request.get("/exam/student", {params});
 }
 //获取学生试卷详情信息
@@ -19,7 +19,7 @@ export function getExamStudentSer(params) {
 
 //获取学生分数
 export function getScoreSer(params) {
-  console.log(params);
+ 
   return request.put(`/exam/student/${params.id}`, {score:params.score });
 }
 
