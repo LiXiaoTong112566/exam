@@ -19,7 +19,7 @@
     "react-intl": "^2.9.0",
     "react-markdown": "^4.1.0",
     "sass-loader": "^7.1.0",
-    "xlsx": "^0.14.4"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
