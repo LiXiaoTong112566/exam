@@ -13,7 +13,7 @@
     "dva-loading": "^3.0.12",
     "for-editor": "^0.3.0",
     "js-cookie": "^2.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.9.0",
