@@ -26,7 +26,7 @@
     "node-xlsx": "^0.12.1"
   },
   "devDependencies": {
-    "egg-bin": "^4.10.0",
+    "egg-bin": "^4.20.0",
     "egg-mock": "^3.21.0"
   }
 }
